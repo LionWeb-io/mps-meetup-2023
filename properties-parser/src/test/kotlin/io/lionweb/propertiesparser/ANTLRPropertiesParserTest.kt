@@ -1,9 +1,8 @@
 package io.lionweb.propertiesparser
 
-import com.strumenta.kolasu.model.debugPrint
-import com.strumenta.kolasu.parsing.injectErrorCollectorInLexer
-import com.strumenta.kolasu.parsing.injectErrorCollectorInParser
-import com.strumenta.kolasu.testing.assertParseTreeStr
+import com.strumenta.kolasu.antlr.parsing.assertParseTreeStr
+import com.strumenta.kolasu.antlr.parsing.injectErrorCollectorInLexer
+import com.strumenta.kolasu.antlr.parsing.injectErrorCollectorInParser
 import com.strumenta.kolasu.validation.Issue
 import org.antlr.v4.runtime.CharStreams
 import org.antlr.v4.runtime.CommonTokenStream

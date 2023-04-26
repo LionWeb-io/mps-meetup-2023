@@ -1,17 +1,18 @@
 package io.lionweb.propertiesparser
 
 import com.google.gson.GsonBuilder
+import com.strumenta.kolasu.model.Position
+import com.strumenta.kolasu.model.assignParents
+import com.strumenta.kolasu.traversing.walk
 import org.junit.Test
 import org.lionweb.lioncore.java.serialization.JsonSerialization
 
-class LionWebExport {
+class LionWebExportTest {
 
     @Test
     fun exportMetamodel() {
         val jsonser = JsonSerialization.getStandardSerialization()
-        val jsonel = jsonser.serializeTreeToJson(Metamodel)
-        val gson = GsonBuilder().serializeNulls().setPrettyPrinting().create()
-        val json = gson.toJson(jsonel)
+        val json = jsonser.serializeTreeToJsonString(Metamodel)
         println(json)
     }
 
@@ -22,11 +23,10 @@ class LionWebExport {
             Property("b", BooleanValue(true)),
             Property("c", StringValue("foo"))
         )
+        ast.assignParents()
         val jsonser = JsonSerialization.getStandardSerialization()
         Metamodel.prepareSerialization(jsonser)
-        val jsonel = jsonser.serializeTreeToJson(ast)
-        val gson = GsonBuilder().serializeNulls().setPrettyPrinting().create()
-        val json = gson.toJson(jsonel)
+        val json = jsonser.serializeTreeToJsonString(ast)
         println(json)
     }
 }
