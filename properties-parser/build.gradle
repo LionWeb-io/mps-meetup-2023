@@ -1,0 +1,143 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version "${kotlinVersion}"
+    id "org.jlleitschuh.gradle.ktlint" version "10.3.0"
+    id "antlr"
+    id "idea"
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
+    id 'java'
+    id 'application'
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()    
+}
+
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
+def generatedMain = "generated-src/antlr/main"
+def generatedMainFile = file(generatedMain)
+
+dependencies {
+    antlr "org.antlr:antlr4:$antlrVersion"
+    implementation "org.antlr:antlr4-runtime:$antlrVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
+
+    implementation "org.apache.logging.log4j:log4j-api-kotlin:1.1.0"
+    implementation "org.apache.logging.log4j:log4j-api:2.17.0"
+    implementation "org.apache.logging.log4j:log4j-core:2.17.0"
+
+    implementation "com.strumenta.kolasu:kolasu-core:$kolasuVersion"
+
+    testImplementation "org.jetbrains.kotlin:kotlin-test:$kotlinVersion"
+    testImplementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlinVersion"
+    testImplementation("org.junit.jupiter:junit-jupiter-params:5.7.0")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.7.0")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.7.0")
+
+    implementation group: 'commons-io', name: 'commons-io', version: '2.6'
+    implementation 'com.google.code.gson:gson:2.8.7'
+    implementation "com.github.ajalt.clikt:clikt:3.4.0"
+    implementation "io.lionweb.lioncore-java:lioncore-java-core:$lioncore_java_version"
+}
+
+configurations.all() {
+    resolutionStrategy.force "org.antlr:antlr4-runtime:$antlrVersion"
+    resolutionStrategy.force "org.antlr:antlr4-tool:$antlrVersion"
+}
+
+/**
+ * Standard tasks
+ */
+generateGrammarSource {
+    inputs.files fileTree('src/main/antlr').include('**/*.g4')
+    maxHeapSize = "64m"
+    arguments += ['-package', 'io.lionweb.propertiesparser']
+    outputDirectory = file(generatedMain + "/io/lionweb/propertiesparser")
+}
+
+compileJava {
+    sourceCompatibility = "$jvmVersion"
+    targetCompatibility = "$jvmVersion"
+    dependsOn generateGrammarSource
+    source generatedMainFile, sourceSets.main.java
+}
+
+compileKotlin {
+    sourceCompatibility = "$jvmVersion"
+    targetCompatibility = "$jvmVersion"
+    source generatedMainFile, sourceSets.main.java, sourceSets.main.kotlin
+    kotlinOptions.jvmTarget = "$jvmVersion"
+    dependsOn generateGrammarSource
+}
+
+tasks.withType(KotlinCompile) {
+    kotlinOptions.jvmTarget = JavaVersion.valueOf("VERSION_${jvmVersion}")
+}
+
+clean {
+    delete file(generatedMain)
+    mkdir generatedMain
+}
+
+idea {
+    module {
+        mkdir generatedMain
+        sourceDirs += generatedMainFile
+        println sourceDirs
+    }
+}
+
+ktlint {
+    version = "0.43.2"
+    verbose = true
+    outputToConsole = true
+    enableExperimentalRules = true
+    // disabling no-unused-imports because it does not recognize correctly that some imports are needed
+    disabledRules = ["no-wildcard-imports", "experimental:argument-list-wrapping", "no-unused-imports"]
+}
+
+application {
+    mainClass = 'io.lionweb.propertiesparser.cli.PropertiesParserCLI'
+}
+
+/**
+ * Tests configuration and tasks
+ */
+
+compileTestJava {
+    sourceCompatibility = "$jvmVersion"
+    targetCompatibility = "$jvmVersion"
+}
+
+compileTestKotlin {
+    sourceCompatibility = "$jvmVersion"
+    targetCompatibility = "$jvmVersion"
+    kotlinOptions.jvmTarget = "$jvmVersion"
+}
+
+
+test {
+    testLogging {
+        events "failed"
+        exceptionFormat "full"
+    }
+}
+
+task sourcesJar(type: Jar) {
+    archiveBaseName = "rpgparser"
+    archiveClassifier = "sources"
+    // See https://discuss.gradle.org/t/why-subproject-sourceset-dirs-project-sourceset-dirs/7376/5
+    // Without the closure, parent sources are used for children too
+    from sourceSets.main.allSource
+}
+
+shadowJar {
+    archiveBaseName.set("rpgparser")
+    manifest {
+        attributes 'Description': 'Properties Parser by LIonWeb Team'
+        attributes 'Main-Class': application.mainClass
+    }
+}
