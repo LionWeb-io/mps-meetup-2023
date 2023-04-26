@@ -21,10 +21,13 @@ class KolasuPropertiesParserTest {
         val parser = PropertiesKolasuParser()
         val result = parser.parse(code)
         assert(result.issues.isEmpty())
-        assertASTsAreEqual(PropertiesFile(
-            Property("a", IntValue(1)),
-            Property("b", BooleanValue(true)),
-            Property("c", StringValue("foo"))
-        ), result)
+        assertASTsAreEqual(
+            PropertiesFile(
+                Property("a", IntValue(1)),
+                Property("b", BooleanValue(true)),
+                Property("c", StringValue("foo"))
+            ),
+            result
+        )
     }
 }

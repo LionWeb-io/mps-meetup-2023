@@ -73,6 +73,12 @@ compileKotlin {
     dependsOn generateGrammarSource
 }
 
+compileTestKotlin {
+    sourceCompatibility = "$jvmVersion"
+    targetCompatibility = "$jvmVersion"
+    dependsOn generateTestGrammarSource
+}
+
 tasks.withType(KotlinCompile) {
     kotlinOptions.jvmTarget = JavaVersion.valueOf("VERSION_${jvmVersion}")
 }

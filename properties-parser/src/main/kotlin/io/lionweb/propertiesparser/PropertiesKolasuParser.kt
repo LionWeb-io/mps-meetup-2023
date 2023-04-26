@@ -11,11 +11,11 @@ import org.antlr.v4.runtime.TokenStream
 
 class PropertiesKolasuParser : KolasuParser<PropertiesFile, PropertiesParser, PropertiesFileContext, KolasuToken>() {
     override fun createANTLRLexer(charStream: CharStream): Lexer {
-        TODO("Not yet implemented")
+        return PropertiesLexer(charStream)
     }
 
     override fun createANTLRParser(tokenStream: TokenStream): PropertiesParser {
-        TODO("Not yet implemented")
+        return PropertiesParser(tokenStream)
     }
 
     override fun parseTreeToAst(
@@ -23,7 +23,10 @@ class PropertiesKolasuParser : KolasuParser<PropertiesFile, PropertiesParser, Pr
         considerPosition: Boolean,
         issues: MutableList<Issue>
     ): PropertiesFile? {
-        TODO("Not yet implemented")
+        val transformer = PropertiesParseTreeTransformer()
+        val ast = transformer.transform(parseTreeRoot) as? PropertiesFile
+        issues.addAll(transformer.issues)
+        return ast
     }
 
     override fun tokenInstantiator(t: Token): KolasuToken {

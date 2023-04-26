@@ -23,7 +23,8 @@ class ANTLRPropertiesParserTest {
         val parser = PropertiesParser(CommonTokenStream(lexer))
         parser.injectErrorCollectorInParser(issues)
         val parseTree = parser.propertiesFile()
-        assertParseTreeStr("""PropertiesFile
+        assertParseTreeStr(
+            """PropertiesFile
   Property
     T:ID[a]
     T:EQUAL[=]
@@ -44,7 +45,9 @@ class ANTLRPropertiesParserTest {
     Value
       T:STRING["foo"]
     T:EOF[<EOF>]
-  T:EOF[<EOF>]""", parseTree, PropertiesParser.VOCABULARY)
+  T:EOF[<EOF>]""",
+            parseTree, PropertiesParser.VOCABULARY
+        )
         assert(issues.isEmpty())
     }
 }
