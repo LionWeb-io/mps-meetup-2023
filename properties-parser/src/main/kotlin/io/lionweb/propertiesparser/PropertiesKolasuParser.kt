@@ -13,7 +13,8 @@ import org.antlr.v4.runtime.Token
 import org.antlr.v4.runtime.TokenStream
 
 class PropertiesKolasuParser : KolasuANTLRParser<PropertiesFile, PropertiesParser, PropertiesFileContext, KolasuANTLRToken>(
-    ANTLRTokenFactory()) {
+    ANTLRTokenFactory()
+) {
     override fun createANTLRLexer(charStream: CharStream): Lexer {
         return PropertiesLexer(charStream)
     }
@@ -30,8 +31,7 @@ class PropertiesKolasuParser : KolasuANTLRParser<PropertiesFile, PropertiesParse
         val transformer = PropertiesParseTreeTransformer()
         val ast = transformer.transform(parseTreeRoot) as? PropertiesFile
         issues.addAll(transformer.issues)
-        //ast?.assignParents()
+        // ast?.assignParents()
         return ast
     }
-
 }

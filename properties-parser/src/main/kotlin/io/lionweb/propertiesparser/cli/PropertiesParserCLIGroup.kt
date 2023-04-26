@@ -1,4 +1,5 @@
 @file:JvmName("PropertiesParserCLI")
+
 package io.lionweb.propertiesparser.cli
 
 import com.github.ajalt.clikt.core.CliktCommand
@@ -18,7 +19,6 @@ import org.lionweb.lioncore.java.serialization.JsonSerialization
 import java.io.File
 import kotlin.system.exitProcess
 
-
 class PropertiesParserCLIGroup : CliktCommand() {
     override fun run() = Unit
 }
@@ -35,14 +35,13 @@ class MetamodelCommand : CliktCommand(
         output.writeText(json)
         println("Metamodel of Properties written into ${output.absolutePath}.")
     }
-
 }
 
 class ParsingCommand : CliktCommand(
     name = "parse",
     help = "Parse the given file"
 ) {
-    val source by argument(name="source file").file(mustExist = true, canBeDir = false)
+    val source by argument(name = "source file").file(mustExist = true, canBeDir = false)
     val output by option("-o", "--output").file(canBeDir = false, canBeFile = true)
 
     override fun run() {
@@ -70,13 +69,13 @@ class ParsingCommand : CliktCommand(
         Metamodel.prepareSerialization(jsonser)
         result.root!!.walk().forEach {
             it.detach()
-            (it.origin as SimpleOrigin).position!!.source = FileSource(source) }
+            (it.origin as SimpleOrigin).position!!.source = FileSource(source)
+        }
         val json = jsonser.serializeTreeToJsonString(result.root!!)
         val destination = output ?: source.changeExtension("lm.json")
         destination.writeText(json)
         println("AST for ${source.absolutePath} written into ${destination.absolutePath}.")
     }
-
 }
 
 fun main(args: Array<String>) = PropertiesParserCLIGroup()
