@@ -1,9 +1,6 @@
 package io.lionweb.propertiesparser
 
-import com.google.gson.GsonBuilder
-import com.strumenta.kolasu.model.Position
 import com.strumenta.kolasu.model.assignParents
-import com.strumenta.kolasu.traversing.walk
 import org.junit.Test
 import org.lionweb.lioncore.java.serialization.JsonSerialization
 
