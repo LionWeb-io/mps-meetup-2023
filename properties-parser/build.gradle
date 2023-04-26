@@ -134,7 +134,7 @@ test {
 }
 
 task sourcesJar(type: Jar) {
-    archiveBaseName = "rpgparser"
+    archiveBaseName = "properties-parser"
     archiveClassifier = "sources"
     // See https://discuss.gradle.org/t/why-subproject-sourceset-dirs-project-sourceset-dirs/7376/5
     // Without the closure, parent sources are used for children too
@@ -142,7 +142,7 @@ task sourcesJar(type: Jar) {
 }
 
 shadowJar {
-    archiveBaseName.set("rpgparser")
+    archiveBaseName.set("properties-parser")
     manifest {
         attributes 'Description': 'Properties Parser by LIonWeb Team'
         attributes 'Main-Class': application.mainClass

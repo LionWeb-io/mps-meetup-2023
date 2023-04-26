@@ -1,3 +1,4 @@
+@file:JvmName("PropertiesParserCLI")
 package io.lionweb.propertiesparser.cli
 
 import com.github.ajalt.clikt.core.CliktCommand
@@ -18,7 +19,7 @@ import java.io.File
 import kotlin.system.exitProcess
 
 
-class PropertiesParserCLI : CliktCommand() {
+class PropertiesParserCLIGroup : CliktCommand() {
     override fun run() = Unit
 }
 
@@ -78,6 +79,6 @@ class ParsingCommand : CliktCommand(
 
 }
 
-fun main(args: Array<String>) = PropertiesParserCLI()
+fun main(args: Array<String>) = PropertiesParserCLIGroup()
     .subcommands(MetamodelCommand(), ParsingCommand())
     .main(args)
