@@ -67,6 +67,10 @@ class ParsingCommand : CliktCommand(
 
         val jsonser = JsonSerialization.getStandardSerialization()
         Metamodel.prepareSerialization(jsonser)
+        result.root!!.walk().forEach {
+            it.detach()
+            (it.origin as SimpleOrigin).position!!.source = FileSource(source)
+        }
         val json = jsonser.serializeTreeToJsonString(result.root!!)
         val destination = output ?: source.changeExtension("lm.json")
         destination.writeText(json)
