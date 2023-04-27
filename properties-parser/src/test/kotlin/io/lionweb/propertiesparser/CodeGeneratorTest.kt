@@ -18,9 +18,12 @@ class CodeGeneratorTest {
             Property("b", BooleanValue(true)),
             Property("c", StringValue("foo"))
         )
-        assertEquals("""a = 1
+        assertEquals(
+            """a = 1
 b = true
 c = "foo"
-""", PropertiesCodeGenerator().printToString(ast))
+""",
+            PropertiesCodeGenerator().printToString(ast)
+        )
     }
 }

@@ -31,7 +31,6 @@ class PropertiesKolasuParser : KolasuANTLRParser<PropertiesFile, PropertiesParse
         val transformer = PropertiesParseTreeTransformer()
         val ast = transformer.transform(parseTreeRoot) as? PropertiesFile
         issues.addAll(transformer.issues)
-        // ast?.assignParents()
         return ast
     }
 }

@@ -26,5 +26,4 @@ class UnserializationTest {
         assertEquals(7, unserializedAST.size)
         assertASTsAreEqual(ast, unserializedAST[0] as ASTNode)
     }
-
 }
