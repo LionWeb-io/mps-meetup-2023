@@ -9,6 +9,7 @@ import com.github.ajalt.clikt.parameters.options.default
 import com.github.ajalt.clikt.parameters.options.option
 import com.github.ajalt.clikt.parameters.types.file
 import com.strumenta.kolasu.cli.changeExtension
+import com.strumenta.kolasu.metamodel.StarLasuMetamodel
 import com.strumenta.kolasu.model.FileSource
 import com.strumenta.kolasu.model.SimpleOrigin
 import com.strumenta.kolasu.traversing.walk
@@ -23,9 +24,9 @@ class PropertiesParserCLIGroup : CliktCommand() {
     override fun run() = Unit
 }
 
-class MetamodelCommand : CliktCommand(
+class PropertiesMetamodelCommand : CliktCommand(
     name = "metamodel",
-    help = "Produce the metamodel"
+    help = "Produce the properties metamodel"
 ) {
     val output by option("-o", "--output").file(canBeDir = false, canBeFile = true)
         .default(File("properties.lmm.json"))
@@ -34,6 +35,20 @@ class MetamodelCommand : CliktCommand(
         val json = jsonser.serializeTreeToJsonString(Metamodel)
         output.writeText(json)
         println("Metamodel of Properties written into ${output.absolutePath}.")
+    }
+}
+
+class StarLasuMetamodelCommand : CliktCommand(
+    name = "starlasu",
+    help = "Produce the StarLasu metamodel"
+) {
+    val output by option("-o", "--output").file(canBeDir = false, canBeFile = true)
+        .default(File("starlasu.lmm.json"))
+    override fun run() {
+        val jsonser = JsonSerialization.getStandardSerialization()
+        val json = jsonser.serializeTreeToJsonString(StarLasuMetamodel)
+        output.writeText(json)
+        println("Metamodel of Starlasu written into ${output.absolutePath}.")
     }
 }
 
@@ -79,5 +94,5 @@ class ParsingCommand : CliktCommand(
 }
 
 fun main(args: Array<String>) = PropertiesParserCLIGroup()
-    .subcommands(MetamodelCommand(), ParsingCommand())
+    .subcommands(StarLasuMetamodelCommand(), PropertiesMetamodelCommand(), ParsingCommand())
     .main(args)
