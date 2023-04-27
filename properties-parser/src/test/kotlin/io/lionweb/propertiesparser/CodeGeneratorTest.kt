@@ -9,22 +9,18 @@ import junit.framework.TestCase.assertEquals
 import org.junit.Test
 import org.lionweb.lioncore.java.serialization.JsonSerialization
 
-class UnserializationTest {
+class CodeGeneratorTest {
 
     @Test
-    fun unserializeSimpleExample() {
+    fun unserializeAndPrintSimpleExample() {
         val ast = PropertiesFile(
             Property("a", IntValue(1)),
             Property("b", BooleanValue(true)),
             Property("c", StringValue("foo"))
         )
-        ast.assignParents()
-        val jsonser = JsonSerialization.getStandardSerialization()
-        Metamodel.prepareSerialization(jsonser)
-        val json = jsonser.serializeTreeToJsonString(ast)
-        val unserializedAST = jsonser.unserializeToNodes(json)
-        assertEquals(7, unserializedAST.size)
-        assertASTsAreEqual(ast, unserializedAST[0] as ASTNode)
+        assertEquals("""a = 1
+b = true
+c = "foo"
+""", PropertiesCodeGenerator().printToString(ast))
     }
-
 }
