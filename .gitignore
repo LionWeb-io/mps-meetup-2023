@@ -1,3 +1,4 @@
 .gradle
 .idea
 *.lmm.json
+.vscode
