@@ -6,6 +6,7 @@ import com.github.ajalt.clikt.core.CliktCommand
 import com.github.ajalt.clikt.core.subcommands
 import com.github.ajalt.clikt.parameters.arguments.argument
 import com.github.ajalt.clikt.parameters.options.default
+import com.github.ajalt.clikt.parameters.options.flag
 import com.github.ajalt.clikt.parameters.options.option
 import com.github.ajalt.clikt.parameters.types.file
 import com.strumenta.kolasu.cli.changeExtension
@@ -30,11 +31,17 @@ class PropertiesMetamodelCommand : CliktCommand(
 ) {
     val output by option("-o", "--output").file(canBeDir = false, canBeFile = true)
         .default(File("properties.lmm.json"))
+    val combined by option("-c", "--combined").flag(default = false)
     override fun run() {
         val jsonser = JsonSerialization.getStandardSerialization()
-        val json = jsonser.serializeTreeToJsonString(Metamodel)
+        val json = if (combined) {
+            jsonser.serializeNodesToJsonString(StarLasuMetamodel.thisAndAllDescendants()
+                    + Metamodel.thisAndAllDescendants())
+        } else {
+            jsonser.serializeTreeToJsonString(Metamodel)
+        }
         output.writeText(json)
-        println("Metamodel of Properties written into ${output.absolutePath}.")
+        println("Metamodel of Properties ${if (combined) " (with StarLasu combined in the same file) " else ""} written into ${output.absolutePath}.")
     }
 }
 
