@@ -38,8 +38,10 @@ class MetamodelTest {
     @Test
     fun loadingCombinedMetamodel() {
         val combinedJson =
-            JsonSerialization.getStandardSerialization().serializeNodesToJsonString(StarLasuMetamodel.thisAndAllDescendants()
-                    + Metamodel.thisAndAllDescendants())
+            JsonSerialization.getStandardSerialization().serializeNodesToJsonString(
+                StarLasuMetamodel.thisAndAllDescendants() +
+                    Metamodel.thisAndAllDescendants()
+            )
         val unserialized = JsonSerialization.getStandardSerialization().unserializeToNode(combinedJson)
         val metamodels = unserialized.filterIsInstance<org.lionweb.lioncore.java.metamodel.Metamodel>()
         assertEquals(2, metamodels.size)
