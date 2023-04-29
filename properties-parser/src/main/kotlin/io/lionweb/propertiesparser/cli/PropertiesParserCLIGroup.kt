@@ -35,8 +35,10 @@ class PropertiesMetamodelCommand : CliktCommand(
     override fun run() {
         val jsonser = JsonSerialization.getStandardSerialization()
         val json = if (combined) {
-            jsonser.serializeNodesToJsonString(StarLasuMetamodel.thisAndAllDescendants()
-                    + Metamodel.thisAndAllDescendants())
+            jsonser.serializeNodesToJsonString(
+                StarLasuMetamodel.thisAndAllDescendants() +
+                    Metamodel.thisAndAllDescendants()
+            )
         } else {
             jsonser.serializeTreeToJsonString(Metamodel)
         }
