@@ -84,6 +84,8 @@ tasks.withType(KotlinCompile) {
     kotlinOptions.jvmTarget = JavaVersion.valueOf("VERSION_${jvmVersion}")
 }
 
+tasks.getByName("runKtlintCheckOverTestSourceSet").dependsOn(tasks.getByName("generateTestGrammarSource"))
+
 clean {
     delete file(generatedMain)
     mkdir generatedMain
