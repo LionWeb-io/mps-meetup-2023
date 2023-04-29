@@ -10,12 +10,12 @@ data class Property(var name: String, var value: Value) : ASTNode()
 
 sealed class Value : ASTNode()
 
-data class IntValue(val value: String) : Value() {
+data class IntValue(var value: String) : Value() {
     constructor(value: Int) : this(value.toString())
 }
-data class DecValue(val value: String) : Value() {
+data class DecValue(var value: String) : Value() {
     constructor(value: Double) : this(value.toString())
 }
-data class StringValue(val value: String) : Value()
+data class StringValue(var value: String) : Value()
 
-data class BooleanValue(val value: Boolean) : Value()
+data class BooleanValue(var value: Boolean) : Value()
