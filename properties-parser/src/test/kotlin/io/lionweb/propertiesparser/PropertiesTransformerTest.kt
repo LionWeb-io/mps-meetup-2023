@@ -14,11 +14,14 @@ class PropertiesTransformerTest {
         )
         model.assignParents()
         capitalize(model)
-        assertASTsAreEqual(PropertiesFile(
-            Property("A", IntValue(1)),
-            Property("B", BooleanValue(true)),
-            Property("C", StringValue("FOO"))
-        ), model)
+        assertASTsAreEqual(
+            PropertiesFile(
+                Property("A", IntValue(1)),
+                Property("B", BooleanValue(true)),
+                Property("C", StringValue("FOO"))
+            ),
+            model
+        )
     }
 
     @Test
@@ -30,11 +33,14 @@ class PropertiesTransformerTest {
         )
         model.assignParents()
         double(model)
-        assertASTsAreEqual(PropertiesFile(
-            Property("a", IntValue(2)),
-            Property("b", BooleanValue(true)),
-            Property("c", StringValue("foo"))
-        ), model)
+        assertASTsAreEqual(
+            PropertiesFile(
+                Property("a", IntValue(2)),
+                Property("b", BooleanValue(true)),
+                Property("c", StringValue("foo"))
+            ),
+            model
+        )
     }
 
     @Test
@@ -46,11 +52,14 @@ class PropertiesTransformerTest {
         )
         model.assignParents()
         negate(model)
-        assertASTsAreEqual(PropertiesFile(
-            Property("a", IntValue(1)),
-            Property("b", BooleanValue(false)),
-            Property("c", StringValue("foo"))
-        ), model)
+        assertASTsAreEqual(
+            PropertiesFile(
+                Property("a", IntValue(1)),
+                Property("b", BooleanValue(false)),
+                Property("c", StringValue("foo"))
+            ),
+            model
+        )
     }
 
     @Test
@@ -62,11 +71,14 @@ class PropertiesTransformerTest {
         )
         model.assignParents()
         reverse(model)
-        assertASTsAreEqual(PropertiesFile(
-            Property("c", StringValue("foo")),
-            Property("b", BooleanValue(true)),
-            Property("a", IntValue(1))
-        ), model)
+        assertASTsAreEqual(
+            PropertiesFile(
+                Property("c", StringValue("foo")),
+                Property("b", BooleanValue(true)),
+                Property("a", IntValue(1))
+            ),
+            model
+        )
     }
 
     @Test
@@ -78,10 +90,13 @@ class PropertiesTransformerTest {
         )
         model.assignParents()
         convertToString(model)
-        assertASTsAreEqual(PropertiesFile(
-            Property("a", StringValue("1")),
-            Property("b", StringValue("true")),
-            Property("c", StringValue("foo"))
-        ), model)
+        assertASTsAreEqual(
+            PropertiesFile(
+                Property("a", StringValue("1")),
+                Property("b", StringValue("true")),
+                Property("c", StringValue("foo"))
+            ),
+            model
+        )
     }
 }

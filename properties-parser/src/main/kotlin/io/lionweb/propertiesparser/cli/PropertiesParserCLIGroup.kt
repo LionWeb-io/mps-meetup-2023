@@ -147,6 +147,8 @@ class TransformCommand : CliktCommand(
 }
 
 fun main(args: Array<String>) = PropertiesParserCLIGroup()
-    .subcommands(StarLasuMetamodelCommand(), PropertiesMetamodelCommand(), ParsingCommand(), CodeGenCommand(),
-        TransformCommand())
+    .subcommands(
+        StarLasuMetamodelCommand(), PropertiesMetamodelCommand(), ParsingCommand(), CodeGenCommand(),
+        TransformCommand()
+    )
     .main(args)
