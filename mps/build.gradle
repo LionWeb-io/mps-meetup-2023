@@ -1,0 +1,15 @@
+plugins {
+    id("com.specificlanguages.mps") version "1.5.0"
+}
+
+repositories {
+    mavenLocal()
+    maven {
+        url = uri("https://s01.oss.sonatype.org/content/repositories/snapshots/")
+    }
+    mavenCentral()
+}
+
+dependencies {
+    generation("io.lionweb.lionweb-mps:lionweb-mps:0.0.1-SNAPSHOT")
+}

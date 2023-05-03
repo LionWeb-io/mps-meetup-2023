@@ -1,2 +1,3 @@
 rootProject.name = 'lionweb-mps-meetup'
 include 'properties-parser'
+include 'mps'
