@@ -10,7 +10,7 @@ import java.io.FileInputStream
 class PropertiesModelLoader {
     fun loadModel(file: File): PropertiesFile {
         val jsonSer = JsonSerialization.getStandardSerialization()
-        jsonSer.conceptResolver.registerMetamodel(Metamodel)
+        Metamodel.prepareSerialization(jsonSer)
         return jsonSer.unserializeToNodes(FileInputStream(file))[0] as PropertiesFile
     }
 }

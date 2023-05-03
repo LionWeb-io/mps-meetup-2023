@@ -109,7 +109,7 @@ class CodeGenCommand : CliktCommand(
         val model = loader.loadModel(input)
 
         val codegen = PropertiesCodeGenerator()
-        val destination = output ?: input.changeExtension(".props")
+        val destination = output ?: input.changeExtension("props")
         codegen.printToFile(model, destination)
 
         println("Model in ${input.absolutePath} written into ${destination.absolutePath}.")
@@ -136,7 +136,7 @@ class TransformCommand : CliktCommand(
         if (reverse) reverse(model)
         if (toString) convertToString(model)
 
-        val destination = output ?: source.changeExtension(".transformed.lm.json")
+        val destination = output ?: source.changeExtension("transformed.lm.json")
 
         val jsonser = JsonSerialization.getStandardSerialization()
         Metamodel.prepareSerialization(jsonser)
