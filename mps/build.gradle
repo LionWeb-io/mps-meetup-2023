@@ -1,3 +1,12 @@
-def setup() {
-    
+plugins {
+    id("com.specificlanguages.mps") version "1.5.0"
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    generation("io.lionweb:lionweb-mps:0.0.1-SNAPSHOT")
 }

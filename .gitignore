@@ -2,3 +2,4 @@
 .idea
 *.lmm.json
 .vscode
+**/.DS_Store
