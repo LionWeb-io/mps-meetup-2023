@@ -28,9 +28,9 @@ class MetamodelTest {
             .serializeTreeToJsonElement(StarLasuMetamodel)
 
         val jsonSerialization = JsonSerialization.getStandardSerialization()
-        val starlasuUnserialized = jsonSerialization.unserializeToNode(starlasuMetamodelSerialization).first()
+        val starlasuUnserialized = jsonSerialization.unserializeToNodes(starlasuMetamodelSerialization).first()
         jsonSerialization.nodeResolver.addTree(starlasuUnserialized)
-        val propertiesUnserialized = jsonSerialization.unserializeToNode(propertiesMetamodelSerialization).first()
+        val propertiesUnserialized = jsonSerialization.unserializeToNodes(propertiesMetamodelSerialization).first()
         // We test we can load without crashing, as comparison of Metamodels with equality is not yet
         // correctly implemented
     }
@@ -42,7 +42,7 @@ class MetamodelTest {
                 StarLasuMetamodel.thisAndAllDescendants() +
                     Metamodel.thisAndAllDescendants()
             )
-        val unserialized = JsonSerialization.getStandardSerialization().unserializeToNode(combinedJson)
+        val unserialized = JsonSerialization.getStandardSerialization().unserializeToNodes(combinedJson)
         val metamodels = unserialized.filterIsInstance<org.lionweb.lioncore.java.metamodel.Metamodel>()
         assertEquals(2, metamodels.size)
         assertEquals(setOf("com.strumenta.StarLasu", "io.lionweb.Properties"), metamodels.map { it.name }.toSet())
