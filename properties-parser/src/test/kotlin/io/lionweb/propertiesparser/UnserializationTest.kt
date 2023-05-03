@@ -22,7 +22,7 @@ class UnserializationTest {
         val jsonser = JsonSerialization.getStandardSerialization()
         Metamodel.prepareSerialization(jsonser)
         val json = jsonser.serializeTreeToJsonString(ast)
-        val unserializedAST = jsonser.unserializeToNode(json)
+        val unserializedAST = jsonser.unserializeToNodes(json)
         assertEquals(7, unserializedAST.size)
         assertASTsAreEqual(ast, unserializedAST[0] as ASTNode)
     }

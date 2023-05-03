@@ -44,7 +44,7 @@ class PropertiesKolasuParser : KolasuANTLRParser<PropertiesFile, PropertiesParse
         val pr = super.parse(file, charset, considerPosition)
         pr.root!!.walk().forEach {
             it.detach()
-            (it.origin as SimpleOrigin).position!!.source = FileSource(file)
+            (it.origin as SimpleOrigin).range!!.source = FileSource(file)
         }
         return pr
     }
