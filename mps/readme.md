@@ -5,10 +5,17 @@ Uses MPS version 2021.1.4
 Needs _Path Variable_ `lionweb.mpsmeetup2023.home`, pointing to the root of this git repo.
 
 Depends on [lioncore-mps, branch mps2021.1](https://github.com/LIonWeb-org/lioncore-mps/tree/mps2021.1).
-Please copy the build results from
 
-`${lioncore-mps.home}/build/artifacts/io.lionweb.mps/` into
+Run
 
-`${lionweb.mpsmeetup2023.home}/mps/lioncore-mps`, so that there's a directory 
+Mac/Linux:
+```
+gradle setup
+```
 
-`${lionweb.mpsmeetup2023.home}/mps/lioncore-mps/io.lionweb.mps/languages`.
+Windows:
+```
+gradlew setup
+```
+
+to download dependencies.
