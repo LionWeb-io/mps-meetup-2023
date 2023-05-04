@@ -54,10 +54,10 @@
     <property role="TrG5h" value="2. Convert Properties M3 to MPS" />
     <property role="3GE5qa" value="converter" />
     <node concept="2RzRkq" id="1apSfP9LYiH" role="1a0gs3">
-      <ref role="2RzRkr" node="7ReUsn7GpJ8" resolve="com.strumenta.StarLasu" />
+      <ref role="2RzRkr" node="s7tki1iypT" resolve="com.strumenta.StarLasu" />
     </node>
     <node concept="2RzRkq" id="1apSfP9LYiD" role="1a0gs3">
-      <ref role="2RzRkr" node="7ReUsn7GpJg" resolve="io.lionweb.Properties" />
+      <ref role="2RzRkr" node="s7tki1iyq1" resolve="io.lionweb.Properties" />
     </node>
   </node>
   <node concept="VS7hd" id="3LWE6BDzNr5">
@@ -74,7 +74,7 @@
     <property role="3GE5qa" value="converter" />
     <property role="TrG5h" value="4. Export Properties Instance to JSON" />
     <property role="VS7hl" value="${lionweb.mpsmeetup2023.home}/properties-parser/examples/example1-exported.lm.json" />
-    <property role="pjpzt" value="39$JcGFainl/descendants" />
+    <property role="pjpzt" value="39$JcGFaino/closure" />
     <node concept="pgsVv" id="599fWZqf7zi" role="pgtdD">
       <ref role="pgsW4" node="~file_properties-parser-examples-example1-props-" />
     </node>

@@ -3,9 +3,8 @@
    properties-parser\examples\example1.props
 
 2. Generate metamodels
-   TODO create command
    ```
-   java -jar properties-parser/build/libs/properties-parser-all.jar metamodel-combined
+   java -jar properties-parser/build/libs/properties-parser-all.jar metamodel -c -o properties-parser/examples/combined.lmm.json
    ```
    
 3. Show metamodels
