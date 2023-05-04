@@ -14,6 +14,13 @@
       </concept>
     </language>
     <language id="97ef2b8d-23e1-433e-8d23-48f916dd314d" name="io.lionweb.mps.converter.lang">
+      <concept id="3631234780355719700" name="io.lionweb.mps.converter.lang.structure.NodeRef" flags="ng" index="pgsVv">
+        <reference id="3631234780355720143" name="target" index="pgsW4" />
+      </concept>
+      <concept id="3631234780355716573" name="io.lionweb.mps.converter.lang.structure.ExportInstanceToJson" flags="ng" index="pgt$m">
+        <property id="3631234780355961878" name="scope" index="pjpzt" />
+        <child id="3631234780355719074" name="instances" index="pgtdD" />
+      </concept>
       <concept id="8551466651976017244" name="io.lionweb.mps.converter.lang.structure.IMetamodelReferenceContainer" flags="ng" index="2P3sN0">
         <child id="755186209566487256" name="metamodels" index="1a0gs3" />
       </concept>
@@ -44,13 +51,13 @@
     <property role="3GE5qa" value="converter" />
   </node>
   <node concept="1a0hBo" id="1apSfP9LYiA">
-    <property role="TrG5h" value="2. Convert Properties to MPS" />
+    <property role="TrG5h" value="2. Convert Properties M3 to MPS" />
     <property role="3GE5qa" value="converter" />
     <node concept="2RzRkq" id="1apSfP9LYiH" role="1a0gs3">
-      <ref role="2RzRkr" node="6A8ORcnFJA_" resolve="com.strumenta.StarLasu" />
+      <ref role="2RzRkr" node="7ReUsn7GpJ8" resolve="com.strumenta.StarLasu" />
     </node>
     <node concept="2RzRkq" id="1apSfP9LYiD" role="1a0gs3">
-      <ref role="2RzRkr" node="6A8ORcnFJAH" resolve="io.lionweb.Properties" />
+      <ref role="2RzRkr" node="7ReUsn7GpJg" resolve="io.lionweb.Properties" />
     </node>
   </node>
   <node concept="VS7hd" id="3LWE6BDzNr5">
@@ -62,6 +69,15 @@
     <property role="TrG5h" value="1a. Import StarLasu Metamodel from JSON" />
     <property role="VS7hl" value="${lionweb.mpsmeetup2023.home}/properties-parser/examples/starlasu.lmm.json" />
     <property role="3GE5qa" value="converter" />
+  </node>
+  <node concept="pgt$m" id="599fWZqf7zh">
+    <property role="3GE5qa" value="converter" />
+    <property role="TrG5h" value="4. Export Properties Instance to JSON" />
+    <property role="VS7hl" value="${lionweb.mpsmeetup2023.home}/properties-parser/examples/example1-exported.lm.json" />
+    <property role="pjpzt" value="39$JcGFainl/descendants" />
+    <node concept="pgsVv" id="599fWZqf7zi" role="pgtdD">
+      <ref role="pgsW4" node="~file_properties-parser-examples-example1-props-" />
+    </node>
   </node>
 </model>
 
