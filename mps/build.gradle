@@ -11,5 +11,5 @@ repositories {
 }
 
 dependencies {
-    generation("io.lionweb.lionweb-mps:lionweb-mps:0.0.1-SNAPSHOT")
+    generation("io.lionweb.lionweb-mps:lionweb-mps:0.0.3-SNAPSHOT")
 }

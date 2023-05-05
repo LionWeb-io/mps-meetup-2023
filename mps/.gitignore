@@ -26,3 +26,7 @@ artifacts
 .gradle/
 build/
 .mps-caches/
+
+# Imported languages
+languages/com.strumenta.StarLasu/
+languages/io.lionweb.Properties/
