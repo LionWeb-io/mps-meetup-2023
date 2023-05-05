@@ -26,4 +26,20 @@ class UnserializationTest {
         assertEquals(7, unserializedAST.size)
         assertASTsAreEqual(ast, unserializedAST[0] as ASTNode)
     }
+
+    @Test
+    fun issue12() {
+        val jsonser = JsonSerialization.getStandardSerialization()
+        Metamodel.prepareSerialization(jsonser)
+        val unserializedAST = jsonser.unserializeToNodes(this.javaClass.getResourceAsStream("/issue12.json"))
+        assertEquals(7, unserializedAST.size)
+        assertASTsAreEqual(
+            PropertiesFile(
+                Property("a", IntValue(1)),
+                Property("b", BooleanValue(true)),
+                Property("c", StringValue("foo"))
+            ),
+            unserializedAST.first() as ASTNode
+        )
+    }
 }
