@@ -8,14 +8,8 @@ Depends on [lioncore-mps, branch mps2021.1](https://github.com/LIonWeb-org/lionc
 
 Run
 
-Mac/Linux:
 ```
-gradle setup
-```
-
-Windows:
-```
-gradlew setup
+./gradlew setup
 ```
 
 to download dependencies.
