@@ -9,6 +9,7 @@ import * as MyLanguage from "./internal";
  */
 export function initializeLanguage() {
     FreLanguage.getInstance().name = "properties";
+    FreLanguage.getInstance().id = "io_lionweb_Properties";
     FreLanguage.getInstance().addModel(describeMainModel());
     FreLanguage.getInstance().addUnit(describePropertiesFile());
     FreLanguage.getInstance().addConcept(describeProperty());
@@ -63,7 +64,7 @@ function describePropertiesFile(): ModelUnit {
     };
     modelunit.properties.set("name", {
         name: "name",
-        id: "undefined",
+        id: undefined,
         type: "string",
         isList: false,
         isPublic: true,

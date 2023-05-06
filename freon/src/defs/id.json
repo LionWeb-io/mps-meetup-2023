@@ -1,5 +1,6 @@
 {
     "language": "properties",
+    "id": "io_lionweb_Properties",
     "concepts": [
         {
             "concept": "PropertiesFile",
