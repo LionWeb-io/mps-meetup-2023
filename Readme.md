@@ -13,21 +13,24 @@ In the `freon` directory we have a web editor for the properties language.
 ```mermaid
 classDiagram
 
+    class ASTNode["StarLasu::ASTNode"]
+
 class PropertiesFile
 
+ASTNode <|-- PropertiesFile
 PropertiesFile *-- "0..*" Property: props 
 
 class Property {
     name: String
 }
 
-class ASTNode["StarLasu::ASTNode"]
-
 ASTNode <|-- Property
 
 Property *-- "1" Value: value
 
 class Value
+
+ASTNode <|-- Value
 
 class BooleanValue {
     value: Boolean
