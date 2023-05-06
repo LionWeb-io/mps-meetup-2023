@@ -9,13 +9,13 @@
  */
 
 export * from "./MainModel";
-export * from "./Form";
-export * from "./INamedConcept";
-export * from "./ItemGroup";
-export * from "./SimpleItem";
-export * from "./Type";
-export * from "./StringType";
-export * from "./IntType";
-export * from "./SimpleformsEveryConcept";
-export * from "./SimpleformsMetaType";
-export * from "./SimpleformsLanguage";
+export * from "./PropertiesFile";
+export * from "./Property";
+export * from "./Value";
+export * from "./BooleanValue";
+export * from "./DecValue";
+export * from "./IntValue";
+export * from "./StringValue";
+export * from "./PropertiesEveryConcept";
+export * from "./PropertiesMetaType";
+export * from "./PropertiesLanguage";

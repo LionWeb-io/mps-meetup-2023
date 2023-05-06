@@ -5,18 +5,16 @@ import {
     observablepartlist,
     FreModel,
     FreLanguage,
-    FreUtils,
     FreParseLocation,
-    matchElementList,
-    matchPrimitiveList,
-    matchReferenceList
+    FreUtils,
+    matchElementList
 } from "@freon4dsl/core";
-import { SimpleformsModelUnitType, Form, SimpleformsMetaType } from "./internal";
+import { PropertiesModelUnitType, PropertiesFile, PropertiesMetaType } from "./internal";
 
 /**
  * Class MainModel is the implementation of the model with the same name in the language definition file.
  * It uses mobx decorators to enable parts of the language environment, e.g. the editor, to react
- * to changes in the state of its properties.
+ * to any changes in the state of its properties.
  */
 export class MainModel extends MobxModelElementImpl implements FreModel {
     /**
@@ -29,20 +27,20 @@ export class MainModel extends MobxModelElementImpl implements FreModel {
         if (!!data.name) {
             result.name = data.name;
         }
-        if (!!data.forms) {
-            data.forms.forEach(x => result.forms.push(x));
+        if (!!data.files) {
+            data.files.forEach(x => result.files.push(x));
         }
-        if (!!data.parse_location) {
-            result.parse_location = data.parse_location;
+        if (!!data.parseLocation) {
+            result.parseLocation = data.parseLocation;
         }
         return result;
     }
 
-    readonly $typename: SimpleformsMetaType = "MainModel"; // holds the metatype in the form of a string
+    readonly $typename: PropertiesMetaType = "MainModel"; // holds the metatype in the form of a string
     $id: string; // a unique identifier
-    parse_location: FreParseLocation; // if relevant, the location of this element within the source from which it is parsed
+    parseLocation: FreParseLocation; // if relevant, the location of this element within the source from which it is parsed
     name: string; // implementation of name
-    forms: Form[]; // implementation of part 'forms'
+    files: PropertiesFile[]; // implementation of part 'files'
 
     constructor(id?: string) {
         super();
@@ -55,13 +53,13 @@ export class MainModel extends MobxModelElementImpl implements FreModel {
         // Both 'observablepart' and 'observablepartlist' change the get and set of the attribute
         // such that the parent-part relationship is consistently maintained,
         // and make sure the part is observable. In lists no 'null' or 'undefined' values are allowed.
-        observablepartlist(this, "forms");
+        observablepartlist(this, "files");
     }
 
     /**
      * Returns the metatype of this instance in the form of a string.
      */
-    freLanguageConcept(): SimpleformsMetaType {
+    freLanguageConcept(): PropertiesMetaType {
         return this.$typename;
     }
 
@@ -107,8 +105,8 @@ export class MainModel extends MobxModelElementImpl implements FreModel {
         if (!!this.name) {
             result.name = this.name;
         }
-        if (!!this.forms) {
-            this.forms.forEach(x => result.forms.push(x.copy()));
+        if (!!this.files) {
+            this.files.forEach(x => result.files.push(x.copy()));
         }
         return result;
     }
@@ -122,8 +120,8 @@ export class MainModel extends MobxModelElementImpl implements FreModel {
         if (result && toBeMatched.name !== null && toBeMatched.name !== undefined && toBeMatched.name.length > 0) {
             result = result && this.name === toBeMatched.name;
         }
-        if (result && !!toBeMatched.forms) {
-            result = result && matchElementList(this.forms, toBeMatched.forms);
+        if (result && !!toBeMatched.files) {
+            result = result && matchElementList(this.files, toBeMatched.files);
         }
         return result;
     }
@@ -133,9 +131,9 @@ export class MainModel extends MobxModelElementImpl implements FreModel {
      * @param name
      * @param metatype
      */
-    findUnit(name: string, metatype?: SimpleformsMetaType): SimpleformsModelUnitType {
-        let result: SimpleformsModelUnitType = null;
-        result = this.forms.find(mod => mod.name === name);
+    findUnit(name: string, metatype?: PropertiesMetaType): PropertiesModelUnitType {
+        let result: PropertiesModelUnitType = null;
+        result = this.files.find(mod => mod.name === name);
         if (!!result && !!metatype) {
             if (FreLanguage.getInstance().metaConformsToType(result, metatype)) {
                 return result;
@@ -152,7 +150,7 @@ export class MainModel extends MobxModelElementImpl implements FreModel {
      * @param oldUnit
      * @param newUnit
      */
-    replaceUnit(oldUnit: SimpleformsModelUnitType, newUnit: SimpleformsModelUnitType): boolean {
+    replaceUnit(oldUnit: PropertiesModelUnitType, newUnit: PropertiesModelUnitType): boolean {
         if (oldUnit.freLanguageConcept() !== newUnit.freLanguageConcept()) {
             return false;
         }
@@ -160,9 +158,9 @@ export class MainModel extends MobxModelElementImpl implements FreModel {
             return false;
         }
         // we must store the interface in the same place as the old unit, which info is held in FreContainer()
-        if (oldUnit.freLanguageConcept() === "Form" && oldUnit.freOwnerDescriptor().propertyName === "forms") {
-            const index = this.forms.indexOf(oldUnit as Form);
-            this.forms.splice(index, 1, newUnit as Form);
+        if (oldUnit.freLanguageConcept() === "PropertiesFile" && oldUnit.freOwnerDescriptor().propertyName === "files") {
+            const index = this.files.indexOf(oldUnit as PropertiesFile);
+            this.files.splice(index, 1, newUnit as PropertiesFile);
         } else {
             return false;
         }
@@ -174,12 +172,12 @@ export class MainModel extends MobxModelElementImpl implements FreModel {
      *
      * @param newUnit
      */
-    addUnit(newUnit: SimpleformsModelUnitType): boolean {
+    addUnit(newUnit: PropertiesModelUnitType): boolean {
         if (!!newUnit) {
             const myMetatype = newUnit.freLanguageConcept();
             switch (myMetatype) {
-                case "Form": {
-                    this.forms.push(newUnit as Form);
+                case "PropertiesFile": {
+                    this.files.push(newUnit as PropertiesFile);
                     return true;
                 }
             }
@@ -192,12 +190,12 @@ export class MainModel extends MobxModelElementImpl implements FreModel {
      *
      * @param oldUnit
      */
-    removeUnit(oldUnit: SimpleformsModelUnitType): boolean {
+    removeUnit(oldUnit: PropertiesModelUnitType): boolean {
         if (!!oldUnit) {
             const myMetatype = oldUnit.freLanguageConcept();
             switch (myMetatype) {
-                case "Form": {
-                    this.forms.splice(this.forms.indexOf(oldUnit as Form), 1);
+                case "PropertiesFile": {
+                    this.files.splice(this.files.indexOf(oldUnit as PropertiesFile), 1);
                     return true;
                 }
             }
@@ -211,11 +209,11 @@ export class MainModel extends MobxModelElementImpl implements FreModel {
      * @param model
      * @param unitTypeName
      */
-    newUnit(typename: SimpleformsMetaType): SimpleformsModelUnitType {
+    newUnit(typename: PropertiesMetaType): PropertiesModelUnitType {
         switch (typename) {
-            case "Form": {
-                const unit: Form = new Form();
-                this.forms.push(unit as Form);
+            case "PropertiesFile": {
+                const unit: PropertiesFile = new PropertiesFile();
+                this.files.push(unit as PropertiesFile);
                 return unit;
             }
         }
@@ -225,19 +223,19 @@ export class MainModel extends MobxModelElementImpl implements FreModel {
     /**
      * Returns a list of model units.
      */
-    getUnits(): SimpleformsModelUnitType[] {
-        let result: SimpleformsModelUnitType[] = [];
-        result = result.concat(this.forms);
+    getUnits(): PropertiesModelUnitType[] {
+        let result: PropertiesModelUnitType[] = [];
+        result = result.concat(this.files);
         return result;
     }
 
     /**
      * Returns a list of model units of type 'type'.
      */
-    getUnitsForType(type: string): SimpleformsModelUnitType[] {
+    getUnitsForType(type: string): PropertiesModelUnitType[] {
         switch (type) {
-            case "Form": {
-                return this.forms;
+            case "PropertiesFile": {
+                return this.files;
             }
         }
         return [];

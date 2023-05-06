@@ -1,57 +1,72 @@
 {
-    "language": "simpleforms",
+    "language": "properties",
     "concepts": [
         {
-            "concept": "Form",
-            "id": "bXBzOjFiMWU0Y2JiLTg1MGYtNDk0My1hMmE4LTlhMzQ1ZDFlN2UyNS83MzQ0ODkzMzIzMzk0Mzg5MjY5",
+            "concept": "PropertiesFile",
+            "id": "io_lionweb_Properties-PropertiesFile",
+            "properties": [
+                {
+                    "name": "props",
+                    "id": "io_lionweb_Properties-PropertiesFile-props"
+                }
+            ]
+        },
+        {
+            "concept": "Property",
+            "id": "io_lionweb_Properties-Property",
             "properties": [
                 {
                     "name": "name",
-                    "id": "name"
+                    "id": "io_lionweb_Properties-Property-name"
                 },
                 {
-                    "name": "groups",
-                    "id": "groups"
+                    "name": "value",
+                    "id": "io_lionweb_Properties-Property-value"
                 }
             ]
         },
         {
-            "concept": "ItemGroup",
-            "id": "bXBzOjFiMWU0Y2JiLTg1MGYtNDk0My1hMmE4LTlhMzQ1ZDFlN2UyNS83MzQ0ODkzMzIzMzk0Mzg5NTA0",
-            "properties": [
-                {
-                    "name": "items",
-                    "id": "items"
-                }
-            ]
-        },
-        {
-            "concept": "SimpleItem",
-            "id": "bXBzOjFiMWU0Y2JiLTg1MGYtNDk0My1hMmE4LTlhMzQ1ZDFlN2UyNS83MzQ0ODkzMzIzMzk0Mzg5NjIx",
-            "properties": [
-                {
-                    "name": "type",
-                    "id": "type"
-                }
-            ]
-        },
-        {
-            "concept": "IntType",
-            "id": "bXBzOjFiMWU0Y2JiLTg1MGYtNDk0My1hMmE4LTlhMzQ1ZDFlN2UyNS83MzQ0ODkzMzIzMzk0MzkwOTEy",
+            "concept": "Value",
+            "id": "io_lionweb_Properties-Value",
             "properties": []
         },
         {
-            "concept": "StringType",
-            "id": "bXBzOjFiMWU0Y2JiLTg1MGYtNDk0My1hMmE4LTlhMzQ1ZDFlN2UyNS83MzQ0ODkzMzIzMzk0MzkwNDQ3",
-            "properties": []
-        },
-        {
-            "concept": "INamedConcept",
-            "id": "bXBzOmNlYWI1MTk1LTI1ZWEtNGYyMi05YjkyLTEwM2I5NWNhOGMwYy8xMTY5MTk0NjU4NDY4",
+            "concept": "BooleanValue",
+            "id": "io_lionweb_Properties-BooleanValue",
             "properties": [
                 {
-                    "name": "name",
-                    "id": "name"
+                    "name": "value",
+                    "id": "io_lionweb_Properties-BooleanValue-value"
+                }
+            ]
+        },
+        {
+            "concept": "DecValue",
+            "id": "io_lionweb_Properties-DecValue",
+            "properties": [
+                {
+                    "name": "value",
+                    "id": "io_lionweb_Properties-DecValue-value"
+                }
+            ]
+        },
+        {
+            "concept": "IntValue",
+            "id": "io_lionweb_Properties-IntValue",
+            "properties": [
+                {
+                    "name": "value",
+                    "id": "io_lionweb_Properties-IntValue-value"
+                }
+            ]
+        },
+        {
+            "concept": "StringValue",
+            "id": "io_lionweb_Properties-StringValue",
+            "properties": [
+                {
+                    "name": "value",
+                    "id": "io_lionweb_Properties-StringValue-value"
                 }
             ]
         }

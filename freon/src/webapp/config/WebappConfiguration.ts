@@ -1,17 +1,16 @@
-import { FreUtils } from "@freon4dsl/core";
-import type { FreEnvironment } from "@freon4dsl/core";
-import { LanguageInitializer } from "../language/LanguageInitializer";
-import type { IServerCommunication } from "../server/IServerCommunication";
-import { LionwebIdProvider } from "../server/LionwebIdProvider";
-import { ServerCommunication } from "../server/ServerCommunication";
+import type {FreEnvironment} from "@freon4dsl/core";
+import {FreUtils} from "@freon4dsl/core";
+import {LanguageInitializer} from "../language/LanguageInitializer";
+import type {IServerCommunication} from "../server/IServerCommunication";
+import {LionwebIdProvider} from "../server/LionwebIdProvider";
 import {LionWebCommunication} from "../server/LionWebCommunication";
+import {PropertiesEnvironment} from "../../picode/config/gen/PropertiesEnvironment";
 
 
 /**
  * The one and only reference to the actual language for which this editor runs
  */
-import { SimpleformsEnvironment } from "../../picode/config/gen/SimpleformsEnvironment";
-export const editorEnvironment: FreEnvironment = SimpleformsEnvironment.getInstance();
+export const editorEnvironment: FreEnvironment = PropertiesEnvironment.getInstance();
 LanguageInitializer.initialize();
 
 /**

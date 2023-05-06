@@ -7,16 +7,16 @@
 
 export {
     MainModel,
-    Form,
-    ItemGroup,
-    SimpleItem,
-    Type,
-    StringType,
-    IntType,
-    INamedConcept,
-    SimpleformsModelUnitType,
+    PropertiesFile,
+    Property,
+    Value,
+    BooleanValue,
+    DecValue,
+    IntValue,
+    StringValue,
+    PropertiesModelUnitType,
     ModelUnitMetaType,
-    SimpleformsEveryConcept,
-    SimpleformsMetaType,
+    PropertiesEveryConcept,
+    PropertiesMetaType,
     initializeLanguage
 } from "./internal";

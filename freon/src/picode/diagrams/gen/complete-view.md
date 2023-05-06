@@ -1,41 +1,41 @@
-# Class diagram for language simpleforms
+# Class diagram for language properties
 ```mermaid
     %%{init: {'theme': 'forest'} }%%
     classDiagram
     direction TD
     %% other possibilites: LR RL DT TB (same as TD)
-    class ItemGroup {
+    class Property {
         
-        
-    }
-    class SimpleItem {
-        
-        
-    }
-    class Type {
-        <<abstract>>
-        
-    }
-    class StringType {
-        
-        
-    }
-    class IntType {
-        
-        
-    }
-    class INamedConcept {
-        <<interface>>
         + identifier name
     }
-    Type <|-- StringType
-Type <|-- IntType
+    class Value {
+        
+        
+    }
+    class BooleanValue {
+        
+        + boolean value
+    }
+    class DecValue {
+        
+        + string value
+    }
+    class IntValue {
+        
+        + string value
+    }
+    class StringValue {
+        
+        + string value
+    }
 
-        ItemGroup *-- "0..*" SimpleItem : items
-SimpleItem *-- "1" Type : type
+    Value <|-- BooleanValue
+Value <|-- DecValue
+Value <|-- IntValue
+Value <|-- StringValue
+
+        Property *-- "1" Value : value
 
         
-        ItemGroup ..|> INamedConcept
-SimpleItem ..|> INamedConcept
-
+        
 ```

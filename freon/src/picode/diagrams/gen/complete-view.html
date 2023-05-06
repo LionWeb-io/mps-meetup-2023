@@ -5,46 +5,46 @@
     mermaid.initialize({ startOnLoad: true });
 </script>
 
-<h2 class="title"> Class diagram for language simpleforms </h2>
+<h2 class="title"> Class diagram for language properties </h2>
 <div class="mermaid">
     %%{init: {'theme': 'forest'} }%%
     classDiagram
     direction TD
     %% other possibilites: LR RL DT TB (same as TD)
-    class ItemGroup {
-        
-        
-    }
-    class SimpleItem {
-        
-        
-    }
-    class Type:::abstract {
-        
-        
-    }
-    class StringType {
-        
-        
-    }
-    class IntType {
-        
-        
-    }
-    class INamedConcept:::interface {
+    class Property {
         
         + identifier name
     }
-    Type <|-- StringType
-Type <|-- IntType
+    class Value {
+        
+        
+    }
+    class BooleanValue {
+        
+        + boolean value
+    }
+    class DecValue {
+        
+        + string value
+    }
+    class IntValue {
+        
+        + string value
+    }
+    class StringValue {
+        
+        + string value
+    }
 
-        ItemGroup *-- "0..*" SimpleItem : items
-SimpleItem *-- "1" Type : type
+    Value <|-- BooleanValue
+Value <|-- DecValue
+Value <|-- IntValue
+Value <|-- StringValue
+
+        Property *-- "1" Value : value
 
         
-        ItemGroup ..|> INamedConcept
-SimpleItem ..|> INamedConcept
-
+        
 </div>
 
 </body>
@@ -59,6 +59,6 @@ SimpleItem ..|> INamedConcept
     }
     .interface .classTitle {
         font-style: italic;
-        font-weight: bold;    
+        font-weight: bold;
     }
 </style>

@@ -1,22 +1,32 @@
-# Inheritance diagram for language simpleforms
+# Inheritance diagram for language properties
 ```mermaid
     %%{init: {'theme': 'forest'} }%%
     classDiagram
     direction TD
     %% other possibilites: LR RL DT TB (same as TD)
-    class StringType {
+    class BooleanValue {
+        
+        + boolean value
+    }
+    class Value {
         
         
     }
-    class Type {
-        <<abstract>>
+    class DecValue {
         
+        + string value
     }
-    class IntType {
+    class IntValue {
         
-        
+        + string value
     }
-    Type <|-- StringType
-Type <|-- IntType
+    class StringValue {
+        
+        + string value
+    }
+    Value <|-- BooleanValue
+Value <|-- DecValue
+Value <|-- IntValue
+Value <|-- StringValue
 
 ```
