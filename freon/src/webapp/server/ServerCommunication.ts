@@ -31,7 +31,8 @@ export class ServerCommunication implements IServerCommunication {
         }
     }
 
-    generateIds(quantity: number, callback: (strings: string[]) => void) {
+    async generateIds(quantity: number, callback: (strings: string[]) => void): Promise<string[]> {
+        return null
     }
 
 

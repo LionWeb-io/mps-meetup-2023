@@ -6,9 +6,12 @@ import {ServerCommunication} from "./ServerCommunication";
 
 const LOGGER = new FreLogger("LionWebCommunication"); // .mute();
 
-const lionWebPort = process.env.LIONWEB_PORT || 28101;
-const SERVER_URL = `http://127.0.0.1:${lionWebPort}/`;
+const lionWebPort = process.env.LIONWEB_PORT || 63320;
+const SERVER_URL = `http://127.0.0.1:${lionWebPort}`;
 console.log("NODE_PORT:" + lionWebPort+ "  env " + JSON.stringify(process.env));
+
+const modelName = "r:5dda8fb0-8c78-4ed5-8c46-0eb8c112a60a(import_from_json.properties.instance)"
+const modelPath = `/lionweb/bulk?modelRef=${modelName}`
 
 export class LionWebCommunication extends ServerCommunication implements IServerCommunication {
 
@@ -28,32 +31,41 @@ export class LionWebCommunication extends ServerCommunication implements IServer
     // deleteModelUnit(modelName: string, unitName: string) {
     // }
     //
-    // loadModelList(modelListCallback: (names: string[]) => void) {
-    // }
-    //
+    async loadModelList(modelListCallback: (names: string[]) => void) {
+        modelListCallback([
+            modelName
+        ]);
+    }
+
     // loadModelUnit(modelName: string, unitName: string, loadCallback: (piUnit: FreNode) => void) {
     // }
     //
     // loadModelUnitInterface(modelName: string, unitName: string, loadCallback: (piUnit: FreNode) => void) {
     // }
     //
-    // loadUnitList(modelName: string, modelListCallback: (names: string[]) => void) {
-    // }
+    async loadUnitList(modelName: string, modelListCallback: (names: string[]) => void) {
+        modelListCallback([
+            modelName
+        ]);
+    }
 
     async generateIds(quantity: number, callback: (strings: string[]) => void): Promise<string[]> {
         LOGGER.log(`generateIds ${quantity}`);
-        const ids = await this.postWithTimeoutLionWeb(`lionweb-json/default/generate-ids`, null,`?quantity=${quantity}`);
-        if (!!ids) {
-             try {
-                 return ids["freeIds"];
-                // callback(ids["freeIds"]);
-            } catch (e) {
-                LOGGER.error( "generateIds, " + e.message);
-                setUserMessage(e.message);
-                console.log(e.stack);
-            }
-        }
-        return [];
+        let result = ["10000","10010","10020","10030","10040"];
+        // callback(result)
+        return result
+        // const ids = await this.postWithTimeoutLionWeb(`lionweb-json/default/generate-ids`, null,`?quantity=${quantity}`);
+        // if (!!ids) {
+        //      try {
+        //          return ids["freeIds"];
+        //         // callback(ids["freeIds"]);
+        //     } catch (e) {
+        //         LOGGER.error( "generateIds, " + e.message);
+        //         setUserMessage(e.message);
+        //         console.log(e.stack);
+        //     }
+        // }
+        // return [];
     }
 
     /**
@@ -66,8 +78,7 @@ export class LionWebCommunication extends ServerCommunication implements IServer
     async loadModelUnit(modelName: string, unitName: string, loadCallback: (piUnit: FreNamedNode) => void) {
         LOGGER.log(`ServerCommunication.loadModelUnit ${unitName}`);
         if (!!unitName && unitName.length > 0) {
-            // TODO Always opens "the-form", should use the unit name or something.
-            const res = await this.fetchWithTimeout<Object>(`lionweb-json/default/the-form`, ``);
+            const res = await this.fetchWithTimeout<Object>(modelPath, ``);
             if (!!res) {
                 try {
                     const serializer = new FreLionwebSerializer();
@@ -92,20 +103,20 @@ export class LionWebCommunication extends ServerCommunication implements IServer
             // "__version": "1234abcdef",
             "nodes": lionWebNodes
         }
-        await this.postWithTimeoutLionWeb("lionweb-json/default/update", output, "")
+        await this.postWithTimeoutLionWeb(modelPath, output, "")
     }
 
     // renameModelUnit(modelName: string, oldName: string, newName: string, piUnit: FreNamedNode) {
     // }
 
-    override async fetchWithTimeout<T>(method: string, params?: string): Promise<T> {
+    override async fetchWithTimeout<T>(path: string, params?: string): Promise<T> {
         // params = ServerCommunication.findParams(params);
         console.log("LIONWEB FETCHG")
         try {
             const controller = new AbortController();
             const timeoutId = setTimeout(() => controller.abort(), 2000);
             const promise = await fetch(
-                `${SERVER_URL}${method}${params}`,
+                `${SERVER_URL}${path}${params}`,
                 {
                     signal: controller.signal,
                     method: "get",
