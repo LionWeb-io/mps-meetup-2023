@@ -11,7 +11,8 @@ const SERVER_URL = `http://127.0.0.1:${lionWebPort}`;
 console.log("NODE_PORT:" + lionWebPort+ "  env " + JSON.stringify(process.env));
 
 const modelName = "r:5dda8fb0-8c78-4ed5-8c46-0eb8c112a60a(import_from_json.properties.instance)"
-const modelPath = `/lionweb/bulk?modelRef=${modelName}`
+const projectName = "mps-meetup-2023"
+const modelPath = `/lionweb/bulk?modelRef=${modelName}&project=${projectName}`
 
 export class LionWebCommunication extends ServerCommunication implements IServerCommunication {
 
@@ -83,6 +84,8 @@ export class LionWebCommunication extends ServerCommunication implements IServer
                 try {
                     const serializer = new FreLionwebSerializer();
                     const unit = serializer.toTypeScriptInstance(res);
+                    //TODO: Hardcoded to avoid empty default property for units
+                    unit["name"] = "PropertyRoot";
                     loadCallback(unit as FreNamedNode);
                 } catch (e) {
                     LOGGER.error( "loadModelUnit, " + e.message);
@@ -96,14 +99,24 @@ export class LionWebCommunication extends ServerCommunication implements IServer
 
     async putModelUnit(modelName: string, unitName: string, piUnit: FreNode) {
         console.log("piUnit", piUnit)
-        let lionWebNodes = LionWebCommunication.converterLionWeb.toLionWeb(piUnit);
-        console.log("lionWebNodes", lionWebNodes)
-        let output = {
-            "serializationFormatVersion": "1",
-            // "__version": "1234abcdef",
-            "nodes": lionWebNodes
+        if (!!unitName && unitName.length > 0 && !!piUnit) {
+            try {
+                const serializer = new FreLionwebSerializer();
+                const lionWebNodes = serializer.convertToJSON(piUnit);
+                console.log("lionWebNodes", lionWebNodes)
+                let output = {
+                    "serializationFormatVersion": "1",
+                    "metamodels": [],
+                    // "__version": "1234abcdef",
+                    "nodes": lionWebNodes
+                }
+                await this.postWithTimeoutLionWeb(modelPath, output, "")
+            } catch (e) {
+                LOGGER.error( "loadModelUnit, " + e.message);
+                setUserMessage(e.message);
+                console.log(e.stack);
+            }
         }
-        await this.postWithTimeoutLionWeb(modelPath, output, "")
     }
 
     // renameModelUnit(modelName: string, oldName: string, newName: string, piUnit: FreNamedNode) {
@@ -132,13 +145,13 @@ export class LionWebCommunication extends ServerCommunication implements IServer
         return null;
     }
 
-    private async postWithTimeoutLionWeb(method: string, data: Object, params?: string): Promise<any> {
+    private async postWithTimeoutLionWeb(path: string, data: Object, params?: string): Promise<any> {
         // params = ServerCommunication.findParams(params);
         try {
             const controller = new AbortController();
             const timeoutId = setTimeout(() => controller.abort(), 2000);
             const answer = await fetch(
-                `${SERVER_URL}${method}${params}`,
+                `${SERVER_URL}${path}${params}`,
                 {
                     signal: controller.signal,
                     method: "post",
