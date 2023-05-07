@@ -1,4 +1,4 @@
-editor default
+editor property_file_like
 
 PropertiesFile {
     [
