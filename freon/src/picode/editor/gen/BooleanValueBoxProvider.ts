@@ -14,7 +14,7 @@ import { BooleanValue } from "../../language/gen";
 export class BooleanValueBoxProvider extends FreBoxProvider {
     constructor(mainHandler: FreProjectionHandler) {
         super(mainHandler);
-        this.knownBoxProjections = ["default"];
+        this.knownBoxProjections = ["property_file_like", "default"];
         this.knownTableProjections = ["default"];
         this.conceptName = "BooleanValue";
     }
@@ -30,12 +30,18 @@ export class BooleanValueBoxProvider extends FreBoxProvider {
             }
         } else {
             // select the box to return based on the projectionName
-            if (projectionName === "default") {
+            if (projectionName === "property_file_like") {
+                return this.getProperty_file_like();
+            } else if (projectionName === "default") {
                 return this.getDefault();
             }
         }
         // in all other cases, return the default
         return this.getDefault();
+    }
+
+    private getProperty_file_like(): Box {
+        return BoxUtil.booleanBox(this._element as BooleanValue, "value", { yes: "true", no: "false" });
     }
 
     private getDefault(): Box {

@@ -14,7 +14,7 @@ import { Property } from "../../language/gen";
 export class PropertyBoxProvider extends FreBoxProvider {
     constructor(mainHandler: FreProjectionHandler) {
         super(mainHandler);
-        this.knownBoxProjections = ["default"];
+        this.knownBoxProjections = ["property_file_like", "default"];
         this.knownTableProjections = ["default"];
         this.conceptName = "Property";
     }
@@ -30,12 +30,28 @@ export class PropertyBoxProvider extends FreBoxProvider {
             }
         } else {
             // select the box to return based on the projectionName
-            if (projectionName === "default") {
+            if (projectionName === "property_file_like") {
+                return this.getProperty_file_like();
+            } else if (projectionName === "default") {
                 return this.getDefault();
             }
         }
         // in all other cases, return the default
         return this.getDefault();
+    }
+
+    private getProperty_file_like(): Box {
+        return BoxFactory.horizontalLayout(
+            this._element as Property,
+            "Property-hlist-line-0",
+            "",
+            [
+                BoxUtil.textBox(this._element as Property, "name"),
+                BoxUtil.labelBox(this._element as Property, "=", "top-1-line-0-item-1"),
+                BoxUtil.getBoxOrAction(this._element as Property, "value", "Value", this.mainHandler)
+            ],
+            { selectable: false }
+        );
     }
 
     private getDefault(): Box {

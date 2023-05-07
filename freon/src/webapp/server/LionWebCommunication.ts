@@ -124,7 +124,7 @@ export class LionWebCommunication extends ServerCommunication implements IServer
 
     override async fetchWithTimeout<T>(path: string, params?: string): Promise<T> {
         // params = ServerCommunication.findParams(params);
-        console.log("LIONWEB FETCHG")
+        console.log(`LIONWEB FETCHG: ${SERVER_URL}${path}${params}`)
         try {
             const controller = new AbortController();
             const timeoutId = setTimeout(() => controller.abort(), 2000);

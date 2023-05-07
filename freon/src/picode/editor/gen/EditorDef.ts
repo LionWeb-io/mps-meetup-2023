@@ -19,6 +19,7 @@ const map = new Map<string, Map<string, Map<string, string>>>();
  * @param handler
  */
 export function initializeProjections(handler: FreProjectionHandler) {
+    handler.addProjection("property_file_like");
     for (const p of freonConfiguration.customProjection) {
         handler.addCustomProjection(p);
     }

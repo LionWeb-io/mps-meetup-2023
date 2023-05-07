@@ -14,7 +14,7 @@ import { StringValue } from "../../language/gen";
 export class StringValueBoxProvider extends FreBoxProvider {
     constructor(mainHandler: FreProjectionHandler) {
         super(mainHandler);
-        this.knownBoxProjections = ["default"];
+        this.knownBoxProjections = ["property_file_like", "default"];
         this.knownTableProjections = ["default"];
         this.conceptName = "StringValue";
     }
@@ -30,12 +30,18 @@ export class StringValueBoxProvider extends FreBoxProvider {
             }
         } else {
             // select the box to return based on the projectionName
-            if (projectionName === "default") {
+            if (projectionName === "property_file_like") {
+                return this.getProperty_file_like();
+            } else if (projectionName === "default") {
                 return this.getDefault();
             }
         }
         // in all other cases, return the default
         return this.getDefault();
+    }
+
+    private getProperty_file_like(): Box {
+        return BoxUtil.textBox(this._element as StringValue, "value");
     }
 
     private getDefault(): Box {
