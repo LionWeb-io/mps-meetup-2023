@@ -1,0 +1,77 @@
+{
+    "language": "properties",
+    "id": "io_lionweb_Properties",
+    "concepts": [
+        {
+            "concept": "PropertiesFile",
+            "id": "io_lionweb_Properties-PropertiesFile",
+            "properties": [
+                {
+                    "name": "props",
+                    "id": "io_lionweb_Properties-PropertiesFile-props"
+                }
+            ]
+        },
+        {
+            "concept": "Property",
+            "id": "io_lionweb_Properties-Property",
+            "properties": [
+                {
+                    "name": "name",
+                    "id": "io_lionweb_Properties-Property-name"
+                },
+                {
+                    "name": "value",
+                    "id": "io_lionweb_Properties-Property-value"
+                }
+            ]
+        },
+        {
+            "concept": "Value",
+            "id": "io_lionweb_Properties-Value",
+            "properties": []
+        },
+        {
+            "concept": "BooleanValue",
+            "id": "io_lionweb_Properties-BooleanValue",
+            "properties": [
+                {
+                    "name": "value",
+                    "id": "io_lionweb_Properties-BooleanValue-value"
+                }
+            ]
+        },
+        {
+            "concept": "DecValue",
+            "id": "io_lionweb_Properties-DecValue",
+            "properties": [
+                {
+                    "name": "value",
+                    "id": "io_lionweb_Properties-DecValue-value"
+                }
+            ]
+        },
+        {
+            "concept": "IntValue",
+            "id": "io_lionweb_Properties-IntValue",
+            "properties": [
+                {
+                    "name": "value",
+                    "id": "io_lionweb_Properties-IntValue-value"
+                }
+            ]
+        },
+        {
+            "concept": "StringValue",
+            "id": "io_lionweb_Properties-StringValue",
+            "properties": [
+                {
+                    "name": "value",
+                    "id": "io_lionweb_Properties-StringValue-value"
+                }
+            ]
+        }
+    ]
+}
+
+

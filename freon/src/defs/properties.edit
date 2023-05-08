@@ -1,0 +1,25 @@
+editor property_file_like
+
+PropertiesFile {
+    [
+    ${self.props vertical}
+    ]
+}
+
+Property {
+    [${self.name} = ${self.value}]
+}
+
+IntValue {
+    [ ${self.value}]
+}
+StringValue {
+    [ ${self.value}]
+}
+BooleanValue {
+    [ ${self.value}]
+}
+DecValue {
+    [ ${self.value}]
+}
+
