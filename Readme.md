@@ -38,6 +38,7 @@ Each directory contains a readme with more details.
 5. Build Freon source
    ```shell
    cd Freon4dsl
+   yarn install
    yarn build-release --no-bail 
    ```
    
@@ -62,8 +63,6 @@ Each directory contains a readme with more details.
    cd mps-meetup-2023
    cd freon
    yarn install
-   yarn generate
-   yarn prepare-app
    ```
 
 ## Start
