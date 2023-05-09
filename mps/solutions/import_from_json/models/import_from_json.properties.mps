@@ -6,7 +6,9 @@
     <use id="97ef2b8d-23e1-433e-8d23-48f916dd314d" name="io.lionweb.mps.converter.lang" version="0" />
     <use id="01cf0d82-8d29-4fc4-be96-28abaf4ad33d" name="io.lionweb.mps.m3" version="0" />
   </languages>
-  <imports />
+  <imports>
+    <import index="qqc7" ref="r:5dda8fb0-8c78-4ed5-8c46-0eb8c112a60a(import_from_json.properties.instance)" />
+  </imports>
   <registry>
     <language id="01cf0d82-8d29-4fc4-be96-28abaf4ad33d" name="io.lionweb.mps.m3">
       <concept id="2656571587264871634" name="io.lionweb.mps.m3.structure.LanguageReference" flags="ng" index="2RzRkq">
@@ -54,10 +56,10 @@
     <property role="TrG5h" value="2. Convert Properties M3 to MPS" />
     <property role="3GE5qa" value="converter" />
     <node concept="2RzRkq" id="1apSfP9LYiH" role="1a0gs3">
-      <ref role="2RzRkr" node="s7tki1iypT" resolve="com.strumenta.StarLasu" />
+      <ref role="2RzRkr" node="1DArA6fy65W" resolve="com.strumenta.StarLasu" />
     </node>
     <node concept="2RzRkq" id="1apSfP9LYiD" role="1a0gs3">
-      <ref role="2RzRkr" node="s7tki1iyq1" resolve="io.lionweb.Properties" />
+      <ref role="2RzRkr" node="1DArA6fy664" resolve="io.lionweb.Properties" />
     </node>
   </node>
   <node concept="VS7hd" id="3LWE6BDzNr5">
@@ -75,8 +77,8 @@
     <property role="TrG5h" value="4. Export Properties Instance to JSON" />
     <property role="VS7hl" value="${lionweb.mpsmeetup2023.home}/properties-parser/examples/example1-exported.lm.json" />
     <property role="pjpzt" value="39$JcGFaino/closure" />
-    <node concept="pgsVv" id="599fWZqf7zi" role="pgtdD">
-      <ref role="pgsW4" node="~file_properties-parser-examples-example1-props-" />
+    <node concept="pgsVv" id="1DArA6fygG9" role="pgtdD">
+      <ref role="pgsW4" to="qqc7:1DArA6fygG2" />
     </node>
   </node>
 </model>
