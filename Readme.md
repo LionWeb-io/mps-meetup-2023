@@ -13,6 +13,7 @@ Each directory contains a readme with more details.
 ## Prerequisites
 * Java 11 installed and set as current JDK
 * MPS 2021.1 installed
+* nodejs installed
 * yarn installed
 
 ## Setup
