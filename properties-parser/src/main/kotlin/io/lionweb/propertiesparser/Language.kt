@@ -24,3 +24,7 @@ val exporter by lazy {
 fun Node.toLionWeb(): io.lionweb.lioncore.java.model.Node {
     return exporter.export(this)
 }
+
+fun io.lionweb.lioncore.java.model.Node.toStarLasu(): Node {
+    return exporter.import(this)
+}
