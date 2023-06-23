@@ -1,13 +1,13 @@
 package io.lionweb.propertiesparser
 
 import com.google.gson.GsonBuilder
-import com.strumenta.kolasu.model.ASTNode
+import com.strumenta.kolasu.lionweb.LionWebModelImporterAndExporter
+import com.strumenta.kolasu.model.Node
 import com.strumenta.kolasu.model.assignParents
-import com.strumenta.kolasu.model.lionweb.concept
 import com.strumenta.kolasu.testing.assertASTsAreEqual
+import io.lionweb.lioncore.java.serialization.JsonSerialization
 import junit.framework.TestCase.assertEquals
 import org.junit.Test
-import org.lionweb.lioncore.java.serialization.JsonSerialization
 
 class UnserializationTest {
 
@@ -20,17 +20,21 @@ class UnserializationTest {
         )
         ast.assignParents()
         val jsonser = JsonSerialization.getStandardSerialization()
-        Metamodel.prepareSerialization(jsonser)
-        val json = jsonser.serializeTreeToJsonString(ast)
+        jsonser.registerLanguage(PropertiesLWLanguage)
+
+        val exporter = LionWebModelImporterAndExporter()
+        val exportedAST = exporter.export(ast)
+
+        val json = jsonser.serializeTreeToJsonString(exportedAST)
         val unserializedAST = jsonser.unserializeToNodes(json)
         assertEquals(7, unserializedAST.size)
-        assertASTsAreEqual(ast, unserializedAST[0] as ASTNode)
+        assertASTsAreEqual(ast, unserializedAST[0] as Node)
     }
 
     @Test
     fun issue12() {
         val jsonser = JsonSerialization.getStandardSerialization()
-        Metamodel.prepareSerialization(jsonser)
+        jsonser.registerLanguage(PropertiesLWLanguage)
         val unserializedAST = jsonser.unserializeToNodes(this.javaClass.getResourceAsStream("/issue12.json"))
         assertEquals(7, unserializedAST.size)
         assertASTsAreEqual(
@@ -39,7 +43,7 @@ class UnserializationTest {
                 Property("b", BooleanValue(true)),
                 Property("c", StringValue("foo"))
             ),
-            unserializedAST.first() as ASTNode
+            unserializedAST.first() as Node
         )
     }
 }

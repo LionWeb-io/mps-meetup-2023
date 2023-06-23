@@ -1,16 +1,15 @@
 package io.lionweb.propertiesparser
 
-import com.strumenta.kolasu.metamodel.StarLasuMetamodel
-import org.lionweb.lioncore.java.metamodel.LionCoreBuiltins
-import org.lionweb.lioncore.java.self.LionCore
-import org.lionweb.lioncore.java.serialization.JsonSerialization
+import io.lionweb.lioncore.java.language.LionCoreBuiltins
+import io.lionweb.lioncore.java.self.LionCore
+import io.lionweb.lioncore.java.serialization.JsonSerialization
 import java.io.File
 import java.io.FileInputStream
 
 class PropertiesModelLoader {
     fun loadModel(file: File): PropertiesFile {
         val jsonSer = JsonSerialization.getStandardSerialization()
-        Metamodel.prepareSerialization(jsonSer)
+        jsonSer.registerLanguage(PropertiesLWLanguage)
         return jsonSer.unserializeToNodes(FileInputStream(file))[0] as PropertiesFile
     }
 }

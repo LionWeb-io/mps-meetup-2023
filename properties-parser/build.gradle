@@ -30,6 +30,7 @@ dependencies {
     implementation "org.apache.logging.log4j:log4j-core:2.17.0"
 
     implementation "com.strumenta.kolasu:kolasu-core:$kolasuVersion"
+    implementation "com.strumenta.kolasu:kolasu-lionweb:$kolasuVersion"
     implementation "com.strumenta.kolasu:kolasu-antlr:$kolasuVersion"
 
     testImplementation "org.jetbrains.kotlin:kotlin-test:$kotlinVersion"

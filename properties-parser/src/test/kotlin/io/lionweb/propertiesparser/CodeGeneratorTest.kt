@@ -1,13 +1,11 @@
 package io.lionweb.propertiesparser
 
 import com.google.gson.GsonBuilder
-import com.strumenta.kolasu.model.ASTNode
 import com.strumenta.kolasu.model.assignParents
-import com.strumenta.kolasu.model.lionweb.concept
 import com.strumenta.kolasu.testing.assertASTsAreEqual
+import io.lionweb.lioncore.java.serialization.JsonSerialization
 import junit.framework.TestCase.assertEquals
 import org.junit.Test
-import org.lionweb.lioncore.java.serialization.JsonSerialization
 
 class CodeGeneratorTest {
 
