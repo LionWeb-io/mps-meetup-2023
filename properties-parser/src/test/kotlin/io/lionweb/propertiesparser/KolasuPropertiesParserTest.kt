@@ -48,7 +48,9 @@ class KolasuPropertiesParserTest {
         val result = parser.parse(File("examples/example1.props"))
         assert(result.issues.isEmpty())
         val vr = NodeTreeValidator().validate(result.root!!.toLionWeb())
-        assert(vr.isSuccessful)
+        assert(vr.isSuccessful) {
+            vr.issues.joinToString("\n") { it.toString() }
+        }
     }
 
     @Test

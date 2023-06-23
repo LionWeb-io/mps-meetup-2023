@@ -2,10 +2,19 @@ package io.lionweb.propertiesparser
 
 import com.strumenta.kolasu.lionweb.StarLasuLWLanguage
 import io.lionweb.lioncore.java.serialization.JsonSerialization
+import io.lionweb.lioncore.java.utils.LanguageValidator
+import io.lionweb.lioncore.java.utils.NodeTreeValidator
+import io.lionweb.lioncore.java.utils.ValidationResult
 import junit.framework.TestCase.assertEquals
 import org.junit.Test
 
 class MetamodelTest {
+
+    @Test
+    fun verifyExportedMetamodel() {
+        val res = LanguageValidator().validateLanguage(PropertiesLWLanguage)
+        assert(res.isSuccessful) { res.issues.joinToString("\n") }
+    }
 
     @Test
     fun conceptFeaturesAreNotNull() {
