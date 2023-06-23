@@ -22,10 +22,7 @@ class UnserializationTest {
         val jsonser = JsonSerialization.getStandardSerialization()
         jsonser.registerLanguage(PropertiesLWLanguage)
 
-        val exporter = LionWebModelImporterAndExporter()
-        val exportedAST = exporter.export(ast)
-
-        val json = jsonser.serializeTreeToJsonString(exportedAST)
+        val json = jsonser.serializeTreeToJsonString(ast.toLionWeb())
         val unserializedAST = jsonser.unserializeToNodes(json)
         assertEquals(7, unserializedAST.size)
         assertASTsAreEqual(ast, unserializedAST[0] as Node)

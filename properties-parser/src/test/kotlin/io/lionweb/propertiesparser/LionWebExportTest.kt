@@ -25,8 +25,7 @@ class LionWebExportTest {
         val jsonser = JsonSerialization.getStandardSerialization()
         jsonser.registerLanguage(PropertiesLWLanguage)
 
-        val export = LionWebModelImporterAndExporter()
-        val exportedAST = export.export(ast)
+        val exportedAST = ast.toLionWeb()
 
         val json = jsonser.serializeTreeToJsonString(exportedAST)
         println(json)

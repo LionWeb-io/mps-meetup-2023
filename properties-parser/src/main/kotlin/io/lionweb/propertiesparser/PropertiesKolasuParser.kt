@@ -3,6 +3,9 @@ package io.lionweb.propertiesparser
 import com.strumenta.kolasu.model.FileSource
 import com.strumenta.kolasu.model.SimpleOrigin
 import com.strumenta.kolasu.model.Source
+import com.strumenta.kolasu.parsing.ANTLRTokenFactory
+import com.strumenta.kolasu.parsing.KolasuANTLRToken
+import com.strumenta.kolasu.parsing.KolasuParser
 import com.strumenta.kolasu.parsing.ParsingResult
 import com.strumenta.kolasu.traversing.walk
 import com.strumenta.kolasu.validation.Issue
@@ -13,7 +16,7 @@ import org.antlr.v4.runtime.TokenStream
 import java.io.File
 import java.nio.charset.Charset
 
-class PropertiesKolasuParser : KolasuANTLRParser<PropertiesFile, PropertiesParser, PropertiesFileContext, KolasuANTLRToken>(
+class PropertiesKolasuParser : KolasuParser<PropertiesFile, PropertiesParser, PropertiesFileContext, KolasuANTLRToken>(
     ANTLRTokenFactory()
 ) {
     override fun createANTLRLexer(charStream: CharStream): Lexer {
@@ -44,8 +47,8 @@ class PropertiesKolasuParser : KolasuANTLRParser<PropertiesFile, PropertiesParse
     ): ParsingResult<PropertiesFile> {
         val pr = super.parse(file, charset, considerRange, measureLexingTime)
         pr.root!!.walk().forEach {
-            it.detachFromParseTree()
-            (it.origin as SimpleOrigin).range!!.source = FileSource(file)
+            it.detach()
+            (it.origin as SimpleOrigin).position!!.source = FileSource(file)
         }
         return pr
     }
