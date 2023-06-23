@@ -31,7 +31,6 @@ dependencies {
 
     implementation "com.strumenta.kolasu:kolasu-core:$kolasuVersion"
     implementation "com.strumenta.kolasu:kolasu-lionweb:$kolasuVersion"
-    implementation "com.strumenta.kolasu:kolasu-antlr:$kolasuVersion"
 
     testImplementation "org.jetbrains.kotlin:kotlin-test:$kotlinVersion"
     testImplementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlinVersion"

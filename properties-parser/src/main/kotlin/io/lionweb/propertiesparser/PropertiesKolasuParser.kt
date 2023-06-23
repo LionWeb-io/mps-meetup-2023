@@ -1,9 +1,5 @@
 package io.lionweb.propertiesparser
 
-import com.strumenta.kolasu.antlr.detachFromParseTree
-import com.strumenta.kolasu.antlr.parsing.ANTLRTokenFactory
-import com.strumenta.kolasu.antlr.parsing.KolasuANTLRParser
-import com.strumenta.kolasu.antlr.parsing.KolasuANTLRToken
 import com.strumenta.kolasu.model.FileSource
 import com.strumenta.kolasu.model.SimpleOrigin
 import com.strumenta.kolasu.model.Source
