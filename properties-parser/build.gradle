@@ -6,6 +6,7 @@ plugins {
     id 'com.github.johnrengelman.shadow' version '7.1.2'
     id 'java'
     id 'application'
+    id "com.strumenta.kolasu.lionwebgen" version "${kolasuVersion}"
 }
 
 repositories {
@@ -150,4 +151,10 @@ shadowJar {
         attributes 'Description': 'Properties Parser by LIonWeb Team'
         attributes 'Main-Class': application.mainClass
     }
+}
+
+
+lionweb {
+    packageName.set("io.lionweb.props")
+    languages.add(file("src/main/lionweb/properties-language.json"))
 }
