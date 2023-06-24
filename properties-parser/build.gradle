@@ -10,7 +10,8 @@ plugins {
 
 repositories {
     mavenLocal()
-    mavenCentral()    
+    mavenCentral()
+    maven { url "https://s01.oss.sonatype.org/content/repositories/snapshots/"}
 }
 
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile

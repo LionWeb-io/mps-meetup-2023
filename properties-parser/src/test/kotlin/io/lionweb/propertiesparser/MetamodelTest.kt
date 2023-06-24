@@ -17,6 +17,14 @@ class MetamodelTest {
     }
 
     @Test
+    fun canUnserializeSerializedLanguage() {
+        val jsonser = JsonSerialization.getStandardSerialization()
+        val serialized = jsonser.serializeTreesToJsonString(PropertiesLWLanguage)
+        jsonser.nodeResolver.addTree(StarLasuLWLanguage)
+        val unserialized = jsonser.unserializeToNodes(serialized).first()
+    }
+
+    @Test
     fun conceptFeaturesAreNotNull() {
         val propertiesFile = PropertiesLWLanguage.getConceptByName("PropertiesFile")!!
         assertEquals(false, propertiesFile.isAbstract)
