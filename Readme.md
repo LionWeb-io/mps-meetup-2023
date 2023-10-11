@@ -18,7 +18,7 @@ Each directory contains a readme with more details.
 
 ## Setup
 
-1. Open a shell / command window in this directory `mps-meetup-2023` (i.e. where you cloned https://github.com/LIonWeb-org/mps-meetup-2023)
+1. Open a shell / command window in this directory `mps-meetup-2023` (i.e. where you cloned https://github.com/LionWeb-io/mps-meetup-2023)
 
 2. Build _properties parser_ fat jar
    ```shell
