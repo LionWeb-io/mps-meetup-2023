@@ -1,11 +1,9 @@
 package io.lionweb.propertiesparser
 
+import com.strumenta.kolasu.lionweb.LionWebModelImporterAndExporter
 import com.strumenta.kolasu.testing.assertASTsAreEqual
-import com.strumenta.kolasu.validation.Issue
-import org.antlr.v4.runtime.CharStreams
-import org.antlr.v4.runtime.CommonTokenStream
+import io.lionweb.lioncore.java.utils.NodeTreeValidator
 import org.junit.Test
-import org.lionweb.lioncore.java.utils.NodeTreeValidator
 import java.io.File
 import kotlin.test.assertEquals
 
@@ -39,7 +37,8 @@ class KolasuPropertiesParserTest {
         val parser = PropertiesKolasuParser()
         val result = parser.parse(code)
         assert(result.issues.isEmpty())
-        val vr = NodeTreeValidator().validate(result.root)
+
+        val vr = NodeTreeValidator().validate(result.root!!.toLionWeb())
         assert(vr.isSuccessful)
     }
 
@@ -48,14 +47,17 @@ class KolasuPropertiesParserTest {
         val parser = PropertiesKolasuParser()
         val result = parser.parse(File("examples/example1.props"))
         assert(result.issues.isEmpty())
-        val vr = NodeTreeValidator().validate(result.root)
-        assert(vr.isSuccessful)
+        val vr = NodeTreeValidator().validate(result.root!!.toLionWeb())
+        assert(vr.isSuccessful) {
+            vr.issues.joinToString("\n") { it.toString() }
+        }
     }
 
     @Test
     fun checkRootHasProperNodeID() {
         val parser = PropertiesKolasuParser()
         val result = parser.parse(File("examples/example1.props"))
-        assertEquals("file_examples-example1-props-", result.root!!.id)
+        val exported = result.root!!.toLionWeb()
+        assertEquals("file_examples-example1-props_root", exported.id)
     }
 }

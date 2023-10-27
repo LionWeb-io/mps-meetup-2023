@@ -1,6 +1,6 @@
 package io.lionweb.propertiesparser
 
-import com.strumenta.kolasu.antlr.mapping.ParseTreeToASTTransformer
+import com.strumenta.kolasu.mapping.ParseTreeToASTTransformer
 import io.lionweb.propertiesparser.PropertiesParser.PropertiesFileContext
 import io.lionweb.propertiesparser.PropertiesParser.PropertyContext
 import io.lionweb.propertiesparser.PropertiesParser.ValueContext
@@ -8,13 +8,13 @@ import io.lionweb.propertiesparser.PropertiesParser.ValueContext
 class PropertiesParseTreeTransformer : ParseTreeToASTTransformer(allowGenericNode = false) {
 
     init {
-        registerNodeTransformer(PropertiesFileContext::class) { pt: PropertiesFileContext ->
+        registerNodeFactory(PropertiesFileContext::class) { pt: PropertiesFileContext ->
             PropertiesFile(pt.property().map { transform(it) as Property }.toMutableList())
         }
-        registerNodeTransformer(PropertyContext::class) { pt: PropertyContext ->
+        registerNodeFactory(PropertyContext::class) { pt: PropertyContext ->
             Property(pt.ID().text, transform(pt.value()) as Value)
         }
-        registerNodeTransformer(ValueContext::class) { pt: ValueContext ->
+        registerNodeFactory(ValueContext::class) { pt: ValueContext ->
             when {
                 pt.INT_NUMBER() != null -> IntValue(pt.INT_NUMBER().text)
                 pt.DEC_NUMBER() != null -> DecValue(pt.INT_NUMBER().text)

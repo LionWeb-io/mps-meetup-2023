@@ -1,9 +1,9 @@
 package io.lionweb.propertiesparser
 
 import com.strumenta.kolasu.codegen.ASTCodeGenerator
-import com.strumenta.kolasu.model.ASTNode
+import com.strumenta.kolasu.model.Node
 
-class PropertiesCodeGenerator : ASTCodeGenerator<ASTNode>() {
+class PropertiesCodeGenerator : ASTCodeGenerator<Node>() {
     override fun registerRecordPrinters() {
         recordPrinter<PropertiesFile> {
             printList(it.props, "")

@@ -1,24 +1,22 @@
 package io.lionweb.propertiesparser
 
-import com.strumenta.kolasu.antlr.parsing.ANTLRTokenFactory
-import com.strumenta.kolasu.antlr.parsing.KolasuANTLRParser
-import com.strumenta.kolasu.antlr.parsing.KolasuANTLRToken
 import com.strumenta.kolasu.model.FileSource
 import com.strumenta.kolasu.model.SimpleOrigin
-import com.strumenta.kolasu.model.assignParents
-import com.strumenta.kolasu.parsing.KolasuToken
+import com.strumenta.kolasu.model.Source
+import com.strumenta.kolasu.parsing.ANTLRTokenFactory
+import com.strumenta.kolasu.parsing.KolasuANTLRToken
+import com.strumenta.kolasu.parsing.KolasuParser
 import com.strumenta.kolasu.parsing.ParsingResult
 import com.strumenta.kolasu.traversing.walk
 import com.strumenta.kolasu.validation.Issue
 import io.lionweb.propertiesparser.PropertiesParser.PropertiesFileContext
 import org.antlr.v4.runtime.CharStream
 import org.antlr.v4.runtime.Lexer
-import org.antlr.v4.runtime.Token
 import org.antlr.v4.runtime.TokenStream
 import java.io.File
 import java.nio.charset.Charset
 
-class PropertiesKolasuParser : KolasuANTLRParser<PropertiesFile, PropertiesParser, PropertiesFileContext, KolasuANTLRToken>(
+class PropertiesKolasuParser : KolasuParser<PropertiesFile, PropertiesParser, PropertiesFileContext, KolasuANTLRToken>(
     ANTLRTokenFactory()
 ) {
     override fun createANTLRLexer(charStream: CharStream): Lexer {
@@ -32,7 +30,8 @@ class PropertiesKolasuParser : KolasuANTLRParser<PropertiesFile, PropertiesParse
     override fun parseTreeToAst(
         parseTreeRoot: PropertiesFileContext,
         considerPosition: Boolean,
-        issues: MutableList<Issue>
+        issues: MutableList<Issue>,
+        source: Source?
     ): PropertiesFile? {
         val transformer = PropertiesParseTreeTransformer()
         val ast = transformer.transform(parseTreeRoot) as? PropertiesFile
@@ -40,11 +39,16 @@ class PropertiesKolasuParser : KolasuANTLRParser<PropertiesFile, PropertiesParse
         return ast
     }
 
-    override fun parse(file: File, charset: Charset, considerPosition: Boolean): ParsingResult<PropertiesFile> {
-        val pr = super.parse(file, charset, considerPosition)
+    override fun parse(
+        file: File,
+        charset: Charset,
+        considerRange: Boolean,
+        measureLexingTime: Boolean
+    ): ParsingResult<PropertiesFile> {
+        val pr = super.parse(file, charset, considerRange, measureLexingTime)
         pr.root!!.walk().forEach {
             it.detach()
-            (it.origin as SimpleOrigin).range!!.source = FileSource(file)
+            (it.origin as SimpleOrigin).position!!.source = FileSource(file)
         }
         return pr
     }

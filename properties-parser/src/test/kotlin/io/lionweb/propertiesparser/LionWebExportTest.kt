@@ -1,15 +1,16 @@
 package io.lionweb.propertiesparser
 
+import com.strumenta.kolasu.lionweb.LionWebModelImporterAndExporter
 import com.strumenta.kolasu.model.assignParents
+import io.lionweb.lioncore.java.serialization.JsonSerialization
 import org.junit.Test
-import org.lionweb.lioncore.java.serialization.JsonSerialization
 
 class LionWebExportTest {
 
     @Test
     fun exportMetamodel() {
         val jsonser = JsonSerialization.getStandardSerialization()
-        val json = jsonser.serializeTreeToJsonString(Metamodel)
+        val json = jsonser.serializeTreeToJsonString(PropertiesLWLanguage)
         println(json)
     }
 
@@ -22,8 +23,11 @@ class LionWebExportTest {
         )
         ast.assignParents()
         val jsonser = JsonSerialization.getStandardSerialization()
-        Metamodel.prepareSerialization(jsonser)
-        val json = jsonser.serializeTreeToJsonString(ast)
+        jsonser.registerLanguage(PropertiesLWLanguage)
+
+        val exportedAST = ast.toLionWeb()
+
+        val json = jsonser.serializeTreeToJsonString(exportedAST)
         println(json)
     }
 }

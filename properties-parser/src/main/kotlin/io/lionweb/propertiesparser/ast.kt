@@ -1,14 +1,14 @@
 package io.lionweb.propertiesparser
 
-import com.strumenta.kolasu.model.ASTNode
+import com.strumenta.kolasu.model.Node
 
-data class PropertiesFile(val props: MutableList<Property> = mutableListOf()) : ASTNode() {
+data class PropertiesFile(val props: MutableList<Property> = mutableListOf()) : Node() {
     constructor(vararg props: Property) : this(props.toMutableList())
 }
 
-data class Property(var name: String, var value: Value) : ASTNode()
+data class Property(var name: String, var value: Value) : Node()
 
-sealed class Value : ASTNode()
+sealed class Value : Node()
 
 data class IntValue(var value: String) : Value() {
     constructor(value: Int) : this(value.toString())
