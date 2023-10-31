@@ -1,12 +1,13 @@
 plugins {
     id 'org.jetbrains.kotlin.jvm' version "${kotlinVersion}"
-    id "org.jlleitschuh.gradle.ktlint" version "11.3.2"
-    id "antlr"
-    id "idea"
+    id 'com.google.devtools.ksp' version "1.8.22-1.0.11"
+    id 'org.jlleitschuh.gradle.ktlint' version "11.3.2"
+    id 'antlr'
+    id 'idea'
     id 'com.github.johnrengelman.shadow' version '7.1.2'
     id 'java'
     id 'application'
-    id "com.strumenta.kolasu.lionwebgen" version "${kolasuVersion}"
+    id 'com.strumenta.kolasu.lionwebgen' version "${kolasuVersion}"
 }
 
 repositories {
@@ -155,6 +156,6 @@ shadowJar {
 
 
 lionweb {
-    packageName.set("io.lionweb.props")
+    importPackageNames.set(["io.lionweb.propertiesparser":"io.lionweb.props"])
     languages.add(file("src/main/lionweb/properties-language.json"))
 }
