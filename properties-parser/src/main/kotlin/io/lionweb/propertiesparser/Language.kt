@@ -1,8 +1,8 @@
 package io.lionweb.propertiesparser
 
-import com.strumenta.kolasu.lionweb.KolasuLanguage
-import com.strumenta.kolasu.lionweb.LionWebLanguageExporter
-import com.strumenta.kolasu.lionweb.LionWebModelImporterAndExporter
+import com.strumenta.kolasu.language.KolasuLanguage
+import com.strumenta.kolasu.lionweb.LionWebLanguageConverter
+import com.strumenta.kolasu.lionweb.LionWebModelConverter
 import com.strumenta.kolasu.model.Node
 import io.lionweb.lioncore.java.language.Language
 
@@ -11,20 +11,20 @@ val PropertiesKLanguage: KolasuLanguage = KolasuLanguage("io.lionweb.Properties"
 }
 
 val PropertiesLWLanguage: Language by lazy {
-    val exporter = LionWebLanguageExporter()
-    exporter.export(PropertiesKLanguage)
+    val exporter = LionWebLanguageConverter()
+    exporter.exportToLionWeb(PropertiesKLanguage)
 }
 
 val exporter by lazy {
-    val exporter = LionWebModelImporterAndExporter()
-    exporter.recordLanguage(PropertiesKLanguage)
+    val exporter = LionWebModelConverter()
+    exporter.exportLanguageToLionWeb(PropertiesKLanguage)
     exporter
 }
 
 fun Node.toLionWeb(): io.lionweb.lioncore.java.model.Node {
-    return exporter.export(this)
+    return exporter.exportModelToLionWeb(this)
 }
 
 fun io.lionweb.lioncore.java.model.Node.toStarLasu(): Node {
-    return exporter.import(this)
+    return exporter.importModelFromLionWeb(this)
 }
