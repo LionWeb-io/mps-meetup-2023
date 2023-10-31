@@ -10,7 +10,7 @@ import com.github.ajalt.clikt.parameters.options.flag
 import com.github.ajalt.clikt.parameters.options.option
 import com.github.ajalt.clikt.parameters.types.file
 import com.strumenta.kolasu.cli.changeExtension
-import com.strumenta.kolasu.lionweb.LionWebModelImporterAndExporter
+import com.strumenta.kolasu.lionweb.LionWebModelConverter
 import com.strumenta.kolasu.lionweb.StarLasuLWLanguage
 import com.strumenta.kolasu.model.FileSource
 import com.strumenta.kolasu.model.SimpleOrigin
@@ -94,9 +94,9 @@ class ParsingCommand : CliktCommand(
         val jsonser = JsonSerialization.getStandardSerialization()
         jsonser.registerLanguage(StarLasuLWLanguage)
 
-        val lwExport = LionWebModelImporterAndExporter()
+        val lwExport = LionWebModelConverter()
 
-        val lwRoot: Node = lwExport.export(result.root!!)
+        val lwRoot: Node = lwExport.exportModelToLionWeb(result.root!!)
 
         val json = jsonser.serializeTreeToJsonString(lwRoot)
         val destination = output ?: source.changeExtension("lm.json")
@@ -149,9 +149,9 @@ class TransformCommand : CliktCommand(
         val jsonser = JsonSerialization.getStandardSerialization()
         jsonser.registerLanguage(PropertiesLWLanguage)
 
-        val lwExport = LionWebModelImporterAndExporter()
+        val lwExport = LionWebModelConverter()
 
-        val lwRoot: Node = lwExport.export(model)
+        val lwRoot: Node = lwExport.exportModelToLionWeb(model)
 
         val json = jsonser.serializeTreeToJsonString(lwRoot)
         destination.writeText(json)
