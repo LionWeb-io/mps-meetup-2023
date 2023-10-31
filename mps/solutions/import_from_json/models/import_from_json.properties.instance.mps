@@ -25,23 +25,23 @@
       </concept>
     </language>
   </registry>
-  <node concept="Tw1CF" id="1DArA6fygG2">
-    <node concept="26vB0H" id="1DArA6fygG3" role="1Pj4nA">
+  <node concept="Tw1CF" id="~file_properties-parser-examples-example1-props-">
+    <node concept="26vB0H" id="~file_properties-parser-examples-example1-props--props0" role="1Pj4nA">
       <property role="3uY$uA" value="integerProp" />
-      <node concept="37HND" id="1DArA6fygG4" role="3Vt1f6">
+      <node concept="37HND" id="~file_properties-parser-examples-example1-props--props0-value0" role="3Vt1f6">
         <property role="3QFnCD" value="1" />
       </node>
     </node>
-    <node concept="26vB0H" id="1DArA6fygG5" role="1Pj4nA">
+    <node concept="26vB0H" id="~file_properties-parser-examples-example1-props--props1" role="1Pj4nA">
       <property role="3uY$uA" value="LIonWeb_integrates" />
-      <node concept="259e1R" id="1DArA6fygG6" role="3Vt1f6">
+      <node concept="259e1R" id="~file_properties-parser-examples-example1-props--props1-value0" role="3Vt1f6">
         <property role="22P7_f" value="true" />
       </node>
     </node>
-    <node concept="26vB0H" id="1DArA6fygG7" role="1Pj4nA">
+    <node concept="26vB0H" id="~file_properties-parser-examples-example1-props--props2" role="1Pj4nA">
       <property role="3uY$uA" value="myString" />
-      <node concept="1T4Ty4" id="1DArA6fygG8" role="3Vt1f6">
-        <property role="1ijX3X" value="Hello, StarLasu, MPS, and Freon in Munich!" />
+      <node concept="1T4Ty4" id="~file_properties-parser-examples-example1-props--props2-value0" role="3Vt1f6">
+        <property role="1ijX3X" value="Hello, StarLasu, MPS, and Freon!" />
       </node>
     </node>
   </node>
