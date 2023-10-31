@@ -9,5 +9,10 @@ pluginManagement {
 }
 
 rootProject.name = 'lionweb-mps-meetup'
+
 include 'properties-parser'
 include 'mps'
+include ':xtend-generators:emf-generator'
+include ':xtend-generators:emf-reflective-generator'
+include ':xtend-generators:kotlin-generator'
+include ':xtend-generators:lionweb-reflective-generator'
