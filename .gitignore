@@ -4,6 +4,8 @@
 .vscode
 **/.DS_Store
 
+build/
+
 # Eclipse Gradle plugin generated files
 # Eclipse Core
 .project
