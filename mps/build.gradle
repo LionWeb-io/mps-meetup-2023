@@ -4,10 +4,9 @@ plugins {
 
 repositories {
     mavenLocal()
-    maven { url = uri("https://artifacts.itemis.cloud/repository/maven-mps") }
     mavenCentral()
 }
 
 dependencies {
-    generation("io.lionweb.lionweb-mps:lionweb-mps:0.1.1")
+    generation("io.lionweb.lionweb-mps:lionweb-mps-2021.1:0.1.2-SNAPSHOT")
 }
