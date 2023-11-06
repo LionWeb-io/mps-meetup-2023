@@ -1,21 +1,40 @@
 package io.lionweb.propertiesparser
 
+import com.strumenta.kolasu.lionweb.LionWebAssociation
 import com.strumenta.kolasu.model.Node
+import kotlin.Boolean
+import kotlin.String
 
-data class PropertiesFile(val props: MutableList<Property> = mutableListOf()) : Node() {
-    constructor(vararg props: Property) : this(props.toMutableList())
-}
+@LionWebAssociation(key = "io-lionweb-Properties_PropertiesFile")
+public data class PropertiesFile(
+    public var props: Property
+) : Node()
 
-data class Property(var name: String, var value: Value) : Node()
+@LionWebAssociation(key = "io-lionweb-Properties_Property")
+public data class Property(
+    public var name: String,
+    public var `value`: Value
+) : Node()
 
-sealed class Value : Node()
+@LionWebAssociation(key = "io-lionweb-Properties_Value")
+public sealed class Value : Node()
 
-data class IntValue(var value: String) : Value() {
-    constructor(value: Int) : this(value.toString())
-}
-data class DecValue(var value: String) : Value() {
-    constructor(value: Double) : this(value.toString())
-}
-data class StringValue(var value: String) : Value()
+@LionWebAssociation(key = "io-lionweb-Properties_BooleanValue")
+public data class BooleanValue(
+    public var `value`: Boolean
+) : Value()
 
-data class BooleanValue(var value: Boolean) : Value()
+@LionWebAssociation(key = "io-lionweb-Properties_DecValue")
+public data class DecValue(
+    public var `value`: String
+) : Value()
+
+@LionWebAssociation(key = "io-lionweb-Properties_IntValue")
+public data class IntValue(
+    public var `value`: String
+) : Value()
+
+@LionWebAssociation(key = "io-lionweb-Properties_StringValue")
+public data class StringValue(
+    public var `value`: String
+) : Value()
