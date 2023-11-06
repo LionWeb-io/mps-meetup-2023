@@ -10,6 +10,6 @@ class PropertiesModelLoader {
     fun loadModel(file: File): PropertiesFile {
         val jsonSer = JsonSerialization.getStandardSerialization()
         jsonSer.registerLanguage(PropertiesLWLanguage)
-        return jsonSer.unserializeToNodes(FileInputStream(file))[0] as PropertiesFile
+        return jsonSer.deserializeToNodes(FileInputStream(file))[0] as PropertiesFile
     }
 }
