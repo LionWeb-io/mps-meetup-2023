@@ -44,7 +44,7 @@ dependencies {
     implementation group: 'commons-io', name: 'commons-io', version: '2.6'
     implementation 'com.google.code.gson:gson:2.8.7'
     implementation "com.github.ajalt.clikt:clikt:3.4.0"
-    implementation "io.lionweb.lioncore-java:lioncore-java-core:$lioncore_java_version"
+    implementation "io.lionweb.lionweb-java:lionweb-java-core:$lioncore_java_version"
 }
 
 configurations.all() {
@@ -157,5 +157,5 @@ shadowJar {
 
 lionweb {
     importPackageNames.set(["io.lionweb.propertiesparser":"io.lionweb.props"])
-    languages.add(file("src/main/lionweb/properties-language.json"))
+    languages.add(file("properties.lmm.json"))
 }
