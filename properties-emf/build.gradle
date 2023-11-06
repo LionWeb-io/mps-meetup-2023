@@ -1,6 +1,6 @@
 plugins {
-//    id 'org.jetbrains.kotlin.jvm' version "${kotlinVersion}"
     id 'java-library'
+    id "application"
     id 'eclipse'
     id 'org.xtext.xtend' version "${xtendVersion}"
     id 'maven-publish'
@@ -39,7 +39,10 @@ tasks.register("generateXtextLanguage", JavaExec) {
 tasks.compileJava.dependsOn("generateXtextLanguage")
 tasks.processResources.dependsOn("generateXtextLanguage")
 tasks.clean.dependsOn("cleanGenerateXtextLanguage")
-//tasks.publishToMavenLocal.dependsOn("compileKotlin")
+
+application {
+    mainClass.set("io.lionweb.emf.ImportEcore")
+}
 
 sourceSets {
     main {
