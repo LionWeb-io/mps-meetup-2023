@@ -9,7 +9,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#/1/INamed">
       <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1"
-          eType="#/0/Value"/>
+          upperBound="-1" eType="#/0/Value" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Value" abstract="true"/>
     <eClassifiers xsi:type="ecore:EClass" name="BooleanValue" eSuperTypes="#/0/Value">

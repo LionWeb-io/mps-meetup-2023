@@ -1,5 +1,5 @@
 plugins {
-    id 'org.jetbrains.kotlin.jvm' version "${kotlinVersion}"
+//    id 'org.jetbrains.kotlin.jvm' version "${kotlinVersion}"
     id 'java-library'
     id 'eclipse'
     id 'org.xtext.xtend' version "${xtendVersion}"
@@ -39,7 +39,7 @@ tasks.register("generateXtextLanguage", JavaExec) {
 tasks.compileJava.dependsOn("generateXtextLanguage")
 tasks.processResources.dependsOn("generateXtextLanguage")
 tasks.clean.dependsOn("cleanGenerateXtextLanguage")
-tasks.publishToMavenLocal.dependsOn("compileKotlin")
+//tasks.publishToMavenLocal.dependsOn("compileKotlin")
 
 sourceSets {
     main {
