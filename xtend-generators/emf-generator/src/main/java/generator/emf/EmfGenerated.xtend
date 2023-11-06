@@ -9,45 +9,46 @@ import io.lionweb.lioncore.java.serialization.JsonSerialization
 import java.io.File
 import java.util.List
 import java.util.stream.Collectors
-import nl.f1re.emf.library.model.library.GuideBookWriter
-import nl.f1re.emf.library.model.library.Library
-import nl.f1re.emf.library.model.library.LibraryPackage
-import nl.f1re.emf.library.model.library.SpecialistBookWriter
-import nl.f1re.emf.library.model.library.Writer
-import nl.f1re.emf.support.LibraryLanguage
 import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.emf.ecore.resource.ResourceSet
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceFactoryImpl
+import io.lionweb.emf.support.PropertiesLanguage
+import io.lionweb.Properties.PropertiesPackage
+import io.lionweb.Properties.PropertiesFile
+import io.lionweb.Properties.IntValue
+import io.lionweb.Properties.DecValue
+import io.lionweb.Properties.StringValue
+import io.lionweb.Properties.BooleanValue
 
 class EmfGenerated {
 	def static void main(String[] args) {
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("library", new XMIResourceFactoryImpl());
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("xml", new XMLResourceFactoryImpl());
-		LibraryPackage.eINSTANCE.nsURI
+		PropertiesPackage.eINSTANCE.nsURI
 		var ResourceSet rs = new ResourceSetImpl();
 		rs.getResourceFactoryRegistry().getExtensionToFactoryMap().put("xml", new XMLResourceFactoryImpl());
 		
 		var JsonSerialization jsonSerialization = JsonSerialization.getStandardSerialization();
-	    jsonSerialization.registerLanguage(LibraryLanguage.LIBRARY_MM);
+	    jsonSerialization.registerLanguage(PropertiesLanguage.PROPERTIES_MM);
 	    jsonSerialization.getInstantiator().enableDynamicNodes();
-	    val nodes = jsonSerialization.unserializeToNodes(new File(".\\..\\bobslibrary.json"));
+	    val nodes = jsonSerialization.deserializeToNodes(new File(".\\..\\..\\properties-parser\\example1-exported.lm.json"));
 	    var List<Node> roots = nodes.stream().filter[it.parent === null].collect(Collectors.toList());
 	    
 	    var ConceptsToEClassesMapping conceptMapper = new ConceptsToEClassesMapping();
-	    for (element : LibraryLanguage.LIBRARY_MM.elements) {
+	    for (element : PropertiesLanguage.PROPERTIES_MM.elements) {
 	    	switch (element) {
 	    		Concept : {
-	    			var eClass = LibraryPackage.eINSTANCE.EClassifiers.filter(EClass).findFirst[it.name == element.name]
+	    			var eClass = PropertiesPackage.eINSTANCE.EClassifiers.filter(EClass).findFirst[it.name == element.name]
 	    			if(eClass !== null) {
 	    				conceptMapper.registerMapping(element, eClass)
 	    			}
 	    		}
 	    		// Change to Interface
 	    		Interface : {
-	    			var eClass = LibraryPackage.eINSTANCE.EClassifiers.filter(EClass).findFirst[it.name == element.name]
+	    			var eClass = PropertiesPackage.eINSTANCE.EClassifiers.filter(EClass).findFirst[it.name == element.name]
 	    			if(eClass !== null) {
 	    				conceptMapper.registerMapping(element, eClass)
 	    			}
@@ -58,32 +59,29 @@ class EmfGenerated {
 	    var EMFModelExporter emfExporter = new EMFModelExporter(conceptMapper);
 	    var Resource resource = emfExporter.exportResource(roots);
 	    
-	    val lib = resource.contents.filter(Library).head
-		val writers = lib.writers
+	    val propsFile = resource.contents.filter(PropertiesFile).head
+		val properties = propsFile.props
 	    
 	    println('''
-			Library «lib.name»
-			
-				«FOR book: lib.books»
-					Book: «book.title»
-				«ENDFOR»
-				«FOR w: writers»
-					«writer(w)»
-				«ENDFOR»
+			«FOR prop: properties»
+				«property(prop.value)»
+			«ENDFOR»
 	    ''')
 	}
 	
-	def static dispatch writer(Writer w) '''
-		writer: «w.name»
+	def static dispatch property(IntValue v) '''
+		number: «v.value»
 	'''
 	
-	def static dispatch writer(GuideBookWriter w) '''
-		guide book writer: «w.name»
-		guides for «w.countries»
+	def static dispatch property(DecValue v) '''
+		decimal: «v.value»
 	'''
 	
-	def static dispatch writer(SpecialistBookWriter w) '''
-		specialist writer: «w.name»
-		writes for «w.subject»
+	def static dispatch property(StringValue v) '''
+		string: «v.value»
+	'''
+	
+	def static dispatch property(BooleanValue v) '''
+		boolean: «v.value»
 	'''
 }
