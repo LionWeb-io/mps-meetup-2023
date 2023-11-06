@@ -28,23 +28,23 @@ dependencies {
     mwe2("org.eclipse.xtext:xtext-antlr-generator:2.1.1")
 }
 
-//tasks.register("generateXtextLanguage", JavaExec) {
-//    mainClass.set("org.eclipse.emf.mwe2.launch.runtime.Mwe2Launcher")
-//    classpath = configurations.mwe2
-//    args = args?.plus("src/main/java/io/lionweb/emf/GenerateLibrary.mwe2")
-//    args = args?.plus("-p")
-//    args = args?.plus("rootPath=/${projectDir}")
-//}
+tasks.register("generateXtextLanguage", JavaExec) {
+    mainClass.set("org.eclipse.emf.mwe2.launch.runtime.Mwe2Launcher")
+    classpath = configurations.mwe2
+    args = args?.plus("src/main/java/io/lionweb/emf/GenerateLibrary.mwe2")
+    args = args?.plus("-p")
+    args = args?.plus("rootPath=/${projectDir}")
+}
 
-//tasks.compileJava.dependsOn("generateXtextLanguage")
-//tasks.processResources.dependsOn("generateXtextLanguage")
-//tasks.clean.dependsOn("cleanGenerateXtextLanguage")
+tasks.compileJava.dependsOn("generateXtextLanguage")
+tasks.processResources.dependsOn("generateXtextLanguage")
+tasks.clean.dependsOn("cleanGenerateXtextLanguage")
 tasks.publishToMavenLocal.dependsOn("compileKotlin")
 
 sourceSets {
     main {
         java {
-            srcDirs(["${projectDir}/src-gen", "${projectDir}/src/main/java"])
+            srcDirs(["${projectDir}/src-gen", "${projectDir}/src/main/java", "${projectDir}/src/main/java-1"])
         }
     }
 }
