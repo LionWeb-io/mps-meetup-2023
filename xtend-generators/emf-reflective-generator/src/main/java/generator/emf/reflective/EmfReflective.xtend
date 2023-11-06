@@ -55,23 +55,23 @@ class EmfReflective {
 	    var Resource resource = emfExporter.exportResource(roots);
 	       
 	    val propertiesFile = resource.contents.head
-	    val libraryNameAttribute = propertiesFile.eClass.EAllAttributes.findFirst[it.name == "name"]
-	    val bookClass = propertiesFile.eClass.EPackage.EClassifiers.findFirst[it.name == "Book"] as EClass
-	    val writerClass = propertiesFile.eClass.EPackage.EClassifiers.findFirst[it.name == "Writer"] as EClass
-	    val guideBookWriterClass = propertiesFile.eClass.EPackage.EClassifiers.findFirst[it.name == "GuideBookWriter"] as EClass
-	    val bookTitleAttribute = bookClass.EAllAttributes.findFirst[it.name == "title"]
-	    val writerNameAttribute = writerClass.EAllAttributes.findFirst[it.name == "name"]
-	    val gbwCountriesAttribute = guideBookWriterClass.EAllAttributes.findFirst[it.name == "countries"]
+	    val propertyClass = propertiesFile.eClass.EPackage.EClassifiers.findFirst[it.name == "Property"] as EClass
+	    val propertyValueAttribute = propertyClass.EReferences.findFirst[it.name == "value"]
+	    val intValueClass = propertiesFile.eClass.EPackage.EClassifiers.findFirst[it.name == "IntValue"] as EClass
+	    val booleanValueClass = propertiesFile.eClass.EPackage.EClassifiers.findFirst[it.name == "BooleanValue"] as EClass
+	    val stringValueClass = propertiesFile.eClass.EPackage.EClassifiers.findFirst[it.name == "StringValue"] as EClass
+	    val intValueAttribute = intValueClass.EAllAttributes.findFirst[it.name == "value"]
+	    val booleanValueAttribute = booleanValueClass.EAllAttributes.findFirst[it.name == "value"]
+	    val stringValueAttribute = stringValueClass.EAllAttributes.findFirst[it.name == "value"]
 	    
 	    println('''
-			«FOR c: propertiesFile.eContents»
-				«IF c.eClass.name == "Book"»
-					Book: «c.eGet(bookTitleAttribute)»
-				«ELSEIF c.eClass.name == "Writer"»
-					writer: «c.eGet(writerNameAttribute)»
-				«ELSEIF c.eClass.name == "GuideBookWriter"»
-					guide book writer: «c.eGet(writerNameAttribute)»
-					guides for: «c.eGet(gbwCountriesAttribute)»
+			«FOR prop: propertiesFile.eContents»
+				«IF prop.eContents.head.eClass.name == "IntValue"»
+					number: «prop.eContents.head.eGet(intValueAttribute)»
+				«ELSEIF prop.eContents.head.eClass.name == "BooleanValue"»
+					boolean: «prop.eContents.head.eGet(booleanValueAttribute)»
+				«ELSEIF prop.eContents.head.eClass.name == "StringValue"»
+					string: «prop.eContents.head.eGet(stringValueAttribute)»
 				«ENDIF»
 			«ENDFOR»
 	    ''')
