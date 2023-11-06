@@ -9,9 +9,9 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#/1/INamed">
       <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1"
-          eType="#/0/Value" containment="true"/>
+          eType="#/0/Value"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Value"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Value" abstract="true"/>
     <eClassifiers xsi:type="ecore:EClass" name="BooleanValue" eSuperTypes="#/0/Value">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
