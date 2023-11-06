@@ -21,7 +21,7 @@ public class ImportEcore {
 	    Language propertiesLang =
 	            (Language)
 	                JsonSerialization.getStandardSerialization()
-	                    .deserializeToNodes(new File(".\\properties-parser\\properties.lmm.json"))
+	                    .deserializeToNodes(new File(".\\..\\properties-parser\\properties.lmm.json"))
 	                    .get(0);
 
 		ConceptsToEClassesMapping conceptMapper = new ConceptsToEClassesMapping();
@@ -50,10 +50,10 @@ public class ImportEcore {
         EPackage propertyPkg = ecoreExporter.exportLanguage(propertiesLang);
 
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("ecore", new EcoreResourceFactoryImpl());
-		
+
         ResourceSet resourceSet = new ResourceSetImpl();
-        
-        Resource resource = resourceSet.createResource(URI.createFileURI(".\\properties-emf\\model\\properties.ecore"));
+
+        Resource resource = resourceSet.createResource(URI.createFileURI(".\\model\\properties.ecore"));
         resource.getContents().add(propertyPkg);
         resource.getContents().add(builtinsEPackage);
         resource.save(Collections.emptyMap());
