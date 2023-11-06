@@ -9,13 +9,13 @@ import io.lionweb.propertiesparser.StringValue
 class KotlinGenerated {
 	def static void main(String[] args) {
 		val propertiesLoader = new PropertiesModelLoader()
-		val lib = propertiesLoader.loadModel(new File("C:\\Work\\property-demo\\properties-parser\\src\\test\\resources\\issue12.json"))
+		val propertiesFile = propertiesLoader.loadModel(new File(".\\properties-parser\\examples\\example1-exported.lm.json"))
 		
 	    println('''
 			Properties
 			
-				«FOR v: lib.props»
-					«v.name» = «propertyValue(v.value)»
+				«FOR prop: propertiesFile.props»
+					«prop.name» = «propertyValue(prop.value)»
 				«ENDFOR»
 	    ''')
 	}
