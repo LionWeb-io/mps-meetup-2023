@@ -17,6 +17,8 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceFactoryImpl
 import org.eclipse.emf.ecore.EcorePackage
 import org.eclipse.emf.ecore.EcoreFactory
+import java.io.BufferedWriter
+import java.io.FileWriter
 
 class EmfReflective {
 	def static void main(String[] args) {
@@ -56,24 +58,59 @@ class EmfReflective {
 	       
 	    val propertiesFile = resource.contents.head
 	    val propertyClass = propertiesFile.eClass.EPackage.EClassifiers.findFirst[it.name == "Property"] as EClass
-	    val propertyValueAttribute = propertyClass.EReferences.findFirst[it.name == "value"]
+	    val propertyNameAttribute = propertyClass.EReferences.findFirst[it.name == "name"]
 	    val intValueClass = propertiesFile.eClass.EPackage.EClassifiers.findFirst[it.name == "IntValue"] as EClass
 	    val booleanValueClass = propertiesFile.eClass.EPackage.EClassifiers.findFirst[it.name == "BooleanValue"] as EClass
 	    val stringValueClass = propertiesFile.eClass.EPackage.EClassifiers.findFirst[it.name == "StringValue"] as EClass
+	    val decValueClass = propertiesFile.eClass.EPackage.EClassifiers.findFirst[it.name == "DecValue"] as EClass
 	    val intValueAttribute = intValueClass.EAllAttributes.findFirst[it.name == "value"]
 	    val booleanValueAttribute = booleanValueClass.EAllAttributes.findFirst[it.name == "value"]
 	    val stringValueAttribute = stringValueClass.EAllAttributes.findFirst[it.name == "value"]
+	    val decValueAttribute = decValueClass.EAllAttributes.findFirst[it.name == "value"]
 	    
-	    println('''
-			«FOR prop: propertiesFile.eContents»
-				«IF prop.eContents.head.eClass.name == "IntValue"»
-					number: «prop.eContents.head.eGet(intValueAttribute)»
-				«ELSEIF prop.eContents.head.eClass.name == "BooleanValue"»
-					boolean: «prop.eContents.head.eGet(booleanValueAttribute)»
-				«ELSEIF prop.eContents.head.eClass.name == "StringValue"»
-					string: «prop.eContents.head.eGet(stringValueAttribute)»
-				«ENDIF»
-			«ENDFOR»
-	    ''')
+		val fileName = "emf-reflective-generator-index"
+		val htmlFile = new File('''«fileName».html''')
+		val bw = new BufferedWriter(new FileWriter(htmlFile))
+		
+		bw.write('''
+			<!DOCTYPE html>
+			<head>
+				<style>
+					div { display: block; margin-left: auto; margin-right: auto; width: 50% }
+					h1 { text-align: center; }
+					label { display: block; width: 100%; text-align: center; }
+					input { width: 100%; }
+				</style>
+			</head>
+			<html>
+			    <body>
+			    	<div>
+			    		<h1>LionWeb Sample Emf Reflective Generator</h1>
+				        <div>
+				            <form>
+					            «FOR prop: propertiesFile.eContents»
+					            	«val propName = prop.eGet(propertyNameAttribute)»
+					            	<label for="«propName»">«propName»</label>
+	            					«IF prop.eContents.head.eClass.name == "IntValue"»
+					            		<input type="number" id="«propName»" name="«propName»" placeholder="«prop.eContents.head.eGet(intValueAttribute)»"><br><br>
+	            					«ELSEIF prop.eContents.head.eClass.name == "BooleanValue"»
+            					    	<input type="checkbox" id="«propName»" name="«propName»" checked="«prop.eContents.head.eGet(booleanValueAttribute)»"><br><br>
+	            					«ELSEIF prop.eContents.head.eClass.name == "StringValue"»
+            					    	<input type="text" id="«propName»" name="«propName»" placeholder="«prop.eContents.head.eGet(stringValueAttribute)»"><br><br>
+	            					«ELSEIF prop.eContents.head.eClass.name == "DecValue"»
+	            						<input type="number" id="«propName»" name="«propName»" placeholder="«prop.eContents.head.eGet(decValueAttribute)»"><br><br>
+	            					«ENDIF»
+				                «ENDFOR»
+				            </form>
+				        </div>
+			    	</div>
+			    </body>
+			</html>
+		''')
+		bw.close()
+		
+		println('''
+			Saved html file «fileName» to «htmlFile.absolutePath»
+		''')
 	}
 }
