@@ -26,6 +26,8 @@ import org.eclipse.emf.ecore.EcoreFactory
 import org.eclipse.emf.ecore.EcorePackage
 import io.lionweb.lioncore.java.language.LionCoreBuiltins
 import LionCore_builtins.LionCore_builtinsPackage
+import java.io.FileWriter
+import java.io.BufferedWriter
 
 class EmfGenerated {
 	def static void main(String[] args) {
@@ -73,27 +75,51 @@ class EmfGenerated {
 	    
 	    val propsFile = resource.contents.filter(PropertiesFile).head
 		val properties = propsFile.props
-	    
-	    println('''
-			«FOR prop: properties»
-				«property(prop.value.head)»
-			«ENDFOR»
-	    ''')
+		
+		val fileName = "emf-generator-index"
+		val htmlFile = new File('''«fileName».html''')
+		val bw = new BufferedWriter(new FileWriter(htmlFile))
+		
+		bw.write('''
+			<!DOCTYPE html>
+			<html>
+			    <body>
+			    	<div style="display: block; margin-left: auto; margin-right: auto; width: 50%">
+			    		<div style="text-align: center;">
+				    		<h1>LionWeb Sample Emf Generator</h1>
+				    	</div>
+				        <div style="display: block; margin-left: auto; margin-right: auto; width: 50%">
+				            <form>
+					            «FOR prop: properties»
+					            	<label for="«prop.name»">«prop.name»</label><br>
+					            	«property(prop.value.head, prop.name)»
+				                «ENDFOR»
+				            </form>
+				        </div>
+			    	</div>
+			    </body>
+			</html>
+		''')
+		bw.close()
+		
+		println('''
+			Saved html file «fileName» to «htmlFile.absolutePath»
+		''')
 	}
 	
-	def static dispatch property(IntValue v) '''
-		number: «v.value»
+	def static dispatch property(IntValue v, String name) '''
+		<input style="width: 100%;" type="number" id="«name»" name="«name»" value="«v.value»"><br><br>
 	'''
 	
-	def static dispatch property(DecValue v) '''
-		decimal: «v.value»
+	def static dispatch property(DecValue v, String name) '''
+		<input style="width: 100%;" type="number" id="«name»" name="«name»" value="«v.value»"><br><br>
 	'''
 	
-	def static dispatch property(StringValue v) '''
-		string: «v.value»
+	def static dispatch property(StringValue v, String name) '''
+    	<input style="width: 100%;" type="text" id="«name»" name="«name»" value="«v.value»"><br><br>
 	'''
 	
-	def static dispatch property(BooleanValue v) '''
-		boolean: «v.value»
+	def static dispatch property(BooleanValue v, String name) '''
+    	<input type="checkbox" id="«name»" name="«name»" checked="«v.value»"><br><br>
 	'''
 }
