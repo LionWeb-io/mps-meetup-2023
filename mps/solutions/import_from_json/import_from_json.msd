@@ -15,7 +15,6 @@
     <dependency reexport="false">01cf0d82-8d29-4fc4-be96-28abaf4ad33d(io.lionweb.mps.m3)</dependency>
   </dependencies>
   <languageVersions>
-    <language slang="l:bb7bcf51-07ba-311c-9756-e665848770a7:com.strumenta.StarLasu" version="1" />
     <language slang="l:28832bdf-0e25-363c-b286-c7457d9f9c90:io.lionweb.Properties" version="1" />
     <language slang="l:97ef2b8d-23e1-433e-8d23-48f916dd314d:io.lionweb.mps.converter.lang" version="0" />
     <language slang="l:01cf0d82-8d29-4fc4-be96-28abaf4ad33d:io.lionweb.mps.m3" version="0" />
