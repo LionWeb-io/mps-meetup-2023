@@ -4,6 +4,7 @@ import com.strumenta.kolasu.mapping.ParseTreeToASTTransformer
 import io.lionweb.propertiesparser.PropertiesParser.PropertiesFileContext
 import io.lionweb.propertiesparser.PropertiesParser.PropertyContext
 import io.lionweb.propertiesparser.PropertiesParser.ValueContext
+import io.lionweb.Properties.*
 
 class PropertiesParseTreeTransformer : ParseTreeToASTTransformer(allowGenericNode = false) {
 
@@ -12,7 +13,7 @@ class PropertiesParseTreeTransformer : ParseTreeToASTTransformer(allowGenericNod
             PropertiesFile(pt.property().map { transform(it) as Property }.toMutableList())
         }
         registerNodeFactory(PropertyContext::class) { pt: PropertyContext ->
-            Property(pt.ID().text, transform(pt.value()) as Value)
+            Property(pt.ID().text, mutableListOf(transform(pt.value()) as Value))
         }
         registerNodeFactory(ValueContext::class) { pt: ValueContext ->
             when {

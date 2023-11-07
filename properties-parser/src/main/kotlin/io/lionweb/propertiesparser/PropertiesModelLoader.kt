@@ -1,5 +1,6 @@
 package io.lionweb.propertiesparser
 
+import io.lionweb.Properties.PropertiesFile
 import io.lionweb.lioncore.java.language.LionCoreBuiltins
 import io.lionweb.lioncore.java.self.LionCore
 import io.lionweb.lioncore.java.serialization.JsonSerialization

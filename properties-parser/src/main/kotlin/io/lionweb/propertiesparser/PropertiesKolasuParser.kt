@@ -15,6 +15,7 @@ import org.antlr.v4.runtime.Lexer
 import org.antlr.v4.runtime.TokenStream
 import java.io.File
 import java.nio.charset.Charset
+import io.lionweb.Properties.*
 
 class PropertiesKolasuParser : KolasuParser<PropertiesFile, PropertiesParser, PropertiesFileContext, KolasuANTLRToken>(
     ANTLRTokenFactory()
