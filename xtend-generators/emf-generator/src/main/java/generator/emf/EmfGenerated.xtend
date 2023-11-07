@@ -31,12 +31,9 @@ import java.io.BufferedWriter
 
 class EmfGenerated {
 	def static void main(String[] args) {
-//		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("library", new XMIResourceFactoryImpl());
-//		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("xml", new XMLResourceFactoryImpl());
 		LionCore_builtinsPackage.eINSTANCE.getNsURI();
 		PropertiesPackage.eINSTANCE.getNsURI();
 		val ResourceSet rs = new ResourceSetImpl();
-//		rs.getResourceFactoryRegistry().getExtensionToFactoryMap().put("xml", new XMLResourceFactoryImpl());
 		
 		val JsonSerialization jsonSerialization = JsonSerialization.getStandardSerialization();
 	    jsonSerialization.registerLanguage(PropertiesLanguage.PROPERTIES_MM);
