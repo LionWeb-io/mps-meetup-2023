@@ -82,13 +82,17 @@ class EmfGenerated {
 		
 		bw.write('''
 			<!DOCTYPE html>
+			<head>
+				<style>
+					div { display: block; margin-left: auto; margin-right: auto; width: 50% }
+					h1 { text-align: center; }
+				</style>
+			</head>
 			<html>
 			    <body>
-			    	<div style="display: block; margin-left: auto; margin-right: auto; width: 50%">
-			    		<div style="text-align: center;">
-				    		<h1>LionWeb Sample Emf Generator</h1>
-				    	</div>
-				        <div style="display: block; margin-left: auto; margin-right: auto; width: 50%">
+			    	<div>
+			    		<h1>LionWeb Sample Emf Generator</h1>
+				        <div>
 				            <form>
 					            «FOR prop: properties»
 					            	<label for="«prop.name»">«prop.name»</label><br>
