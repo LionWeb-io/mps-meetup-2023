@@ -13,7 +13,7 @@ dependencies {
     implementation(project(":properties-parser"))
     implementation("com.google.code.gson:gson:2.10.1")
 	implementation("io.lionweb.lionweb-java:lionweb-java-core:$lioncore_java_version")
-	implementation("com.strumenta.kolasu:kolasu-core:1.5.34")
+	implementation("com.strumenta.kolasu:kolasu-core:$kolasuVersion")
     implementation("org.eclipse.xtend:org.eclipse.xtend.lib:2.30.0")
 }
 
