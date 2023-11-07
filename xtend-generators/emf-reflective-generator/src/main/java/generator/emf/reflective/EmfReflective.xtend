@@ -58,7 +58,7 @@ class EmfReflective {
 	       
 	    val propertiesFile = resource.contents.head
 	    val propertyClass = propertiesFile.eClass.EPackage.EClassifiers.findFirst[it.name == "Property"] as EClass
-	    val propertyNameAttribute = propertyClass.EReferences.findFirst[it.name == "name"]
+	    val propertyNameAttribute = propertyClass.EAllAttributes.findFirst[it.name == "name"]
 	    val intValueClass = propertiesFile.eClass.EPackage.EClassifiers.findFirst[it.name == "IntValue"] as EClass
 	    val booleanValueClass = propertiesFile.eClass.EPackage.EClassifiers.findFirst[it.name == "BooleanValue"] as EClass
 	    val stringValueClass = propertiesFile.eClass.EPackage.EClassifiers.findFirst[it.name == "StringValue"] as EClass
