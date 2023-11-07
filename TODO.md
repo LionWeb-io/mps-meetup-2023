@@ -2,7 +2,7 @@
 
 ## Kotlin Generator
 Doesn't work from Eclipse.
-Code works, but I didn't have time for the HTML file creation. 
+Code works, and it uses the correct lw files, but I didn't have time for the HTML file creation. 
 
 ## LionWeb Reflective Generator
 Nothing works. I just copied over the code from the previous project.
