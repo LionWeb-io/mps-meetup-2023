@@ -86,6 +86,8 @@ class EmfGenerated {
 				<style>
 					div { display: block; margin-left: auto; margin-right: auto; width: 50% }
 					h1 { text-align: center; }
+					label { display: block; width: 100%; text-align: center; }
+					input { width: 100%; }
 				</style>
 			</head>
 			<html>
@@ -95,7 +97,7 @@ class EmfGenerated {
 				        <div>
 				            <form>
 					            «FOR prop: properties»
-					            	<label for="«prop.name»">«prop.name»</label><br>
+					            	<label for="«prop.name»">«prop.name»</label>
 					            	«property(prop.value.head, prop.name)»
 				                «ENDFOR»
 				            </form>
@@ -112,15 +114,15 @@ class EmfGenerated {
 	}
 	
 	def static dispatch property(IntValue v, String name) '''
-		<input style="width: 100%;" type="number" id="«name»" name="«name»" value="«v.value»"><br><br>
+		<input type="number" id="«name»" name="«name»" placeholder="«v.value»"><br><br>
 	'''
 	
 	def static dispatch property(DecValue v, String name) '''
-		<input style="width: 100%;" type="number" id="«name»" name="«name»" value="«v.value»"><br><br>
+		<input type="number" id="«name»" name="«name»" placeholder="«v.value»"><br><br>
 	'''
 	
 	def static dispatch property(StringValue v, String name) '''
-    	<input style="width: 100%;" type="text" id="«name»" name="«name»" value="«v.value»"><br><br>
+    	<input type="text" id="«name»" name="«name»" placeholder="«v.value»"><br><br>
 	'''
 	
 	def static dispatch property(BooleanValue v, String name) '''
