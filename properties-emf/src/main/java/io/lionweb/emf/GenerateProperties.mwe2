@@ -1,0 +1,23 @@
+module io.lionweb.emf
+
+import org.eclipse.xtext.xtext.generator.*
+import org.eclipse.xtext.xtext.generator.model.project.*
+
+Workflow {
+	bean = org.eclipse.emf.mwe.utils.StandaloneSetup {
+    	platformUri = "."
+    	//registerGeneratedEPackage = "io.lionweb.java.emf.builtins.BuiltinsPackage"
+    //	registerGeneratedEPackage = "org.eclipse.emf.ecore.EcorePackage"
+    //	registerGenModelFile = "builtins.genmodel"
+        scanClassPath = true
+        registerEcoreFile = "platform:/resource/io.lionweb.java.emf.builtins/builtins.ecore"
+    	registerGenModelFile = "platform:/resource/io.lionweb.java.emf.builtins/builtins.genmodel"
+    	//logResourceUriMap = true
+
+	}
+	
+	component = org.eclipse.emf.mwe2.ecore.EcoreGenerator {
+	    genModel = "platform:/resource/properties-emf/src/main/model/properties.genmodel"
+	    srcPath = "platform:/resource/properties-emf/src-gen/main/java"
+	}
+}
