@@ -5,28 +5,31 @@ import com.strumenta.kolasu.lionweb.LionWebModelConverter
 import com.strumenta.kolasu.lionweb.StarLasuLWLanguage
 import io.lionweb.Properties.*
 import io.lionweb.lioncore.java.language.Language
-import io.lionweb.lioncore.java.language.LionCoreBuiltins
-import io.lionweb.lioncore.java.self.LionCore
 import io.lionweb.lioncore.java.serialization.JsonSerialization
 import java.io.File
 import java.io.FileInputStream
+import java.io.InputStream
 
 class PropertiesModelLoader {
     private var language: Language;
     private var jsonSer: JsonSerialization;
 
     init {
-        var languageFile = File(".\\..\\..\\properties-parser\\properties.lmm.json")
-        require(languageFile.exists())
+        val languageStream = this.javaClass.getResourceAsStream("/properties.lmm.json")
+        require(languageStream != null)
         jsonSer = JsonSerialization.getStandardSerialization()
         jsonSer.instanceResolver.addTree(StarLasuLWLanguage)
-        language = jsonSer.deserializeToNodes(FileInputStream(languageFile)).first() as Language
+        language = jsonSer.deserializeToNodes(languageStream).first() as Language
         jsonSer.classifierResolver.registerLanguage(language)
     }
 
     fun loadModel(file: File): PropertiesFile {
+        return loadModel(FileInputStream(file))
+    }
+
+    fun loadModel(inputStream: InputStream): PropertiesFile {
         jsonSer.enableDynamicNodes()
-        val model = jsonSer.deserializeToNodes(FileInputStream(file))
+        val model = jsonSer.deserializeToNodes(inputStream)
 
         val lwImpExp = LionWebModelConverter()
         val kolasuLanguage = KolasuLanguage("properties").apply {
