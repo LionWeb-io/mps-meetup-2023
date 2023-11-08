@@ -14,12 +14,6 @@ configurations {
 }
 
 dependencies {
-    implementation("org.eclipse.platform:org.eclipse.core.runtime:3.29.0")
-    implementation("org.eclipse.emf:org.eclipse.emf.codegen.ecore:2.35.0")
-    implementation("org.eclipse.emf:org.eclipse.emf.common:2.29.0")
-    implementation("org.eclipse.emf:org.eclipse.emf.ecore:2.35.0")
-    implementation("org.eclipse.emf:org.eclipse.emf.ecore.change:2.15.0")
-    implementation("org.eclipse.emf:org.eclipse.emf.ecore.xmi:2.35.0")
     implementation("io.lionweb.lionweb-java:lionweb-java-emf:$lioncore_java_version")
     implementation("io.lionweb.lionweb-java:lionweb-java-emf-builtins:$lioncore_java_version")
     implementation("com.google.code.gson:gson:2.10.1")
@@ -27,11 +21,6 @@ dependencies {
     mwe2("org.eclipse.xtext:org.eclipse.xtext.common.types:$xtextVersion")
     mwe2("org.eclipse.xtext:org.eclipse.xtext.xtext.generator:$xtextVersion")
     mwe2("org.eclipse.xtext:xtext-antlr-generator:2.1.1")
-    mwe2("io.lionweb.lionweb-java:lionweb-java-emf-builtins:$lioncore_java_version")
-
-    implementation(files("libs/org.eclipse.emf.importer.ecore_2.11.0.v20230211-1150.jar"))
-    implementation(files("libs/org.eclipse.emf.importer_2.13.0.v20230211-1150.jar"))
-    implementation(files("libs/org.eclipse.emf.converter_2.12.0.v20230211-1150.jar"))
 }
 
 tasks.register("generateXtextLanguage", JavaExec) {
@@ -47,7 +36,7 @@ tasks.assemble.dependsOn("generateXtextLanguage")
 tasks.clean.dependsOn("cleanGenerateXtextLanguage")
 
 run {
-    args = [projectDir]
+    args = [projectDir, project.name]
 }
 
 application {
@@ -64,7 +53,7 @@ sourceSets {
         }
         resources {
             srcDirs([
-                    "${projectDir}/src/main/model"
+                    "${projectDir}/src-gen/main/model"
             ])
         }
     }
