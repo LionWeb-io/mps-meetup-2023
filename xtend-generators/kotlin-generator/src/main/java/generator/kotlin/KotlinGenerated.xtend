@@ -8,12 +8,16 @@ import io.lionweb.Properties.StringValue
 
 class KotlinGenerated {
 	def static void main(String[] args) {
+	    new KotlinGenerated().generate()
+	}
+
+	def generate() {
 		val propertiesLoader = new PropertiesModelLoader()
-		val propertiesFile = propertiesLoader.loadModel(new File(".\\..\\..\\properties-parser\\example1-exported.lm.json"))
-		
+		val propertiesFile = propertiesLoader.loadModel(this.getClass().getResourceAsStream("/example1-exported.lm.json"))
+
 	    println('''
 			Properties
-			
+
 				«FOR prop: propertiesFile.props»
 					«prop.name» = «propertyValue(prop.value.head)»
 				«ENDFOR»

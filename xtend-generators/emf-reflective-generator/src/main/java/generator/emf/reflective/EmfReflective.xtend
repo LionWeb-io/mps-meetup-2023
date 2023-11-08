@@ -8,7 +8,7 @@ import io.lionweb.lioncore.java.emf.mapping.ConceptsToEClassesMapping
 import java.io.File
 import java.util.List
 import java.util.stream.Collectors
-import io.lionweb.emf.support.PropertiesLanguage
+import PropertiesLanguage
 import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.emf.ecore.resource.ResourceSet
@@ -22,6 +22,10 @@ import java.io.FileWriter
 
 class EmfReflective {
 	def static void main(String[] args) {
+	    new EmfReflective().generate()
+	}
+
+	def generate() {
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("library", new XMIResourceFactoryImpl());
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("xml", new XMLResourceFactoryImpl());
 		var ResourceSet rs = new ResourceSetImpl();
@@ -30,7 +34,7 @@ class EmfReflective {
 		var JsonSerialization jsonSerialization = JsonSerialization.getStandardSerialization();
 	    jsonSerialization.registerLanguage(PropertiesLanguage.PROPERTIES_MM);
 	    jsonSerialization.getInstantiator().enableDynamicNodes();
-	    val nodes = jsonSerialization.deserializeToNodes(new File(".\\..\\..\\properties-parser\\example1-exported.lm.json"));
+	    val nodes = jsonSerialization.deserializeToNodes(this.getClass().getResourceAsStream("/example1-exported.lm.json"));
 	    var List<Node> roots = nodes.stream().filter[it.parent === null].collect(Collectors.toList());
 
 	    var ConceptsToEClassesMapping conceptMapper = new ConceptsToEClassesMapping();
