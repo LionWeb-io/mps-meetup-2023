@@ -5,7 +5,7 @@
     mermaid.initialize({ startOnLoad: true });
 </script>
 
-<h2 class="title"> Class diagram for language properties </h2>
+<h2 class="title"> Class diagram for language Properties </h2>
 <div class="mermaid">
     %%{init: {'theme': 'forest'} }%%
     classDiagram
@@ -13,9 +13,9 @@
     %% other possibilites: LR RL DT TB (same as TD)
     class Property {
         
-        + identifier name
+        
     }
-    class Value {
+    class Value:::abstract {
         
         
     }
@@ -35,7 +35,10 @@
         
         + string value
     }
-
+    class INamed:::interface {
+        
+        + identifier name
+    }
     Value <|-- BooleanValue
 Value <|-- DecValue
 Value <|-- IntValue
@@ -44,7 +47,8 @@ Value <|-- StringValue
         Property *-- "1" Value : value
 
         
-        
+        Property ..|> INamed
+
 </div>
 
 </body>

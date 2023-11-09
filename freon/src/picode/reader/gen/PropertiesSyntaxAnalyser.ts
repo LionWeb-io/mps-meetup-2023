@@ -86,8 +86,6 @@ export class PropertiesSyntaxAnalyser implements SyntaxAnalyser {
             return this._unit_PropertiesFile_analyser.transformPropertiesFile(branch);
         } else if ("Property" === brName) {
             return this._unit_PropertiesFile_analyser.transformProperty(branch);
-        } else if ("Value" === brName) {
-            return this._unit_PropertiesFile_analyser.transformValue(branch);
         } else if ("BooleanValue" === brName) {
             return this._unit_PropertiesFile_analyser.transformBooleanValue(branch);
         } else if ("DecValue" === brName) {
@@ -96,8 +94,8 @@ export class PropertiesSyntaxAnalyser implements SyntaxAnalyser {
             return this._unit_PropertiesFile_analyser.transformIntValue(branch);
         } else if ("StringValue" === brName) {
             return this._unit_PropertiesFile_analyser.transformStringValue(branch);
-        } else if ("__fre_super_Value" === brName) {
-            return this._unit_PropertiesFile_analyser.transform__fre_super_Value(branch);
+        } else if ("Value" === brName) {
+            return this._unit_PropertiesFile_analyser.transformValue(branch);
         } else if ("__fre_reference" === brName) {
             return this.transform__fre_reference(branch);
         } else {

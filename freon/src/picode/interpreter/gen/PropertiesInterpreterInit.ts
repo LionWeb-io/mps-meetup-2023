@@ -13,5 +13,6 @@ export function PropertiesInterpreterInit(main: IMainInterpreter) {
     main.registerFunction("BooleanValue", interpreter.evalBooleanValue);
     main.registerFunction("DecValue", interpreter.evalDecValue);
     main.registerFunction("IntValue", interpreter.evalIntValue);
-    main.registerFunction("StringValue", interpreter.evalStringValue); // DONE
+    main.registerFunction("StringValue", interpreter.evalStringValue);
+    main.registerFunction("PropertiesFile", interpreter.evalPropertiesFile); // DONE
 }

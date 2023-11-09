@@ -14,10 +14,7 @@ PropertiesFile = 'PropertiesFile' identifier '\{'
 	 '}' ;
 
 Property = 'Property' identifier '\{'
-	 'value' __fre_super_Value
-	 '}' ;
-
-Value = 'Value' '\{'
+	 'value' Value
 	 '}' ;
 
 BooleanValue = 'BooleanValue' '\{'
@@ -36,8 +33,7 @@ StringValue = 'StringValue' '\{'
 	 'value' stringLiteral
 	 '}' ;
 
-__fre_super_Value = Value 
-    | BooleanValue 
+Value = BooleanValue 
     | DecValue 
     | IntValue 
     | StringValue  ;

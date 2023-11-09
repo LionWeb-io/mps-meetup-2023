@@ -22,7 +22,7 @@ import {
     RIGHT_MOST
 } from "@freon4dsl/core";
 
-import { Property, Value, BooleanValue, DecValue, IntValue, StringValue, PropertiesFile } from "../../language/gen";
+import { Property, Value, BooleanValue, DecValue, IntValue, StringValue, INamed, PropertiesFile } from "../../language/gen";
 
 /**
  * This module implements the actions available to the user in the editor.

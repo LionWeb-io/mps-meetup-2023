@@ -13,9 +13,9 @@
     %% other possibilites: LR RL DT TB (same as TD)
     class Property {
         
-        + identifier name
+        
     }
-    class Value {
+    class Value:::abstract {
         
         
     }
@@ -44,7 +44,8 @@ Value <|-- StringValue
         Property *-- "1" Value : value
 
         
-        
+        Property ..|> INamed
+
 </div>
 
 </body>

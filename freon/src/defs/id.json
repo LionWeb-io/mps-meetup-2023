@@ -1,73 +1,110 @@
 {
-    "language": "properties",
+    "languages": [
+        
+    ],
+    "language": "io_lionweb_Properties",
     "id": "io_lionweb_Properties",
+    "key": "io_lionweb_Properties",
     "concepts": [
         {
             "concept": "PropertiesFile",
             "id": "io_lionweb_Properties-PropertiesFile",
+            "key": "io_lionweb_Properties-PropertiesFile",
             "properties": [
                 {
+                    "name": "name",
+                    "id": "LionCore-builtins-INamed-name",
+                    "key": "LionCore-builtins-INamed-name"
+                },
+                {
                     "name": "props",
-                    "id": "io_lionweb_Properties-PropertiesFile-props"
+                    "id": "io_lionweb_Properties-PropertiesFile-props",
+                    "key": "io_lionweb_Properties-PropertiesFile-props"
                 }
             ]
         },
         {
             "concept": "Property",
             "id": "io_lionweb_Properties-Property",
+            "key": "io_lionweb_Properties-Property",
             "properties": [
                 {
                     "name": "name",
-                    "id": "io_lionweb_Properties-Property-name"
+                    "id": "io_lionweb_Properties-Property-name",
+                    "key": "io_lionweb_Properties-Property-name"
                 },
                 {
                     "name": "value",
-                    "id": "io_lionweb_Properties-Property-value"
+                    "id": "io_lionweb_Properties-Property-value",
+                    "key": "io_lionweb_Properties-Property-value"
                 }
             ]
         },
         {
             "concept": "Value",
             "id": "io_lionweb_Properties-Value",
+            "key": "io_lionweb_Properties-Value",
             "properties": []
         },
         {
             "concept": "BooleanValue",
             "id": "io_lionweb_Properties-BooleanValue",
+            "key": "io_lionweb_Properties-BooleanValue",
             "properties": [
                 {
                     "name": "value",
-                    "id": "io_lionweb_Properties-BooleanValue-value"
+                    "id": "io_lionweb_Properties-BooleanValue-value",
+                    "key": "io_lionweb_Properties-BooleanValue-value"
                 }
             ]
         },
         {
             "concept": "DecValue",
             "id": "io_lionweb_Properties-DecValue",
+            "key": "io_lionweb_Properties-DecValue",
             "properties": [
                 {
                     "name": "value",
-                    "id": "io_lionweb_Properties-DecValue-value"
+                    "id": "io_lionweb_Properties-DecValue-value",
+                    "key": "io_lionweb_Properties-DecValue-value"
                 }
             ]
         },
         {
             "concept": "IntValue",
             "id": "io_lionweb_Properties-IntValue",
+            "key": "io_lionweb_Properties-IntValue",
             "properties": [
                 {
                     "name": "value",
-                    "id": "io_lionweb_Properties-IntValue-value"
+                    "id": "io_lionweb_Properties-IntValue-value",
+                    "key": "io_lionweb_Properties-IntValue-value"
                 }
             ]
         },
         {
             "concept": "StringValue",
             "id": "io_lionweb_Properties-StringValue",
+            "key": "io_lionweb_Properties-StringValue",
             "properties": [
                 {
                     "name": "value",
-                    "id": "io_lionweb_Properties-StringValue-value"
+                    "id": "io_lionweb_Properties-StringValue-value",
+                    "key": "io_lionweb_Properties-StringValue-value"
+                }
+            ]
+        }
+    ],
+    "interfaces": [
+        {
+            "interface": "INamed",
+            "id": "LionCore-builtins-INamed",
+            "key": "LionCore-builtins-INamed",
+            "properties": [
+                {
+                    "name": "name",
+                    "id": "LionCore-builtins-INamed-name",
+                    "key": "LionCore-builtins-INamed-name"
                 }
             ]
         }

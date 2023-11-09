@@ -6,10 +6,10 @@
     %% other possibilites: LR RL DT TB (same as TD)
     class Property {
         
-        + identifier name
+        
     }
     class Value {
-        
+        <<abstract>>
         
     }
     class BooleanValue {
@@ -37,5 +37,6 @@ Value <|-- StringValue
         Property *-- "1" Value : value
 
         
-        
+        Property ..|> INamed
+
 ```

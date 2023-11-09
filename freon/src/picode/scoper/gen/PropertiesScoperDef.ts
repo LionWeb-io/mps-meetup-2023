@@ -18,6 +18,6 @@ export function initializeScopers(rootScoper: FreScoperComposite) {
  * Adds namespace info to the in-memory representation of the language metamodel.
  */
 export function initializeScoperDef(rootScoper: FreScoperComposite) {
-    FreLanguage.getInstance().classifier("MainModel").isNamespace = true;
+    FreLanguage.getInstance().classifier("Properties").isNamespace = true;
     initializeScopers(rootScoper);
 }

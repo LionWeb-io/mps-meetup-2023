@@ -16,11 +16,10 @@ import { PropertiesActions, initializeEditorDef, initializeProjections } from ".
 import { initializeScoperDef } from "../../scoper/gen/PropertiesScoperDef";
 import { initializeTypers } from "../../typer/gen/PropertiesTyperDef";
 import { PropertiesValidator } from "../../validator/gen/PropertiesValidator";
-import { PropertiesStdlib } from "../../stdlib/gen/PropertiesStdlib";
 import { PropertiesModelUnitWriter } from "../../writer/gen/PropertiesModelUnitWriter";
 import { PropertiesModelUnitReader } from "../../reader/gen/PropertiesModelUnitReader";
 import { MainPropertiesInterpreter } from "../../interpreter/MainPropertiesInterpreter";
-import { MainModel, PropertiesFile, initializeLanguage } from "../../language/gen";
+import { Properties, PropertiesFile, initializeLanguage } from "../../language/gen";
 
 /**
  * Class PropertiesEnvironment provides the link between all parts of the language environment.
@@ -62,8 +61,8 @@ export class PropertiesEnvironment implements FreEnvironment {
      *
      * @param modelName
      */
-    newModel(modelName: string): MainModel {
-        const model = new MainModel();
+    newModel(modelName: string): Properties {
+        const model = new Properties();
         model.name = modelName;
         return model;
     }
@@ -72,11 +71,10 @@ export class PropertiesEnvironment implements FreEnvironment {
     editor: FreEditor;
     scoper: FreScoperComposite = new FreScoperComposite("main");
     typer: FreCompositeTyper = new FreCompositeTyper("main");
-    stdlib: FreStdlib = PropertiesStdlib.getInstance();
     validator: FreValidator = new PropertiesValidator();
     writer: FreWriter = new PropertiesModelUnitWriter();
     reader: FreReader = new PropertiesModelUnitReader();
     interpreter: FreInterpreter = new MainPropertiesInterpreter();
-    languageName: string = "properties";
+    languageName: string = "Properties";
     fileExtensions: Map<string, string> = new Map([["PropertiesFile", "pro"]]);
 }

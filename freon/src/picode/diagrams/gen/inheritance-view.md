@@ -1,4 +1,4 @@
-# Inheritance diagram for language properties
+# Inheritance diagram for language Properties
 ```mermaid
     %%{init: {'theme': 'forest'} }%%
     classDiagram
@@ -9,7 +9,7 @@
         + boolean value
     }
     class Value {
-        
+        <<abstract>>
         
     }
     class DecValue {

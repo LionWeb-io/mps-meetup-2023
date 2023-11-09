@@ -1,19 +1,18 @@
-language properties
+language Properties
 
-model MainModel {
+model Properties  {
     files: PropertiesFile[];
 }
 
-modelunit PropertiesFile  {
+modelunit PropertiesFile implements INamed {
     props: Property[];
 }
 
-concept Property {
-    name: identifier;
+concept Property implements INamed {
     value: Value;
 }
 
-concept Value {
+abstract concept Value {
 }
 
 concept BooleanValue base Value {
