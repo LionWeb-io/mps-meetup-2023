@@ -110,7 +110,7 @@ ktlint {
     // disabling no-unused-imports because it does not recognize correctly that some imports are needed
     disabledRules = ["no-wildcard-imports", "experimental:argument-list-wrapping", "no-unused-imports"]
     filter {
-        exclude("AST.kt")
+        exclude("**/AST.kt")
     }
 }
 
