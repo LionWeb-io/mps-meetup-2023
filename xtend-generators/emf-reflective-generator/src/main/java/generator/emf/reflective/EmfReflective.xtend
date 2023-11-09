@@ -1,5 +1,6 @@
 package generator.emf.reflective;
 
+import io.lionweb.emf.support.InstanceLoader
 import io.lionweb.emf.support.PropertiesLanguage
 import io.lionweb.lioncore.java.emf.EMFModelExporter
 import io.lionweb.lioncore.java.model.Node
@@ -9,10 +10,10 @@ import java.io.File
 import java.io.FileWriter
 import java.util.List
 import java.util.stream.Collectors
-import org.eclipse.emf.ecore.EClass
-import org.eclipse.emf.ecore.resource.Resource
-import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EAttribute
+import org.eclipse.emf.ecore.EClass
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.emf.ecore.resource.Resource
 
 class EmfReflective {
 	def static void main(String[] args) {
@@ -20,19 +21,20 @@ class EmfReflective {
 	}
 
 	def generate() {
-		var JsonSerialization jsonSerialization = JsonSerialization.getStandardSerialization();
+		val jsonSerialization = JsonSerialization.getStandardSerialization();
 		jsonSerialization.registerLanguage(PropertiesLanguage.getInstance().PROPERTIES_MM);
 		jsonSerialization.getInstantiator().enableDynamicNodes();
-		val nodes = jsonSerialization.deserializeToNodes(
-			this.getClass().getResourceAsStream("/example1-exported.lm.json"));
-		var List<Node> roots = nodes.stream().filter[it.parent === null].collect(Collectors.toList());
+//		val inputStream = this.getClass().getResourceAsStream("/example1-exported.lm.json")
+		val inputStream = new InstanceLoader().load()
+		val List<Node> nodes = jsonSerialization.deserializeToNodes(inputStream);
+		val List<Node> roots = nodes.stream().filter[it.parent === null].collect(Collectors.toList());
 
-		var EMFModelExporter emfExporter = new EMFModelExporter();
-		var Resource resource = emfExporter.exportResource(roots);
-		val propertiesFile = resource.contents.head
+		val EMFModelExporter emfExporter = new EMFModelExporter();
+		val Resource resource = emfExporter.exportResource(roots);
+		val EObject propertiesFile = resource.contents.head
 
-		val fileName = "emf-reflective-generator-index"
-		val htmlFile = new File('''«fileName».html''')
+		val fileName = "emf-reflective-generator"
+		val htmlFile = new File('''«fileName»-index.html''')
 		val bw = new BufferedWriter(new FileWriter(htmlFile))
 
 		val lang = new EmfPropertyLanguage(propertiesFile)
@@ -50,7 +52,7 @@ class EmfReflective {
 			<html>
 			    <body>
 			    	<div>
-			    		<h1>LionWeb Sample Emf Reflective Generator</h1>
+			    		<h1>LionWeb Sample «fileName»</h1>
 			    		   <div>
 			    		       <form>
 			    		        «FOR prop : propertiesFile.eContents»

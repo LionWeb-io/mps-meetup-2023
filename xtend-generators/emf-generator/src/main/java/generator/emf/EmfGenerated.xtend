@@ -5,13 +5,13 @@ import io.lionweb.emf.io_lionweb_Properties.DecValue
 import io.lionweb.emf.io_lionweb_Properties.IntValue
 import io.lionweb.emf.io_lionweb_Properties.Io_lionweb_PropertiesPackage
 import io.lionweb.emf.io_lionweb_Properties.PropertiesFile
+import io.lionweb.emf.io_lionweb_Properties.Property
 import io.lionweb.emf.io_lionweb_Properties.StringValue
+import io.lionweb.emf.support.InstanceLoader
 import io.lionweb.emf.support.PropertiesLanguage
 import io.lionweb.java.emf.builtins.BuiltinsPackage
 import io.lionweb.lioncore.java.emf.EMFModelExporter
 import io.lionweb.lioncore.java.emf.mapping.ConceptsToEClassesMapping
-import io.lionweb.lioncore.java.language.Concept
-import io.lionweb.lioncore.java.language.Interface
 import io.lionweb.lioncore.java.model.Node
 import io.lionweb.lioncore.java.serialization.JsonSerialization
 import java.io.BufferedWriter
@@ -19,7 +19,6 @@ import java.io.File
 import java.io.FileWriter
 import java.util.List
 import java.util.stream.Collectors
-import org.eclipse.emf.ecore.EClass
 import org.eclipse.emf.ecore.resource.Resource
 
 class EmfGenerated {
@@ -37,21 +36,22 @@ class EmfGenerated {
 
 		jsonSerialization.registerLanguage(lang.PROPERTIES_MM);
 		jsonSerialization.getInstantiator().enableDynamicNodes();
-		val nodes = jsonSerialization.deserializeToNodes(
-			this.getClass().getResourceAsStream("/example1-exported.lm.json"));
+//		val inputStream = this.getClass().getResourceAsStream("/example1-exported.lm.json")
+		val inputStream = new InstanceLoader().load()
+		val nodes = jsonSerialization.deserializeToNodes(inputStream);
 		val List<Node> roots = nodes.stream().filter[it.parent === null].collect(Collectors.toList());
 
 		val ConceptsToEClassesMapping conceptMapper = new ConceptsToEClassesMapping();
 		conceptMapper.registerMapping(lang.PROPERTIES_MM, Io_lionweb_PropertiesPackage.eINSTANCE);
 
-		var EMFModelExporter emfExporter = new EMFModelExporter(conceptMapper);
-		var Resource resource = emfExporter.exportResource(roots);
+		val EMFModelExporter emfExporter = new EMFModelExporter(conceptMapper);
+		val Resource resource = emfExporter.exportResource(roots);
 
-		val propsFile = resource.contents.filter(PropertiesFile).head
-		val properties = propsFile.props
+		val PropertiesFile propsFile = resource.contents.filter(PropertiesFile).head
+		val List<Property> properties = propsFile.props
 
-		val fileName = "emf-generator-index"
-		val htmlFile = new File('''«fileName».html''')
+		val fileName = "emf-generator"
+		val htmlFile = new File('''«fileName»-index.html''')
 		val bw = new BufferedWriter(new FileWriter(htmlFile))
 
 		bw.write('''
@@ -67,7 +67,7 @@ class EmfGenerated {
 			<html>
 			    <body>
 			    	<div>
-			    		<h1>LionWeb Sample Emf Generator</h1>
+			    		<h1>LionWeb Sample «fileName»</h1>
 			    		   <div>
 			    		       <form>
 			    		        «FOR prop : properties»

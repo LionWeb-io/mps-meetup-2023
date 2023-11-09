@@ -2,12 +2,16 @@ package generator.kotlin;
 
 import java.io.File
 import io.lionweb.propertiesparser.PropertiesModelLoader
+import io.lionweb.Properties.PropertiesFile
+import io.lionweb.Properties.Property
 import io.lionweb.Properties.IntValue
 import io.lionweb.Properties.BooleanValue
 import io.lionweb.Properties.StringValue
 import io.lionweb.Properties.DecValue
 import java.io.BufferedWriter
 import java.io.FileWriter
+import io.lionweb.emf.support.InstanceLoader
+import java.util.List
 
 class KotlinGenerated {
 	def static void main(String[] args) {
@@ -16,11 +20,13 @@ class KotlinGenerated {
 
 	def generate() {
 		val propertiesLoader = new PropertiesModelLoader()
-		val propsFile = propertiesLoader.loadModel(this.getClass().getResourceAsStream("/example1-exported.lm.json"))
-		val properties = propsFile.props
+//		val inputStream = this.getClass().getResourceAsStream("/example1-exported.lm.json")
+		val inputStream = new InstanceLoader().load()
+		val PropertiesFile propsFile = propertiesLoader.loadModel(inputStream)
+		val List<Property> properties = propsFile.props
 
-		val fileName = "kotlin-generator-index"
-		val htmlFile = new File('''«fileName».html''')
+		val fileName = "kotlin-generator"
+		val htmlFile = new File('''«fileName»-index.html''')
 		val bw = new BufferedWriter(new FileWriter(htmlFile))
 
 		bw.write('''
@@ -36,7 +42,7 @@ class KotlinGenerated {
 			<html>
 			    <body>
 			    	<div>
-			    		<h1>LionWeb Sample Emf Generator</h1>
+			    		<h1>LionWeb Sample «fileName»</h1>
 			    		   <div>
 			    		       <form>
 			    		        «FOR prop : properties»

@@ -1,10 +1,13 @@
 package generator.lionweb.reflective;
 
+import io.lionweb.emf.support.InstanceLoader
 import io.lionweb.emf.support.PropertiesLanguage
 import io.lionweb.lioncore.java.serialization.JsonSerialization
 import java.io.BufferedWriter
 import java.io.File
 import java.io.FileWriter
+import io.lionweb.lioncore.java.model.Node
+import java.util.List
 
 class LionWebReflective {
 	def static void main(String[] args) {
@@ -18,13 +21,14 @@ class LionWebReflective {
 		val lang = PropertiesLanguage.getInstance()
 
 		jsonSerialization.registerLanguage(lang.PROPERTIES_MM)
-		val nodes = jsonSerialization.deserializeToNodes(
-			this.getClass().getResourceAsStream("/example1-exported.lm.json"))
+//		val inputStream = this.getClass().getResourceAsStream("/example1-exported.lm.json")
+		val inputStream = new InstanceLoader().load()
+		val List<Node> nodes = jsonSerialization.deserializeToNodes(inputStream)
 
-		val propertiesFile = nodes.filter[it.concept == lang.PROPERTIESFILE].head
+		val Node propertiesFile = nodes.filter[it.concept == lang.PROPERTIESFILE].head
 
-		val fileName = "lionweb-reflective-generator-index"
-		val htmlFile = new File('''«fileName».html''')
+		val fileName = "lionweb-reflective-generator"
+		val htmlFile = new File('''«fileName»-index.html''')
 		val bw = new BufferedWriter(new FileWriter(htmlFile))
 
 		bw.write('''
@@ -40,7 +44,7 @@ class LionWebReflective {
 			<html>
 			    <body>
 			    	<div>
-			    		<h1>LionWeb Sample Emf Reflective Generator</h1>
+			    		<h1>LionWeb Sample «fileName»</h1>
 			    		   <div>
 			    		       <form>
 			    		        «FOR prop : propertiesFile.children»

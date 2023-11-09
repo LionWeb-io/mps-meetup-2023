@@ -48,6 +48,12 @@
         <property role="1ijX3X" value="Hello, StarLasu, MPS, and Freon!" />
       </node>
     </node>
+    <node concept="26vB0H" id="6EeGUTuMecC" role="1Pj4nA">
+      <property role="TrG5h" value="stringProp" />
+      <node concept="1T4Ty4" id="6EeGUTuMecD" role="3Vt1f6">
+        <property role="1ijX3X" value="new here? Or not?" />
+      </node>
+    </node>
   </node>
 </model>
 
