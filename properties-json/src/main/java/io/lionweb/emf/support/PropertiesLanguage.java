@@ -4,6 +4,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import io.lionweb.lioncore.java.language.Concept;
 import io.lionweb.lioncore.java.language.Language;
+import io.lionweb.lioncore.java.language.Property;
 import io.lionweb.lioncore.java.model.Node;
 import io.lionweb.lioncore.java.serialization.JsonSerialization;
 
@@ -16,6 +17,7 @@ public class PropertiesLanguage {
 
     public Language PROPERTIES_MM;
     public Concept PROPERTY;
+    public Property PROPERTY_NAME;
     public Concept PROPERTIESFILE;
     public Concept VALUE;
     public Concept BOOLEANVALUE;
@@ -35,6 +37,7 @@ public class PropertiesLanguage {
                             .findFirst()
                             .get();
             PROPERTY = PROPERTIES_MM.getConceptByName("Property");
+            PROPERTY_NAME = PROPERTY.getPropertyByName("name");
             PROPERTIESFILE = PROPERTIES_MM.getConceptByName("PropertiesFile");
             VALUE = PROPERTIES_MM.getConceptByName("Value");
             BOOLEANVALUE = PROPERTIES_MM.getConceptByName("BooleanValue");

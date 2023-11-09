@@ -3,10 +3,7 @@ package io.lionweb.emf;
 import io.lionweb.lioncore.java.emf.EMFMetamodelExporter;
 import io.lionweb.lioncore.java.language.Language;
 import io.lionweb.lioncore.java.serialization.JsonSerialization;
-import org.eclipse.emf.codegen.ecore.genmodel.GenModel;
-import org.eclipse.emf.codegen.ecore.genmodel.GenModelFactory;
-import org.eclipse.emf.codegen.ecore.genmodel.GenModelPackage;
-import org.eclipse.emf.codegen.ecore.genmodel.GenPackage;
+import org.eclipse.emf.codegen.ecore.genmodel.*;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -107,6 +104,7 @@ public class ImportEcore {
 
 	private GenModel createGenModel(GenPackage builtinsGenPackage, EPackage propertyPkg) {
 		GenModel genModel = GenModelFactory.eINSTANCE.createGenModel();
+		genModel.setComplianceLevel(GenJDKLevel.JDK80_LITERAL);
 		genModel.setModelDirectory("/"+ projectName + JAVA_OUTPUT_DIR);
 //		System.out.println("used: "+ genModel.getUsedGenPackages());
 		genModel.getUsedGenPackages().add(builtinsGenPackage);

@@ -11,6 +11,7 @@ repositories {
 
 dependencies {
     implementation(project(":properties-emf"))
+    implementation(project(":properties-json"))
     implementation("org.eclipse.xtend:org.eclipse.xtend.lib:2.30.0")
     implementation("org.eclipse.emf:org.eclipse.emf.common:2.29.0")
     implementation("org.eclipse.emf:org.eclipse.emf.ecore:2.35.0")
