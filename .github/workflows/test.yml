@@ -18,5 +18,7 @@ jobs:
         with:
           distribution: 'adopt'
           java-version: ${{ matrix.java }}
+      - name: Generate AST classes
+        run: ./gradlew :properties-parser:generateASTClasses
       - name: Test
         run: ./gradlew :properties-parser:check
