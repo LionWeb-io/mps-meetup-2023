@@ -1,10 +1,10 @@
 package io.lionweb.propertiesparser
 
 import com.strumenta.kolasu.mapping.ParseTreeToASTTransformer
+import io.lionweb.Properties.*
 import io.lionweb.propertiesparser.PropertiesParser.PropertiesFileContext
 import io.lionweb.propertiesparser.PropertiesParser.PropertyContext
 import io.lionweb.propertiesparser.PropertiesParser.ValueContext
-import io.lionweb.Properties.*
 
 class PropertiesParseTreeTransformer : ParseTreeToASTTransformer(allowGenericNode = false) {
 

@@ -2,8 +2,8 @@ package io.lionweb.propertiesparser
 
 import com.strumenta.kolasu.model.replaceWith
 import com.strumenta.kolasu.traversing.walkDescendants
-import kotlin.reflect.jvm.internal.impl.resolve.constants.DoubleValue
 import io.lionweb.Properties.*
+import kotlin.reflect.jvm.internal.impl.resolve.constants.DoubleValue
 
 fun capitalize(model: PropertiesFile) {
     model.walkDescendants(Property::class).forEach {

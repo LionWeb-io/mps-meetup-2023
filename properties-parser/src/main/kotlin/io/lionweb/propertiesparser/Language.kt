@@ -4,11 +4,16 @@ import com.strumenta.kolasu.language.KolasuLanguage
 import com.strumenta.kolasu.lionweb.LionWebLanguageConverter
 import com.strumenta.kolasu.lionweb.LionWebModelConverter
 import com.strumenta.kolasu.model.Node
-import io.lionweb.Properties.PropertiesFile
+import io.lionweb.Properties.*
 import io.lionweb.lioncore.java.language.Language
 
 val PropertiesKLanguage: KolasuLanguage = KolasuLanguage("io.lionweb.Properties").apply {
     addClass(PropertiesFile::class)
+    // TODO: Why are these not collected?
+    addClass(BooleanValue::class)
+    addClass(DecValue::class)
+    addClass(IntValue::class)
+    addClass(StringValue::class)
 }
 
 val PropertiesLWLanguage: Language by lazy {

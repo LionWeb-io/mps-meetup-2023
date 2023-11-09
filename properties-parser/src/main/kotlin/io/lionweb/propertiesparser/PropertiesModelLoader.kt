@@ -11,8 +11,8 @@ import java.io.FileInputStream
 import java.io.InputStream
 
 class PropertiesModelLoader {
-    private var language: Language;
-    private var jsonSer: JsonSerialization;
+    private var language: Language
+    private var jsonSer: JsonSerialization
 
     init {
         val languageStream = this.javaClass.getResourceAsStream("/properties.lmm.json")

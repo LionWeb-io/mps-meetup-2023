@@ -1,7 +1,7 @@
 package io.lionweb.propertiesparser
 
-import com.strumenta.kolasu.lionweb.LionWebModelImporterAndExporter
 import com.strumenta.kolasu.testing.assertASTsAreEqual
+import io.lionweb.Properties.*
 import io.lionweb.lioncore.java.utils.NodeTreeValidator
 import org.junit.Test
 import java.io.File
@@ -20,9 +20,11 @@ class KolasuPropertiesParserTest {
         assert(result.issues.isEmpty())
         assertASTsAreEqual(
             PropertiesFile(
-                Property("a", IntValue(1)),
-                Property("b", BooleanValue(true)),
-                Property("c", StringValue("foo"))
+                mutableListOf(
+                    Property("a", mutableListOf(IntValue("1"))),
+                    Property("b", mutableListOf(BooleanValue(true))),
+                    Property("c", mutableListOf(StringValue("foo")))
+                )
             ),
             result
         )

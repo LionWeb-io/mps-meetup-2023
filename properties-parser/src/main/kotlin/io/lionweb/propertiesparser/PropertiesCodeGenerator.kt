@@ -12,7 +12,7 @@ class PropertiesCodeGenerator : ASTCodeGenerator<Node>() {
         recordPrinter<Property> {
             print(it.name)
             print(" = ")
-            print(it.value)
+            print(it.value.first())
             println()
         }
         recordPrinter<IntValue> {

@@ -1,16 +1,16 @@
 {
-  "serializationFormatVersion": "1",
+  "serializationFormatVersion": "2023.1",
   "languages": [],
   "nodes": [
     {
       "id": "file_properties-parser-examples-example1-props-",
-      "concept": {
+      "classifier": {
         "language": "io-lionweb-Properties",
         "version": "1",
         "key": "io-lionweb-Properties_PropertiesFile"
       },
       "properties": [],
-      "children": [
+      "containments": [
         {
           "containment": {
             "language": "io-lionweb-Properties",
@@ -47,7 +47,7 @@
     },
     {
       "id": "file_properties-parser-examples-example1-props--props0",
-      "concept": {
+      "classifier": {
         "language": "io-lionweb-Properties",
         "version": "1",
         "key": "io-lionweb-Properties_Property"
@@ -55,14 +55,14 @@
       "properties": [
         {
           "property": {
-            "language": "io-lionweb-Properties",
-            "version": "1",
-            "key": "io-lionweb-Properties_Property_name"
+            "language": "LionCore-builtins",
+            "version": "2023.1",
+            "key": "LionCore-builtins-INamed-name"
           },
           "value": "a"
         }
       ],
-      "children": [
+      "containments": [
         {
           "containment": {
             "language": "io-lionweb-Properties",
@@ -79,7 +79,7 @@
     },
     {
       "id": "file_properties-parser-examples-example1-props--props0-value0",
-      "concept": {
+      "classifier": {
         "language": "io-lionweb-Properties",
         "version": "1",
         "key": "io-lionweb-Properties_IntValue"
@@ -94,13 +94,13 @@
           "value": "1"
         }
       ],
-      "children": [],
+      "containments": [],
       "references": [],
       "parent": "file_properties-parser-examples-example1-props--props0"
     },
     {
       "id": "file_properties-parser-examples-example1-props--props1",
-      "concept": {
+      "classifier": {
         "language": "io-lionweb-Properties",
         "version": "1",
         "key": "io-lionweb-Properties_Property"
@@ -108,14 +108,14 @@
       "properties": [
         {
           "property": {
-            "language": "io-lionweb-Properties",
-            "version": "1",
-            "key": "io-lionweb-Properties_Property_name"
+            "language": "LionCore-builtins",
+            "version": "2023.1",
+            "key": "LionCore-builtins-INamed-name"
           },
           "value": "b"
         }
       ],
-      "children": [
+      "containments": [
         {
           "containment": {
             "language": "io-lionweb-Properties",
@@ -132,7 +132,7 @@
     },
     {
       "id": "file_properties-parser-examples-example1-props--props1-value0",
-      "concept": {
+      "classifier": {
         "language": "io-lionweb-Properties",
         "version": "1",
         "key": "io-lionweb-Properties_BooleanValue"
@@ -147,13 +147,13 @@
           "value": "true"
         }
       ],
-      "children": [],
+      "containments": [],
       "references": [],
       "parent": "file_properties-parser-examples-example1-props--props1"
     },
     {
       "id": "file_properties-parser-examples-example1-props--props2",
-      "concept": {
+      "classifier": {
         "language": "io-lionweb-Properties",
         "version": "1",
         "key": "io-lionweb-Properties_Property"
@@ -161,14 +161,14 @@
       "properties": [
         {
           "property": {
-            "language": "io-lionweb-Properties",
-            "version": "1",
-            "key": "io-lionweb-Properties_Property_name"
+            "language": "LionCore-builtins",
+            "version": "2023.1",
+            "key": "LionCore-builtins-INamed-name"
           },
           "value": "c"
         }
       ],
-      "children": [
+      "containments": [
         {
           "containment": {
             "language": "io-lionweb-Properties",
@@ -185,7 +185,7 @@
     },
     {
       "id": "file_properties-parser-examples-example1-props--props2-value0",
-      "concept": {
+      "classifier": {
         "language": "io-lionweb-Properties",
         "version": "1",
         "key": "io-lionweb-Properties_StringValue"
@@ -200,7 +200,7 @@
           "value": "foo"
         }
       ],
-      "children": [],
+      "containments": [],
       "references": [],
       "parent": "file_properties-parser-examples-example1-props--props2"
     }

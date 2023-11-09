@@ -159,3 +159,9 @@ lionweb {
     importPackageNames.set(["io.lionweb.propertiesparser":"io.lionweb.props"])
     languages.add(file("properties.lmm.json"))
 }
+
+// fixes https://discuss.gradle.org/t/implicit-dependency-among-tasks-but-the-tasks-do-not-exist/46127/4
+sourceSets.configureEach {
+    var generateGrammarSource = tasks.named(getTaskName("generate", "GrammarSource"))
+    java.srcDir(generateGrammarSource.map { files() })
+}

@@ -1,7 +1,7 @@
 package io.lionweb.propertiesparser
 
-import com.strumenta.kolasu.lionweb.LionWebModelImporterAndExporter
 import com.strumenta.kolasu.model.assignParents
+import io.lionweb.Properties.*
 import io.lionweb.lioncore.java.serialization.JsonSerialization
 import org.junit.Test
 
@@ -17,9 +17,11 @@ class LionWebExportTest {
     @Test
     fun exportModel() {
         val ast = PropertiesFile(
-            Property("a", IntValue(1)),
-            Property("b", BooleanValue(true)),
-            Property("c", StringValue("foo"))
+            mutableListOf(
+                Property("a", mutableListOf(IntValue("1"))),
+                Property("b", mutableListOf(BooleanValue(true))),
+                Property("c", mutableListOf(StringValue("foo")))
+            )
         )
         ast.assignParents()
         val jsonser = JsonSerialization.getStandardSerialization()
