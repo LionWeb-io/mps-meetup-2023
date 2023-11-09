@@ -42,31 +42,7 @@ class EmfGenerated {
 		val List<Node> roots = nodes.stream().filter[it.parent === null].collect(Collectors.toList());
 
 		val ConceptsToEClassesMapping conceptMapper = new ConceptsToEClassesMapping();
-		for (element : lang.PROPERTIES_MM.elements) {
-			switch (element) {
-				Concept: {
-					var eClass = Io_lionweb_PropertiesPackage.eINSTANCE.EClassifiers.filter(EClass).findFirst [
-						it.name == element.name
-					]
-					if (eClass !== null) {
-						conceptMapper.registerMapping(element, eClass)
-					} else {
-						throw new RuntimeException('''Couldn't find EClass for concept «element»''')
-					}
-				}
-				// Change to Interface
-				Interface: {
-					var eClass = Io_lionweb_PropertiesPackage.eINSTANCE.EClassifiers.filter(EClass).findFirst [
-						it.name == element.name
-					]
-					if (eClass !== null) {
-						conceptMapper.registerMapping(element, eClass)
-					} else {
-						throw new RuntimeException('''Couldn't find EClass for interface «element»''')
-					}
-				}
-			}
-		}
+		conceptMapper.registerMapping(lang.PROPERTIES_MM, Io_lionweb_PropertiesPackage.eINSTANCE);
 
 		var EMFModelExporter emfExporter = new EMFModelExporter(conceptMapper);
 		var Resource resource = emfExporter.exportResource(roots);
