@@ -12,8 +12,8 @@ repositories {
 dependencies {
     implementation(project(":properties-emf"))
     implementation(project(":properties-json"))
-	implementation("io.lionweb.lionweb-java:lionweb-java-core:$lioncore_java_version")
-    implementation("io.lionweb.lionweb-java:lionweb-java-emf:$lioncore_java_version")
+	implementation("io.lionweb.lionweb-java:lionweb-java-core:$lionwebJavaVersion")
+    implementation("io.lionweb.lionweb-java:lionweb-java-emf:$lionwebJavaVersion")
     implementation("com.google.code.gson:gson:2.10.1")
     implementation("org.eclipse.xtend:org.eclipse.xtend.lib:2.30.0")
 }

@@ -8,5 +8,5 @@ repositories {
 }
 
 dependencies {
-    generation("io.lionweb.lionweb-mps:lionweb-mps-2021.1:0.1.3")
+    generation("io.lionweb.lionweb-mps:lionweb-mps-2021.1:$lionwebMpsVersion")
 }
