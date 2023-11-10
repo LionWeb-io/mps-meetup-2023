@@ -2,6 +2,7 @@ package io.lionweb.propertiesparser
 
 import com.strumenta.kolasu.model.replaceWith
 import com.strumenta.kolasu.traversing.walkDescendants
+import io.lionweb.Properties.*
 import kotlin.reflect.jvm.internal.impl.resolve.constants.DoubleValue
 
 fun capitalize(model: PropertiesFile) {
@@ -29,7 +30,7 @@ fun negate(model: PropertiesFile) {
 }
 
 fun reverse(model: PropertiesFile) {
-    model.props.reverse()
+    model.props.reversed()
 }
 
 fun convertToString(model: PropertiesFile) {

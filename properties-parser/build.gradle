@@ -44,7 +44,7 @@ dependencies {
     implementation group: 'commons-io', name: 'commons-io', version: '2.6'
     implementation 'com.google.code.gson:gson:2.8.7'
     implementation "com.github.ajalt.clikt:clikt:3.4.0"
-    implementation "io.lionweb.lionweb-java:lionweb-java-core:$lioncore_java_version"
+    implementation "io.lionweb.lionweb-java:lionweb-java-core:$lionwebJavaVersion"
 }
 
 configurations.all() {
@@ -109,6 +109,9 @@ ktlint {
     enableExperimentalRules = true
     // disabling no-unused-imports because it does not recognize correctly that some imports are needed
     disabledRules = ["no-wildcard-imports", "experimental:argument-list-wrapping", "no-unused-imports"]
+    filter {
+        exclude("**/AST.kt")
+    }
 }
 
 application {
@@ -158,4 +161,10 @@ shadowJar {
 lionweb {
     importPackageNames.set(["io.lionweb.propertiesparser":"io.lionweb.props"])
     languages.add(file("properties.lmm.json"))
+}
+
+// fixes https://discuss.gradle.org/t/implicit-dependency-among-tasks-but-the-tasks-do-not-exist/46127/4
+sourceSets.configureEach {
+    var generateGrammarSource = tasks.named(getTaskName("generate", "GrammarSource"))
+    java.srcDir(generateGrammarSource.map { files() })
 }

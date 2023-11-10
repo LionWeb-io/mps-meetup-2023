@@ -1,0 +1,14 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    implementation("io.lionweb.lionweb-java:lionweb-java-core:$lionwebJavaVersion")
+    implementation("com.google.code.gson:gson:2.10.1")
+}

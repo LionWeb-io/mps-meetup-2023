@@ -34,3 +34,4 @@ local.properties
 generated/
 src-gen/
 xtend-gen/
+properties-emf/src/main/java-1/

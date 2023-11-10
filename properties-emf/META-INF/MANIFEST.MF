@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: properties-emf;singleton:=true
 Automatic-Module-Name: properties-emf
-Bundle-Version: 0.1.0.qualifier
+Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
@@ -13,7 +13,11 @@ Export-Package: LionCore_builtins,
  LionCore_builtins.util,
  io.lionweb.Properties,
  io.lionweb.Properties.impl,
- io.lionweb.Properties.util
+ io.lionweb.Properties.util,
+ PropertiesX,
+ PropertiesX.impl,
+ PropertiesX.util
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.emf.ecore;visibility:=reexport
+ org.eclipse.emf.ecore;visibility:=reexport,
+ io.lionweb.java.emf.builtins;visibility:=reexport
 Bundle-ActivationPolicy: lazy

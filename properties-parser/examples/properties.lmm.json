@@ -1,51 +1,46 @@
 {
-  "serializationFormatVersion": "1",
-  "metamodels": [
+  "serializationFormatVersion": "2023.1",
+  "languages": [
     {
-      "version": "1",
-      "key": "LIonCore_M3"
+      "version": "2023.1",
+      "key": "LionCore-M3"
     }
   ],
   "nodes": [
     {
       "id": "io_lionweb_Properties",
-      "concept": {
-        "metamodel": "LIonCore_M3",
-        "version": "1",
-        "key": "Metamodel"
-      },
       "properties": [
         {
           "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "Metamodel_name"
-          },
-          "value": "io.lionweb.Properties"
-        },
-        {
-          "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "version"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "Language-version"
           },
           "value": "1"
         },
         {
           "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "key"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "IKeyed-key"
           },
           "value": "io_lionweb_Properties"
+        },
+        {
+          "property": {
+            "language": "LionCore-builtins",
+            "version": "2023.1",
+            "key": "LionCore-builtins-INamed-name"
+          },
+          "value": "io.lionweb.Properties"
         }
       ],
-      "children": [
+      "containments": [
         {
           "containment": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "elements"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "Language-entities"
           },
           "children": [
             "io_lionweb_Properties-PropertiesFile",
@@ -61,67 +56,63 @@
       "references": [
         {
           "reference": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "dependsOn"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "Language-dependsOn"
           },
-          "targets": [
-            {
-              "resolveInfo": "com.strumenta.StarLasu",
-              "reference": "com_strumenta_StarLasu"
-            }
-          ]
+          "targets": []
         }
       ],
-      "parent": null
+      "annotations": [],
+      "parent": null,
+      "classifier": {
+        "language": "LionCore-M3",
+        "version": "2023.1",
+        "key": "Language"
+      }
     },
     {
       "id": "io_lionweb_Properties-PropertiesFile",
-      "concept": {
-        "metamodel": "LIonCore_M3",
-        "version": "1",
-        "key": "Concept"
-      },
       "properties": [
         {
           "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "abstract"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "Concept-abstract"
           },
           "value": "false"
         },
         {
           "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "NamespacedEntity_name"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "Concept-partition"
           },
-          "value": "PropertiesFile"
+          "value": "false"
         },
         {
           "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "qualifiedName"
-          },
-          "value": "io.lionweb.Properties.PropertiesFile"
-        },
-        {
-          "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "key"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "IKeyed-key"
           },
           "value": "io_lionweb_Properties-PropertiesFile"
+        },
+        {
+          "property": {
+            "language": "LionCore-builtins",
+            "version": "2023.1",
+            "key": "LionCore-builtins-INamed-name"
+          },
+          "value": "PropertiesFile"
         }
       ],
-      "children": [
+      "containments": [
         {
           "containment": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "features"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "Classifier-features"
           },
           "children": [
             "io_lionweb_Properties-PropertiesFile-props"
@@ -131,92 +122,72 @@
       "references": [
         {
           "reference": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "Concept_extends"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "Concept-extends"
           },
-          "targets": [
-            {
-              "resolveInfo": "ASTNode",
-              "reference": "StarLasu-ASTNode"
-            }
-          ]
+          "targets": []
         },
         {
           "reference": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "implements"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "Concept-implements"
           },
           "targets": []
         }
       ],
-      "parent": "io_lionweb_Properties"
+      "annotations": [],
+      "parent": "io_lionweb_Properties",
+      "classifier": {
+        "language": "LionCore-M3",
+        "version": "2023.1",
+        "key": "Concept"
+      }
     },
     {
       "id": "io_lionweb_Properties-PropertiesFile-props",
-      "concept": {
-        "metamodel": "LIonCore_M3",
-        "version": "1",
-        "key": "Containment"
-      },
       "properties": [
         {
           "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "multiple"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "Link-multiple"
           },
           "value": "true"
         },
         {
           "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "optional"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "Feature-optional"
           },
           "value": "false"
         },
         {
           "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "derived"
-          },
-          "value": "false"
-        },
-        {
-          "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "NamespacedEntity_name"
-          },
-          "value": "props"
-        },
-        {
-          "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "qualifiedName"
-          },
-          "value": "io.lionweb.Properties.PropertiesFile.props"
-        },
-        {
-          "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "key"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "IKeyed-key"
           },
           "value": "io_lionweb_Properties-PropertiesFile-props"
+        },
+        {
+          "property": {
+            "language": "LionCore-builtins",
+            "version": "2023.1",
+            "key": "LionCore-builtins-INamed-name"
+          },
+          "value": "props"
         }
       ],
-      "children": [],
+      "containments": [],
       "references": [
         {
           "reference": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "Link_type"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "Link-type"
           },
           "targets": [
             {
@@ -226,58 +197,58 @@
           ]
         }
       ],
-      "parent": "io_lionweb_Properties-PropertiesFile"
+      "annotations": [],
+      "parent": "io_lionweb_Properties-PropertiesFile",
+      "classifier": {
+        "language": "LionCore-M3",
+        "version": "2023.1",
+        "key": "Containment"
+      }
     },
     {
       "id": "io_lionweb_Properties-Property",
-      "concept": {
-        "metamodel": "LIonCore_M3",
-        "version": "1",
-        "key": "Concept"
-      },
       "properties": [
         {
           "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "abstract"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "Concept-abstract"
           },
           "value": "false"
         },
         {
           "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "NamespacedEntity_name"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "Concept-partition"
           },
-          "value": "Property"
+          "value": "false"
         },
         {
           "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "qualifiedName"
-          },
-          "value": "io.lionweb.Properties.Property"
-        },
-        {
-          "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "key"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "IKeyed-key"
           },
           "value": "io_lionweb_Properties-Property"
+        },
+        {
+          "property": {
+            "language": "LionCore-builtins",
+            "version": "2023.1",
+            "key": "LionCore-builtins-INamed-name"
+          },
+          "value": "Property"
         }
       ],
-      "children": [
+      "containments": [
         {
           "containment": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "features"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "Classifier-features"
           },
           "children": [
-            "io_lionweb_Properties-Property-name",
             "io_lionweb_Properties-Property-value"
           ]
         }
@@ -285,159 +256,77 @@
       "references": [
         {
           "reference": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "Concept_extends"
-          },
-          "targets": [
-            {
-              "resolveInfo": "ASTNode",
-              "reference": "StarLasu-ASTNode"
-            }
-          ]
-        },
-        {
-          "reference": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "implements"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "Concept-extends"
           },
           "targets": []
-        }
-      ],
-      "parent": "io_lionweb_Properties"
-    },
-    {
-      "id": "io_lionweb_Properties-Property-name",
-      "concept": {
-        "metamodel": "LIonCore_M3",
-        "version": "1",
-        "key": "Property"
-      },
-      "properties": [
-        {
-          "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "optional"
-          },
-          "value": "false"
         },
-        {
-          "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "derived"
-          },
-          "value": "false"
-        },
-        {
-          "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "NamespacedEntity_name"
-          },
-          "value": "name"
-        },
-        {
-          "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "qualifiedName"
-          },
-          "value": "io.lionweb.Properties.Property.name"
-        },
-        {
-          "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "key"
-          },
-          "value": "io_lionweb_Properties-Property-name"
-        }
-      ],
-      "children": [],
-      "references": [
         {
           "reference": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "Property_type"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "Concept-implements"
           },
           "targets": [
             {
-              "resolveInfo": "String",
-              "reference": "LIonCore_M3_String"
+              "resolveInfo": "INamed",
+              "reference": "LionCore-builtins-INamed"
             }
           ]
         }
       ],
-      "parent": "io_lionweb_Properties-Property"
+      "annotations": [],
+      "parent": "io_lionweb_Properties",
+      "classifier": {
+        "language": "LionCore-M3",
+        "version": "2023.1",
+        "key": "Concept"
+      }
     },
     {
       "id": "io_lionweb_Properties-Property-value",
-      "concept": {
-        "metamodel": "LIonCore_M3",
-        "version": "1",
-        "key": "Containment"
-      },
       "properties": [
         {
           "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "multiple"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "Link-multiple"
+          },
+          "value": "true"
+        },
+        {
+          "property": {
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "Feature-optional"
           },
           "value": "false"
         },
         {
           "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "optional"
-          },
-          "value": "false"
-        },
-        {
-          "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "derived"
-          },
-          "value": "false"
-        },
-        {
-          "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "NamespacedEntity_name"
-          },
-          "value": "value"
-        },
-        {
-          "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "qualifiedName"
-          },
-          "value": "io.lionweb.Properties.Property.value"
-        },
-        {
-          "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "key"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "IKeyed-key"
           },
           "value": "io_lionweb_Properties-Property-value"
+        },
+        {
+          "property": {
+            "language": "LionCore-builtins",
+            "version": "2023.1",
+            "key": "LionCore-builtins-INamed-name"
+          },
+          "value": "value"
         }
       ],
-      "children": [],
+      "containments": [],
       "references": [
         {
           "reference": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "Link_type"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "Link-type"
           },
           "targets": [
             {
@@ -447,55 +336,56 @@
           ]
         }
       ],
-      "parent": "io_lionweb_Properties-Property"
+      "annotations": [],
+      "parent": "io_lionweb_Properties-Property",
+      "classifier": {
+        "language": "LionCore-M3",
+        "version": "2023.1",
+        "key": "Containment"
+      }
     },
     {
       "id": "io_lionweb_Properties-Value",
-      "concept": {
-        "metamodel": "LIonCore_M3",
-        "version": "1",
-        "key": "Concept"
-      },
       "properties": [
         {
           "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "abstract"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "Concept-abstract"
           },
           "value": "false"
         },
         {
           "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "NamespacedEntity_name"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "Concept-partition"
           },
-          "value": "Value"
+          "value": "false"
         },
         {
           "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "qualifiedName"
-          },
-          "value": "io.lionweb.Properties.Value"
-        },
-        {
-          "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "key"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "IKeyed-key"
           },
           "value": "io_lionweb_Properties-Value"
+        },
+        {
+          "property": {
+            "language": "LionCore-builtins",
+            "version": "2023.1",
+            "key": "LionCore-builtins-INamed-name"
+          },
+          "value": "Value"
         }
       ],
-      "children": [
+      "containments": [
         {
           "containment": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "features"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "Classifier-features"
           },
           "children": []
         }
@@ -503,75 +393,71 @@
       "references": [
         {
           "reference": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "Concept_extends"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "Concept-extends"
           },
-          "targets": [
-            {
-              "resolveInfo": "ASTNode",
-              "reference": "StarLasu-ASTNode"
-            }
-          ]
+          "targets": []
         },
         {
           "reference": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "implements"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "Concept-implements"
           },
           "targets": []
         }
       ],
-      "parent": "io_lionweb_Properties"
+      "annotations": [],
+      "parent": "io_lionweb_Properties",
+      "classifier": {
+        "language": "LionCore-M3",
+        "version": "2023.1",
+        "key": "Concept"
+      }
     },
     {
       "id": "io_lionweb_Properties-BooleanValue",
-      "concept": {
-        "metamodel": "LIonCore_M3",
-        "version": "1",
-        "key": "Concept"
-      },
       "properties": [
         {
           "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "abstract"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "Concept-abstract"
           },
           "value": "false"
         },
         {
           "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "NamespacedEntity_name"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "Concept-partition"
           },
-          "value": "BooleanValue"
+          "value": "false"
         },
         {
           "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "qualifiedName"
-          },
-          "value": "io.lionweb.Properties.BooleanValue"
-        },
-        {
-          "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "key"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "IKeyed-key"
           },
           "value": "io_lionweb_Properties-BooleanValue"
+        },
+        {
+          "property": {
+            "language": "LionCore-builtins",
+            "version": "2023.1",
+            "key": "LionCore-builtins-INamed-name"
+          },
+          "value": "BooleanValue"
         }
       ],
-      "children": [
+      "containments": [
         {
           "containment": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "features"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "Classifier-features"
           },
           "children": [
             "io_lionweb_Properties-BooleanValue-value"
@@ -581,9 +467,9 @@
       "references": [
         {
           "reference": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "Concept_extends"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "Concept-extends"
           },
           "targets": [
             {
@@ -594,129 +480,115 @@
         },
         {
           "reference": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "implements"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "Concept-implements"
           },
           "targets": []
         }
       ],
-      "parent": "io_lionweb_Properties"
+      "annotations": [],
+      "parent": "io_lionweb_Properties",
+      "classifier": {
+        "language": "LionCore-M3",
+        "version": "2023.1",
+        "key": "Concept"
+      }
     },
     {
       "id": "io_lionweb_Properties-BooleanValue-value",
-      "concept": {
-        "metamodel": "LIonCore_M3",
-        "version": "1",
-        "key": "Property"
-      },
       "properties": [
         {
           "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "optional"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "Feature-optional"
           },
           "value": "false"
         },
         {
           "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "derived"
-          },
-          "value": "false"
-        },
-        {
-          "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "NamespacedEntity_name"
-          },
-          "value": "value"
-        },
-        {
-          "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "qualifiedName"
-          },
-          "value": "io.lionweb.Properties.BooleanValue.value"
-        },
-        {
-          "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "key"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "IKeyed-key"
           },
           "value": "io_lionweb_Properties-BooleanValue-value"
+        },
+        {
+          "property": {
+            "language": "LionCore-builtins",
+            "version": "2023.1",
+            "key": "LionCore-builtins-INamed-name"
+          },
+          "value": "value"
         }
       ],
-      "children": [],
+      "containments": [],
       "references": [
         {
           "reference": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "Property_type"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "Property-type"
           },
           "targets": [
             {
               "resolveInfo": "Boolean",
-              "reference": "LIonCore_M3_Boolean"
+              "reference": "LionCore-builtins-Boolean"
             }
           ]
         }
       ],
-      "parent": "io_lionweb_Properties-BooleanValue"
+      "annotations": [],
+      "parent": "io_lionweb_Properties-BooleanValue",
+      "classifier": {
+        "language": "LionCore-M3",
+        "version": "2023.1",
+        "key": "Property"
+      }
     },
     {
       "id": "io_lionweb_Properties-DecValue",
-      "concept": {
-        "metamodel": "LIonCore_M3",
-        "version": "1",
-        "key": "Concept"
-      },
       "properties": [
         {
           "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "abstract"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "Concept-abstract"
           },
           "value": "false"
         },
         {
           "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "NamespacedEntity_name"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "Concept-partition"
           },
-          "value": "DecValue"
+          "value": "false"
         },
         {
           "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "qualifiedName"
-          },
-          "value": "io.lionweb.Properties.DecValue"
-        },
-        {
-          "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "key"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "IKeyed-key"
           },
           "value": "io_lionweb_Properties-DecValue"
+        },
+        {
+          "property": {
+            "language": "LionCore-builtins",
+            "version": "2023.1",
+            "key": "LionCore-builtins-INamed-name"
+          },
+          "value": "DecValue"
         }
       ],
-      "children": [
+      "containments": [
         {
           "containment": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "features"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "Classifier-features"
           },
           "children": [
             "io_lionweb_Properties-DecValue-value"
@@ -726,9 +598,9 @@
       "references": [
         {
           "reference": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "Concept_extends"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "Concept-extends"
           },
           "targets": [
             {
@@ -739,129 +611,115 @@
         },
         {
           "reference": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "implements"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "Concept-implements"
           },
           "targets": []
         }
       ],
-      "parent": "io_lionweb_Properties"
+      "annotations": [],
+      "parent": "io_lionweb_Properties",
+      "classifier": {
+        "language": "LionCore-M3",
+        "version": "2023.1",
+        "key": "Concept"
+      }
     },
     {
       "id": "io_lionweb_Properties-DecValue-value",
-      "concept": {
-        "metamodel": "LIonCore_M3",
-        "version": "1",
-        "key": "Property"
-      },
       "properties": [
         {
           "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "optional"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "Feature-optional"
           },
           "value": "false"
         },
         {
           "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "derived"
-          },
-          "value": "false"
-        },
-        {
-          "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "NamespacedEntity_name"
-          },
-          "value": "value"
-        },
-        {
-          "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "qualifiedName"
-          },
-          "value": "io.lionweb.Properties.DecValue.value"
-        },
-        {
-          "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "key"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "IKeyed-key"
           },
           "value": "io_lionweb_Properties-DecValue-value"
+        },
+        {
+          "property": {
+            "language": "LionCore-builtins",
+            "version": "2023.1",
+            "key": "LionCore-builtins-INamed-name"
+          },
+          "value": "value"
         }
       ],
-      "children": [],
+      "containments": [],
       "references": [
         {
           "reference": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "Property_type"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "Property-type"
           },
           "targets": [
             {
               "resolveInfo": "String",
-              "reference": "LIonCore_M3_String"
+              "reference": "LionCore-builtins-String"
             }
           ]
         }
       ],
-      "parent": "io_lionweb_Properties-DecValue"
+      "annotations": [],
+      "parent": "io_lionweb_Properties-DecValue",
+      "classifier": {
+        "language": "LionCore-M3",
+        "version": "2023.1",
+        "key": "Property"
+      }
     },
     {
       "id": "io_lionweb_Properties-IntValue",
-      "concept": {
-        "metamodel": "LIonCore_M3",
-        "version": "1",
-        "key": "Concept"
-      },
       "properties": [
         {
           "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "abstract"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "Concept-abstract"
           },
           "value": "false"
         },
         {
           "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "NamespacedEntity_name"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "Concept-partition"
           },
-          "value": "IntValue"
+          "value": "false"
         },
         {
           "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "qualifiedName"
-          },
-          "value": "io.lionweb.Properties.IntValue"
-        },
-        {
-          "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "key"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "IKeyed-key"
           },
           "value": "io_lionweb_Properties-IntValue"
+        },
+        {
+          "property": {
+            "language": "LionCore-builtins",
+            "version": "2023.1",
+            "key": "LionCore-builtins-INamed-name"
+          },
+          "value": "IntValue"
         }
       ],
-      "children": [
+      "containments": [
         {
           "containment": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "features"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "Classifier-features"
           },
           "children": [
             "io_lionweb_Properties-IntValue-value"
@@ -871,9 +729,9 @@
       "references": [
         {
           "reference": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "Concept_extends"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "Concept-extends"
           },
           "targets": [
             {
@@ -884,129 +742,115 @@
         },
         {
           "reference": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "implements"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "Concept-implements"
           },
           "targets": []
         }
       ],
-      "parent": "io_lionweb_Properties"
+      "annotations": [],
+      "parent": "io_lionweb_Properties",
+      "classifier": {
+        "language": "LionCore-M3",
+        "version": "2023.1",
+        "key": "Concept"
+      }
     },
     {
       "id": "io_lionweb_Properties-IntValue-value",
-      "concept": {
-        "metamodel": "LIonCore_M3",
-        "version": "1",
-        "key": "Property"
-      },
       "properties": [
         {
           "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "optional"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "Feature-optional"
           },
           "value": "false"
         },
         {
           "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "derived"
-          },
-          "value": "false"
-        },
-        {
-          "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "NamespacedEntity_name"
-          },
-          "value": "value"
-        },
-        {
-          "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "qualifiedName"
-          },
-          "value": "io.lionweb.Properties.IntValue.value"
-        },
-        {
-          "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "key"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "IKeyed-key"
           },
           "value": "io_lionweb_Properties-IntValue-value"
+        },
+        {
+          "property": {
+            "language": "LionCore-builtins",
+            "version": "2023.1",
+            "key": "LionCore-builtins-INamed-name"
+          },
+          "value": "value"
         }
       ],
-      "children": [],
+      "containments": [],
       "references": [
         {
           "reference": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "Property_type"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "Property-type"
           },
           "targets": [
             {
               "resolveInfo": "String",
-              "reference": "LIonCore_M3_String"
+              "reference": "LionCore-builtins-String"
             }
           ]
         }
       ],
-      "parent": "io_lionweb_Properties-IntValue"
+      "annotations": [],
+      "parent": "io_lionweb_Properties-IntValue",
+      "classifier": {
+        "language": "LionCore-M3",
+        "version": "2023.1",
+        "key": "Property"
+      }
     },
     {
       "id": "io_lionweb_Properties-StringValue",
-      "concept": {
-        "metamodel": "LIonCore_M3",
-        "version": "1",
-        "key": "Concept"
-      },
       "properties": [
         {
           "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "abstract"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "Concept-abstract"
           },
           "value": "false"
         },
         {
           "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "NamespacedEntity_name"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "Concept-partition"
           },
-          "value": "StringValue"
+          "value": "false"
         },
         {
           "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "qualifiedName"
-          },
-          "value": "io.lionweb.Properties.StringValue"
-        },
-        {
-          "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "key"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "IKeyed-key"
           },
           "value": "io_lionweb_Properties-StringValue"
+        },
+        {
+          "property": {
+            "language": "LionCore-builtins",
+            "version": "2023.1",
+            "key": "LionCore-builtins-INamed-name"
+          },
+          "value": "StringValue"
         }
       ],
-      "children": [
+      "containments": [
         {
           "containment": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "features"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "Classifier-features"
           },
           "children": [
             "io_lionweb_Properties-StringValue-value"
@@ -1016,9 +860,9 @@
       "references": [
         {
           "reference": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "Concept_extends"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "Concept-extends"
           },
           "targets": [
             {
@@ -1029,81 +873,72 @@
         },
         {
           "reference": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "implements"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "Concept-implements"
           },
           "targets": []
         }
       ],
-      "parent": "io_lionweb_Properties"
+      "annotations": [],
+      "parent": "io_lionweb_Properties",
+      "classifier": {
+        "language": "LionCore-M3",
+        "version": "2023.1",
+        "key": "Concept"
+      }
     },
     {
       "id": "io_lionweb_Properties-StringValue-value",
-      "concept": {
-        "metamodel": "LIonCore_M3",
-        "version": "1",
-        "key": "Property"
-      },
       "properties": [
         {
           "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "optional"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "Feature-optional"
           },
           "value": "false"
         },
         {
           "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "derived"
-          },
-          "value": "false"
-        },
-        {
-          "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "NamespacedEntity_name"
-          },
-          "value": "value"
-        },
-        {
-          "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "qualifiedName"
-          },
-          "value": "io.lionweb.Properties.StringValue.value"
-        },
-        {
-          "property": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "key"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "IKeyed-key"
           },
           "value": "io_lionweb_Properties-StringValue-value"
+        },
+        {
+          "property": {
+            "language": "LionCore-builtins",
+            "version": "2023.1",
+            "key": "LionCore-builtins-INamed-name"
+          },
+          "value": "value"
         }
       ],
-      "children": [],
+      "containments": [],
       "references": [
         {
           "reference": {
-            "metamodel": "LIonCore_M3",
-            "version": "1",
-            "key": "Property_type"
+            "language": "LionCore-M3",
+            "version": "2023.1",
+            "key": "Property-type"
           },
           "targets": [
             {
               "resolveInfo": "String",
-              "reference": "LIonCore_M3_String"
+              "reference": "LionCore-builtins-String"
             }
           ]
         }
       ],
-      "parent": "io_lionweb_Properties-StringValue"
+      "annotations": [],
+      "parent": "io_lionweb_Properties-StringValue",
+      "classifier": {
+        "language": "LionCore-M3",
+        "version": "2023.1",
+        "key": "Property"
+      }
     }
   ]
 }

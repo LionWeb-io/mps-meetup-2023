@@ -7,7 +7,6 @@
     <devkit ref="78434eb8-b0e5-444b-850d-e7c4ad2da9ab(jetbrains.mps.devkit.aspect.structure)" />
   </languages>
   <imports>
-    <import index="wdd7" ref="r:e28356be-9644-47f3-8a98-bda059bc5646(com.strumenta.StarLasu.structure)" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
   </imports>
   <registry>
@@ -18,8 +17,13 @@
         <child id="1071489727083" name="linkDeclaration" index="1TKVEi" />
         <child id="1071489727084" name="propertyDeclaration" index="1TKVEl" />
       </concept>
+      <concept id="1169127622168" name="jetbrains.mps.lang.structure.structure.InterfaceConceptReference" flags="ig" index="PrWs8">
+        <reference id="1169127628841" name="intfc" index="PrY4T" />
+      </concept>
       <concept id="1071489090640" name="jetbrains.mps.lang.structure.structure.ConceptDeclaration" flags="ig" index="1TIwiD">
+        <property id="1096454100552" name="rootable" index="19KtqR" />
         <reference id="1071489389519" name="extends" index="1TJDcQ" />
+        <child id="1169129564478" name="implements" index="PzmwI" />
       </concept>
       <concept id="1071489288299" name="jetbrains.mps.lang.structure.structure.PropertyDeclaration" flags="ig" index="1TJgyi">
         <property id="241647608299431129" name="propertyId" index="IQ2nx" />
@@ -42,11 +46,14 @@
       </concept>
     </language>
     <language id="411e5b27-8a76-482e-8af8-1704262b4468" name="io.lionweb.mps.structure.attribute">
-      <concept id="7205279169712116346" name="io.lionweb.mps.structure.attribute.structure.LIonWebLanguageKey" flags="ng" index="2DM1_0" />
+      <concept id="7205279169712116346" name="io.lionweb.mps.structure.attribute.structure.LionWebLanguageKey" flags="ng" index="2DM1_0" />
       <concept id="7205279169712116353" name="io.lionweb.mps.structure.attribute.structure.ILionWebKey" flags="ng" index="2DM1AV">
         <property id="7205279169712116354" name="key" index="2DM1AS" />
       </concept>
-      <concept id="7205279169712116358" name="io.lionweb.mps.structure.attribute.structure.LIonWebElementKey" flags="ng" index="2DM1AW" />
+      <concept id="7205279169712116358" name="io.lionweb.mps.structure.attribute.structure.LionWebEntityKey" flags="ng" index="2DM1AW" />
+      <concept id="6461713321120959620" name="io.lionweb.mps.structure.attribute.structure.LionWebPartitionConcept" flags="ng" index="3KvTa3">
+        <property id="6461713321120959627" name="partition" index="3KvTac" />
+      </concept>
     </language>
   </registry>
   <node concept="2DM1_0" id="6LPMcPcmvOr">
@@ -56,7 +63,8 @@
     <property role="R5$K7" value="false" />
     <property role="TrG5h" value="PropertiesFile" />
     <property role="EcuMT" value="4516078350026690430" />
-    <ref role="1TJDcQ" to="wdd7:6LPMcPcmvNJ" resolve="ASTNode" />
+    <property role="19KtqR" value="true" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
     <node concept="2DM1AW" id="6LPMcPcmvNY" role="lGtFl">
       <property role="2DM1AS" value="io_lionweb_Properties-PropertiesFile" />
     </node>
@@ -70,22 +78,17 @@
         <property role="2DM1AS" value="io_lionweb_Properties-PropertiesFile-props" />
       </node>
     </node>
+    <node concept="3KvTa3" id="6Sgmz$5w8RH" role="lGtFl">
+      <property role="3KvTac" value="true" />
+    </node>
   </node>
   <node concept="1TIwiD" id="6LPMcPcmvO1">
     <property role="R5$K7" value="false" />
     <property role="TrG5h" value="Property" />
     <property role="EcuMT" value="9045300450722131192" />
-    <ref role="1TJDcQ" to="wdd7:6LPMcPcmvNJ" resolve="ASTNode" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
     <node concept="2DM1AW" id="6LPMcPcmvO2" role="lGtFl">
       <property role="2DM1AS" value="io_lionweb_Properties-Property" />
-    </node>
-    <node concept="1TJgyi" id="6LPMcPcmvO3" role="1TKVEl">
-      <property role="TrG5h" value="name" />
-      <property role="IQ2nx" value="987908001351304881" />
-      <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
-      <node concept="2DM1AW" id="6LPMcPcmvO4" role="lGtFl">
-        <property role="2DM1AS" value="io_lionweb_Properties-Property-name" />
-      </node>
     </node>
     <node concept="1TJgyj" id="6LPMcPcmvO5" role="1TKVEi">
       <property role="20kJfa" value="value" />
@@ -97,12 +100,15 @@
         <property role="2DM1AS" value="io_lionweb_Properties-Property-value" />
       </node>
     </node>
+    <node concept="PrWs8" id="6Sgmz$5w8Sa" role="PzmwI">
+      <ref role="PrY4T" to="tpck:h0TrEE$" resolve="INamedConcept" />
+    </node>
   </node>
   <node concept="1TIwiD" id="6LPMcPcmvO7">
-    <property role="R5$K7" value="false" />
+    <property role="R5$K7" value="true" />
     <property role="TrG5h" value="Value" />
     <property role="EcuMT" value="-5637181171957891234" />
-    <ref role="1TJDcQ" to="wdd7:6LPMcPcmvNJ" resolve="ASTNode" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
     <node concept="2DM1AW" id="6LPMcPcmvO8" role="lGtFl">
       <property role="2DM1AS" value="io_lionweb_Properties-Value" />
     </node>

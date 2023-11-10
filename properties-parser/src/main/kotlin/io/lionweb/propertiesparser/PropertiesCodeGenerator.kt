@@ -2,6 +2,7 @@ package io.lionweb.propertiesparser
 
 import com.strumenta.kolasu.codegen.ASTCodeGenerator
 import com.strumenta.kolasu.model.Node
+import io.lionweb.Properties.*
 
 class PropertiesCodeGenerator : ASTCodeGenerator<Node>() {
     override fun registerRecordPrinters() {
@@ -11,7 +12,7 @@ class PropertiesCodeGenerator : ASTCodeGenerator<Node>() {
         recordPrinter<Property> {
             print(it.name)
             print(" = ")
-            print(it.value)
+            print(it.value.first())
             println()
         }
         recordPrinter<IntValue> {
