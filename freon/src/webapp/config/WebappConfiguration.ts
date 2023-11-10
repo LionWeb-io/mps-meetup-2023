@@ -6,8 +6,8 @@ import { FreUtils, LionWebCommunication, LionwebIdProvider, LocalLionwebIdProvid
 /**
  * The one and only reference to the server on which the models are stored
  */
-export const serverCommunication: IServerCommunication = ServerCommunication.getInstance();
-// export const serverCommunication: IServerCommunication = MpsServerCommunication.getInstance();
+// export const serverCommunication: IServerCommunication = ServerCommunication.getInstance();
+export const serverCommunication: IServerCommunication = LionWebCommunication.getInstance();
 /**
  * The one and only reference to the actual language for which this editor runs
  */
