@@ -4,12 +4,12 @@ import com.strumenta.kolasu.language.KolasuLanguage
 import com.strumenta.kolasu.lionweb.LionWebModelConverter
 import com.strumenta.kolasu.lionweb.StarLasuLWLanguage
 import io.lionweb.Properties.*
+import io.lionweb.emf.support.PropertiesLoader
 import io.lionweb.lioncore.java.language.Language
 import io.lionweb.lioncore.java.serialization.JsonSerialization
 import java.io.File
 import java.io.FileInputStream
 import java.io.InputStream
-import io.lionweb.emf.support.PropertiesLoader
 
 class PropertiesModelLoader {
     private var language: Language
