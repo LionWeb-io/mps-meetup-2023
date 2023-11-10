@@ -81,12 +81,12 @@
   </registry>
   <node concept="3z8Sf4" id="41GYAKu44_J">
     <property role="TrG5h" value="1b. Import Properties Metamodel from JSON" />
-    <property role="VS7hl" value="${lionweb.mpsmeetup2023.home}/properties-parser/examples/properties.lmm.json" />
+    <property role="VS7hl" value="${lionweb.property-demo.home}/properties-parser/examples/properties.lmm.json" />
     <property role="3GE5qa" value="converter" />
   </node>
   <node concept="3z8Sf4" id="4Vn6yFagKMG">
     <property role="TrG5h" value="1. Import Combined Metamodel from JSON" />
-    <property role="VS7hl" value="${lionweb.mpsmeetup2023.home}/properties-parser/examples/combined.lmm.json" />
+    <property role="VS7hl" value="${lionweb.property-demo.home}/properties-parser/examples/combined.lmm.json" />
     <property role="3GE5qa" value="converter" />
   </node>
   <node concept="1a0hBo" id="1apSfP9LYiA">
@@ -101,18 +101,18 @@
   </node>
   <node concept="VS7hd" id="3LWE6BDzNr5">
     <property role="TrG5h" value="3. Import Properties Instance from JSON" />
-    <property role="VS7hl" value="${lionweb.mpsmeetup2023.home}/properties-parser/examples/example1.lm.json" />
+    <property role="VS7hl" value="${lionweb.property-demo.home}/properties-parser/examples/example1.lm.json" />
     <property role="3GE5qa" value="converter" />
   </node>
   <node concept="3z8Sf4" id="7ReUsn7GpJ7">
     <property role="TrG5h" value="1a. Import StarLasu Metamodel from JSON" />
-    <property role="VS7hl" value="${lionweb.mpsmeetup2023.home}/properties-parser/examples/starlasu.lmm.json" />
+    <property role="VS7hl" value="${lionweb.property-demo.home}/properties-parser/examples/starlasu.lmm.json" />
     <property role="3GE5qa" value="converter" />
   </node>
   <node concept="pgt$m" id="599fWZqf7zh">
     <property role="3GE5qa" value="converter" />
     <property role="TrG5h" value="4. Export Properties Instance to JSON" />
-    <property role="VS7hl" value="${lionweb.mpsmeetup2023.home}/properties-parser/example1-exported.lm.json" />
+    <property role="VS7hl" value="${lionweb.property-demo.home}/properties-parser/example1-exported.lm.json" />
     <property role="pjpzt" value="39$JcGFaino/closure" />
     <node concept="pgsVv" id="3TCs_NvwG5A" role="pgtdD">
       <ref role="pgsW4" to="qqc7:~file_properties-parser-examples-example1-props-" />
@@ -247,7 +247,7 @@
   <node concept="2P3vlD" id="6Sgmz$5w98B">
     <property role="3GE5qa" value="converter" />
     <property role="TrG5h" value="Export Properties Language to JSON" />
-    <property role="VS7hl" value="${lionweb.mpsmeetup2023.home}/properties-parser/properties.lmm.json" />
+    <property role="VS7hl" value="${lionweb.property-demo.home}/properties-parser/properties.lmm.json" />
     <node concept="2RzRkq" id="6Sgmz$5w98E" role="1a0gs3">
       <ref role="2RzRkr" node="3TCs_NvwxvO" resolve="io_lionweb_Properties" />
     </node>
