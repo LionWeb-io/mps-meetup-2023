@@ -11,9 +11,9 @@ class PropertiesTransformerTest {
     fun testCapitalize() {
         val model = PropertiesFile(
             mutableListOf(
-                Property("a", mutableListOf(IntValue("1"))),
-                Property("b", mutableListOf(BooleanValue(true))),
-                Property("c", mutableListOf(StringValue("foo")))
+                Property("a", (IntValue("1"))),
+                Property("b", (BooleanValue(true))),
+                Property("c", (StringValue("foo")))
             )
         )
         model.assignParents()
@@ -21,9 +21,9 @@ class PropertiesTransformerTest {
         assertASTsAreEqual(
             PropertiesFile(
                 mutableListOf(
-                    Property("A", mutableListOf(IntValue("1"))),
-                    Property("B", mutableListOf(BooleanValue(true))),
-                    Property("C", mutableListOf(StringValue("FOO")))
+                    Property("A", (IntValue("1"))),
+                    Property("B", (BooleanValue(true))),
+                    Property("C", (StringValue("FOO")))
                 )
             ),
             model
@@ -34,9 +34,9 @@ class PropertiesTransformerTest {
     fun testDouble() {
         val model = PropertiesFile(
             mutableListOf(
-                Property("a", mutableListOf(IntValue("1"))),
-                Property("b", mutableListOf(BooleanValue(true))),
-                Property("c", mutableListOf(StringValue("foo")))
+                Property("a", (IntValue("1"))),
+                Property("b", (BooleanValue(true))),
+                Property("c", (StringValue("foo")))
             )
         )
         model.assignParents()
@@ -44,9 +44,9 @@ class PropertiesTransformerTest {
         assertASTsAreEqual(
             PropertiesFile(
                 mutableListOf(
-                    Property("a", mutableListOf(IntValue("2"))),
-                    Property("b", mutableListOf(BooleanValue(true))),
-                    Property("c", mutableListOf(StringValue("foo")))
+                    Property("a", (IntValue("2"))),
+                    Property("b", (BooleanValue(true))),
+                    Property("c", (StringValue("foo")))
                 )
             ),
             model
@@ -57,9 +57,9 @@ class PropertiesTransformerTest {
     fun testNegate() {
         val model = PropertiesFile(
             mutableListOf(
-                Property("a", mutableListOf(IntValue("1"))),
-                Property("b", mutableListOf(BooleanValue(true))),
-                Property("c", mutableListOf(StringValue("foo")))
+                Property("a", (IntValue("1"))),
+                Property("b", (BooleanValue(true))),
+                Property("c", (StringValue("foo")))
             )
         )
         model.assignParents()
@@ -67,9 +67,9 @@ class PropertiesTransformerTest {
         assertASTsAreEqual(
             PropertiesFile(
                 mutableListOf(
-                    Property("a", mutableListOf(IntValue("1"))),
-                    Property("b", mutableListOf(BooleanValue(false))),
-                    Property("c", mutableListOf(StringValue("foo")))
+                    Property("a", (IntValue("1"))),
+                    Property("b", (BooleanValue(false))),
+                    Property("c", (StringValue("foo")))
                 )
             ),
             model
@@ -81,9 +81,9 @@ class PropertiesTransformerTest {
     fun testReverse() {
         val model = PropertiesFile(
             mutableListOf(
-                Property("a", mutableListOf(IntValue("1"))),
-                Property("b", mutableListOf(BooleanValue(true))),
-                Property("c", mutableListOf(StringValue("foo")))
+                Property("a", (IntValue("1"))),
+                Property("b", (BooleanValue(true))),
+                Property("c", (StringValue("foo")))
             )
         )
         model.assignParents()
@@ -91,9 +91,9 @@ class PropertiesTransformerTest {
         assertASTsAreEqual(
             PropertiesFile(
                 mutableListOf(
-                    Property("c", mutableListOf(StringValue("foo"))),
-                    Property("b", mutableListOf(BooleanValue(true))),
-                    Property("a", mutableListOf(IntValue("1")))
+                    Property("c", (StringValue("foo"))),
+                    Property("b", (BooleanValue(true))),
+                    Property("a", (IntValue("1")))
                 )
             ),
             model
@@ -104,9 +104,9 @@ class PropertiesTransformerTest {
     fun testConvertToString() {
         val model = PropertiesFile(
             mutableListOf(
-                Property("a", mutableListOf(IntValue("1"))),
-                Property("b", mutableListOf(BooleanValue(true))),
-                Property("c", mutableListOf(StringValue("foo")))
+                Property("a", (IntValue("1"))),
+                Property("b", (BooleanValue(true))),
+                Property("c", (StringValue("foo")))
             )
         )
         model.assignParents()
@@ -114,9 +114,9 @@ class PropertiesTransformerTest {
         assertASTsAreEqual(
             PropertiesFile(
                 mutableListOf(
-                    Property("a", mutableListOf(StringValue("1"))),
-                    Property("b", mutableListOf(StringValue("true"))),
-                    Property("c", mutableListOf(StringValue("foo")))
+                    Property("a", (StringValue("1"))),
+                    Property("b", (StringValue("true"))),
+                    Property("c", (StringValue("foo")))
                 )
             ),
             model

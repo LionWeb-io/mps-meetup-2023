@@ -18,9 +18,9 @@ class LionWebExportTest {
     fun exportModel() {
         val ast = PropertiesFile(
             mutableListOf(
-                Property("a", mutableListOf(IntValue("1"))),
-                Property("b", mutableListOf(BooleanValue(true))),
-                Property("c", mutableListOf(StringValue("foo")))
+                Property("a", (IntValue("1"))),
+                Property("b", (BooleanValue(true))),
+                Property("c", (StringValue("foo")))
             )
         )
         ast.assignParents()
