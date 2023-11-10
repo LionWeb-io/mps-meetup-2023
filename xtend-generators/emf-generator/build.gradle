@@ -18,8 +18,8 @@ dependencies {
     implementation("org.eclipse.emf:org.eclipse.emf.ecore.change:2.15.0")
     implementation("org.eclipse.emf:org.eclipse.emf.ecore.xmi:2.35.0")
     implementation("com.google.code.gson:gson:2.10.1")
-	implementation("io.lionweb.lionweb-java:lionweb-java-core:$lionwebJavaVersion")
-    implementation("io.lionweb.lionweb-java:lionweb-java-emf:$lionwebJavaVersion")
+	implementation("io.lionweb.lionweb-java:lionweb-java-$lionwebRelease-core:$lionwebJavaVersion")
+    implementation("io.lionweb.lionweb-java:lionweb-java-$lionwebRelease-emf:$lionwebJavaVersion")
 }
 
 application {
