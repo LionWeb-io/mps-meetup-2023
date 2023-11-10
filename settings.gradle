@@ -1,3 +1,20 @@
+pluginManagement {
+
+    repositories {
+        mavenLocal()
+        gradlePluginPortal()
+        mavenCentral()
+        maven { url "https://s01.oss.sonatype.org/content/repositories/snapshots/"}
+    }
+}
+
 rootProject.name = 'lionweb-mps-meetup'
+
 include 'properties-parser'
+include 'properties-emf'
+include 'properties-json'
 include 'mps'
+include ':xtend-generators:emf-generator'
+include ':xtend-generators:emf-reflective-generator'
+include ':xtend-generators:kotlin-generator'
+include ':xtend-generators:lionweb-reflective-generator'

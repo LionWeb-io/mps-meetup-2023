@@ -6,6 +6,11 @@
   </languages>
   <imports />
   <registry>
+    <language id="ceab5195-25ea-4f22-9b92-103b95ca8c0c" name="jetbrains.mps.lang.core">
+      <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ng" index="TrEIO">
+        <property id="1169194664001" name="name" index="TrG5h" />
+      </concept>
+    </language>
     <language id="28832bdf-0e25-363c-b286-c7457d9f9c90" name="io.lionweb.Properties">
       <concept id="-5251757909129240856" name="io.lionweb.Properties.structure.IntValue" flags="ng" index="37HND">
         <property id="-1164810965792278352" name="value" index="3QFnCD" />
@@ -14,7 +19,6 @@
         <property id="7452053177660046254" name="value" index="22P7_f" />
       </concept>
       <concept id="9045300450722131192" name="io.lionweb.Properties.structure.Property" flags="ng" index="26vB0H">
-        <property id="987908001351304881" name="name" index="3uY$uA" />
         <child id="-4949124439403577779" name="value" index="3Vt1f6" />
       </concept>
       <concept id="4516078350026690430" name="io.lionweb.Properties.structure.PropertiesFile" flags="ng" index="Tw1CF">
@@ -25,23 +29,29 @@
       </concept>
     </language>
   </registry>
-  <node concept="Tw1CF" id="1DArA6fygG2">
-    <node concept="26vB0H" id="1DArA6fygG3" role="1Pj4nA">
-      <property role="3uY$uA" value="integerProp" />
-      <node concept="37HND" id="1DArA6fygG4" role="3Vt1f6">
+  <node concept="Tw1CF" id="~file_properties-parser-examples-example1-props-">
+    <node concept="26vB0H" id="~file_properties-parser-examples-example1-props--props0" role="1Pj4nA">
+      <property role="TrG5h" value="integerProp" />
+      <node concept="37HND" id="~file_properties-parser-examples-example1-props--props0-value0" role="3Vt1f6">
         <property role="3QFnCD" value="1" />
       </node>
     </node>
-    <node concept="26vB0H" id="1DArA6fygG5" role="1Pj4nA">
-      <property role="3uY$uA" value="LIonWeb_integrates" />
-      <node concept="259e1R" id="1DArA6fygG6" role="3Vt1f6">
+    <node concept="26vB0H" id="~file_properties-parser-examples-example1-props--props1" role="1Pj4nA">
+      <property role="TrG5h" value="booleanProp" />
+      <node concept="259e1R" id="~file_properties-parser-examples-example1-props--props1-value0" role="3Vt1f6">
         <property role="22P7_f" value="true" />
       </node>
     </node>
-    <node concept="26vB0H" id="1DArA6fygG7" role="1Pj4nA">
-      <property role="3uY$uA" value="myString" />
-      <node concept="1T4Ty4" id="1DArA6fygG8" role="3Vt1f6">
-        <property role="1ijX3X" value="Hello, StarLasu, MPS, and Freon in Munich!" />
+    <node concept="26vB0H" id="~file_properties-parser-examples-example1-props--props2" role="1Pj4nA">
+      <property role="TrG5h" value="stringProp" />
+      <node concept="1T4Ty4" id="~file_properties-parser-examples-example1-props--props2-value0" role="3Vt1f6">
+        <property role="1ijX3X" value="Hello, StarLasu, MPS, and Freon!" />
+      </node>
+    </node>
+    <node concept="26vB0H" id="6EeGUTuMecC" role="1Pj4nA">
+      <property role="TrG5h" value="stringProp" />
+      <node concept="1T4Ty4" id="6EeGUTuMecD" role="3Vt1f6">
+        <property role="1ijX3X" value="new here? Or not?" />
       </node>
     </node>
   </node>

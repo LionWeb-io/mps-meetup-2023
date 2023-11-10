@@ -1,0 +1,31 @@
+plugins {
+    id "application"
+    id "java"
+    id "org.xtext.xtend" version '4.0.0'
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    implementation(project(":properties-emf"))
+    implementation(project(":properties-json"))
+    implementation("org.eclipse.xtend:org.eclipse.xtend.lib:2.30.0")
+    implementation("org.eclipse.emf:org.eclipse.emf.common:2.29.0")
+    implementation("org.eclipse.emf:org.eclipse.emf.ecore:2.35.0")
+    implementation("org.eclipse.emf:org.eclipse.emf.ecore.change:2.15.0")
+    implementation("org.eclipse.emf:org.eclipse.emf.ecore.xmi:2.35.0")
+    implementation("com.google.code.gson:gson:2.10.1")
+	implementation("io.lionweb.lionweb-java:lionweb-java-core:$lionwebJavaVersion")
+    implementation("io.lionweb.lionweb-java:lionweb-java-emf:$lionwebJavaVersion")
+}
+
+application {
+    mainClass.set("generator.emf.EmfGenerated")
+}
+
+tasks.run.dependsOn("generateXtext")
+
+defaultTasks.add("run")

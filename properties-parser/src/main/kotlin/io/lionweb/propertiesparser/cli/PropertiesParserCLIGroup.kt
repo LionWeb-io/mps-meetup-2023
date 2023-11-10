@@ -10,13 +10,16 @@ import com.github.ajalt.clikt.parameters.options.flag
 import com.github.ajalt.clikt.parameters.options.option
 import com.github.ajalt.clikt.parameters.types.file
 import com.strumenta.kolasu.cli.changeExtension
-import com.strumenta.kolasu.metamodel.StarLasuMetamodel
+import com.strumenta.kolasu.lionweb.LionWebModelConverter
+import com.strumenta.kolasu.lionweb.StarLasuLWLanguage
 import com.strumenta.kolasu.model.FileSource
 import com.strumenta.kolasu.model.SimpleOrigin
 import com.strumenta.kolasu.traversing.walk
 import com.strumenta.kolasu.validation.IssueSeverity
+import io.lionweb.lioncore.java.model.Node
+import io.lionweb.lioncore.java.serialization.JsonSerialization
 import io.lionweb.propertiesparser.*
-import org.lionweb.lioncore.java.serialization.JsonSerialization
+import io.lionweb.propertiesparser.PropertiesLWLanguage
 import java.io.File
 import kotlin.system.exitProcess
 
@@ -35,11 +38,11 @@ class PropertiesMetamodelCommand : CliktCommand(
         val jsonser = JsonSerialization.getStandardSerialization()
         val json = if (combined) {
             jsonser.serializeNodesToJsonString(
-                StarLasuMetamodel.thisAndAllDescendants() +
-                    Metamodel.thisAndAllDescendants()
+                StarLasuLWLanguage.thisAndAllDescendants() +
+                    PropertiesLWLanguage.thisAndAllDescendants()
             )
         } else {
-            jsonser.serializeTreeToJsonString(Metamodel)
+            jsonser.serializeTreeToJsonString(PropertiesLWLanguage)
         }
         output.writeText(json)
         println("Metamodel of Properties ${if (combined) " (with StarLasu combined in the same file) " else ""} written into ${output.absolutePath}.")
@@ -54,7 +57,7 @@ class StarLasuMetamodelCommand : CliktCommand(
         .default(File("starlasu.lmm.json"))
     override fun run() {
         val jsonser = JsonSerialization.getStandardSerialization()
-        val json = jsonser.serializeTreeToJsonString(StarLasuMetamodel)
+        val json = jsonser.serializeTreeToJsonString(StarLasuLWLanguage)
         output.writeText(json)
         println("Metamodel of Starlasu written into ${output.absolutePath}.")
     }
@@ -89,8 +92,13 @@ class ParsingCommand : CliktCommand(
         }
 
         val jsonser = JsonSerialization.getStandardSerialization()
-        Metamodel.prepareSerialization(jsonser)
-        val json = jsonser.serializeTreeToJsonString(result.root!!)
+        jsonser.registerLanguage(StarLasuLWLanguage)
+
+        val lwExport = LionWebModelConverter()
+
+        val lwRoot: Node = lwExport.exportModelToLionWeb(result.root!!)
+
+        val json = jsonser.serializeTreeToJsonString(lwRoot)
         val destination = output ?: source.changeExtension("lm.json")
         destination.writeText(json)
         println("AST for ${source.absolutePath} written into ${destination.absolutePath}.")
@@ -139,8 +147,13 @@ class TransformCommand : CliktCommand(
         val destination = output ?: source.changeExtension("transformed.lm.json")
 
         val jsonser = JsonSerialization.getStandardSerialization()
-        Metamodel.prepareSerialization(jsonser)
-        val json = jsonser.serializeTreeToJsonString(model)
+        jsonser.registerLanguage(PropertiesLWLanguage)
+
+        val lwExport = LionWebModelConverter()
+
+        val lwRoot: Node = lwExport.exportModelToLionWeb(model)
+
+        val json = jsonser.serializeTreeToJsonString(lwRoot)
         destination.writeText(json)
         println("Model from ${source.absolutePath} transformed into ${destination.absolutePath}.")
     }

@@ -1,16 +1,19 @@
 plugins {
     id 'org.jetbrains.kotlin.jvm' version "${kotlinVersion}"
-    id "org.jlleitschuh.gradle.ktlint" version "11.3.2"
-    id "antlr"
-    id "idea"
+    id 'com.google.devtools.ksp' version "1.8.22-1.0.11"
+    id 'org.jlleitschuh.gradle.ktlint' version "11.3.2"
+    id 'antlr'
+    id 'idea'
     id 'com.github.johnrengelman.shadow' version '7.1.2'
     id 'java'
     id 'application'
+    id 'com.strumenta.kolasu.lionwebgen' version "${kolasuVersion}"
 }
 
 repositories {
     mavenLocal()
-    mavenCentral()    
+    mavenCentral()
+    maven { url "https://s01.oss.sonatype.org/content/repositories/snapshots/"}
 }
 
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
@@ -30,7 +33,7 @@ dependencies {
     implementation "org.apache.logging.log4j:log4j-core:2.17.0"
 
     implementation "com.strumenta.kolasu:kolasu-core:$kolasuVersion"
-    implementation "com.strumenta.kolasu:kolasu-antlr:$kolasuVersion"
+    implementation "com.strumenta.kolasu:kolasu-lionweb:$kolasuVersion"
 
     testImplementation "org.jetbrains.kotlin:kotlin-test:$kotlinVersion"
     testImplementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlinVersion"
@@ -41,7 +44,7 @@ dependencies {
     implementation group: 'commons-io', name: 'commons-io', version: '2.6'
     implementation 'com.google.code.gson:gson:2.8.7'
     implementation "com.github.ajalt.clikt:clikt:3.4.0"
-    implementation "io.lionweb.lioncore-java:lioncore-java-core:$lioncore_java_version"
+    implementation "io.lionweb.lionweb-java:lionweb-java-core:$lionwebJavaVersion"
 }
 
 configurations.all() {
@@ -106,6 +109,9 @@ ktlint {
     enableExperimentalRules = true
     // disabling no-unused-imports because it does not recognize correctly that some imports are needed
     disabledRules = ["no-wildcard-imports", "experimental:argument-list-wrapping", "no-unused-imports"]
+    filter {
+        exclude("**/AST.kt")
+    }
 }
 
 application {
@@ -149,4 +155,16 @@ shadowJar {
         attributes 'Description': 'Properties Parser by LIonWeb Team'
         attributes 'Main-Class': application.mainClass
     }
+}
+
+
+lionweb {
+    importPackageNames.set(["io.lionweb.propertiesparser":"io.lionweb.props"])
+    languages.add(file("properties.lmm.json"))
+}
+
+// fixes https://discuss.gradle.org/t/implicit-dependency-among-tasks-but-the-tasks-do-not-exist/46127/4
+sourceSets.configureEach {
+    var generateGrammarSource = tasks.named(getTaskName("generate", "GrammarSource"))
+    java.srcDir(generateGrammarSource.map { files() })
 }

@@ -1,0 +1,60 @@
+plugins {
+    id 'java-library'
+    id "application"
+    id 'maven-publish'
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+configurations {
+    mwe2.extendsFrom compileClasspath
+}
+
+dependencies {
+    implementation("io.lionweb.lionweb-java:lionweb-java-emf:$lionwebJavaVersion")
+    implementation("io.lionweb.lionweb-java:lionweb-java-emf-builtins:$lionwebJavaVersion")
+    implementation("com.google.code.gson:gson:2.10.1")
+    mwe2("org.eclipse.emf:org.eclipse.emf.mwe2.launch:2.15.0")
+    mwe2("org.eclipse.xtext:org.eclipse.xtext.common.types:$xtextVersion")
+    mwe2("org.eclipse.xtext:org.eclipse.xtext.xtext.generator:$xtextVersion")
+    mwe2("org.eclipse.xtext:xtext-antlr-generator:2.1.1")
+}
+
+tasks.register("generateXtextLanguage", JavaExec) {
+    mainClass.set("org.eclipse.emf.mwe2.launch.runtime.Mwe2Launcher")
+    classpath = configurations.mwe2
+    args = args?.plus("src/main/java/io/lionweb/emf/GenerateProperties.mwe2")
+    args = args?.plus("-p")
+    args = args?.plus("rootPath=/${projectDir}")
+}
+
+tasks.assemble.dependsOn("generateXtextLanguage")
+tasks.assemble.dependsOn("generateXtextLanguage")
+tasks.clean.dependsOn("cleanGenerateXtextLanguage")
+
+run {
+    args = [projectDir, project.name]
+}
+
+application {
+    mainClass.set("io.lionweb.emf.ImportEcore")
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs([
+                    "${projectDir}/src-gen/main/java",
+                    "${projectDir}/src/main/java"
+            ])
+        }
+        resources {
+            srcDirs([
+                    "${projectDir}/src-gen/main/model"
+            ])
+        }
+    }
+}
