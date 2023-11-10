@@ -26,7 +26,7 @@ public class PropertiesLanguage {
     public Concept STRINGVALUE;
 
     private PropertiesLanguage() {
-        try (InputStream inputStream = this.getClass().getResourceAsStream("/properties.lmm.json")) {
+        try (InputStream inputStream = new PropertiesLoader().loadLanguage()) {
             JsonElement jsonElement = JsonParser.parseReader(new InputStreamReader(inputStream));
             JsonSerialization jsonSerialization = JsonSerialization.getStandardSerialization();
             List<Node> unserializedNodes = jsonSerialization.deserializeToNodes(jsonElement);

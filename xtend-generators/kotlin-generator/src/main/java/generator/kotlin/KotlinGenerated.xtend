@@ -10,7 +10,7 @@ import io.lionweb.Properties.StringValue
 import io.lionweb.Properties.DecValue
 import java.io.BufferedWriter
 import java.io.FileWriter
-import io.lionweb.emf.support.InstanceLoader
+import io.lionweb.emf.support.PropertiesLoader
 import java.util.List
 
 class KotlinGenerated {
@@ -20,8 +20,7 @@ class KotlinGenerated {
 
 	def generate() {
 		val propertiesLoader = new PropertiesModelLoader()
-//		val inputStream = this.getClass().getResourceAsStream("/example1-exported.lm.json")
-		val inputStream = new InstanceLoader().load()
+		val inputStream = new PropertiesLoader().loadInstance()
 		val PropertiesFile propsFile = propertiesLoader.loadModel(inputStream)
 		val List<Property> properties = propsFile.props
 

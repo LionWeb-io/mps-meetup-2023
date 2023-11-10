@@ -1,5 +1,6 @@
 package io.lionweb.emf;
 
+import io.lionweb.emf.support.PropertiesLoader;
 import io.lionweb.lioncore.java.emf.EMFMetamodelExporter;
 import io.lionweb.lioncore.java.language.Language;
 import io.lionweb.lioncore.java.serialization.JsonSerialization;
@@ -18,7 +19,6 @@ import java.io.InputStream;
 import java.util.Collections;
 
 public class ImportEcore {
-	public static final String LIONCORE_RESOURCE_PATH = "/properties.lmm.json";
 	public static final String ECORE_FILE_NAME = "properties";
 
 	public static final String JAVA_OUTPUT_DIR = "/src-gen/main/java";
@@ -67,10 +67,11 @@ public class ImportEcore {
 	}
 
 	private Language loadLionCore() {
+		InputStream inputStream = new PropertiesLoader().loadLanguage();
 		Language propertiesLang =
 				(Language)
 						JsonSerialization.getStandardSerialization()
-								.deserializeToNodes(this.getClass().getResourceAsStream(LIONCORE_RESOURCE_PATH))
+								.deserializeToNodes(inputStream)
 								.get(0);
 		return propertiesLang;
 	}

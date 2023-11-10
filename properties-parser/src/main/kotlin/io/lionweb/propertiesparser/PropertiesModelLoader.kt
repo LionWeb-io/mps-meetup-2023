@@ -9,13 +9,14 @@ import io.lionweb.lioncore.java.serialization.JsonSerialization
 import java.io.File
 import java.io.FileInputStream
 import java.io.InputStream
+import io.lionweb.emf.support.PropertiesLoader
 
 class PropertiesModelLoader {
     private var language: Language
     private var jsonSer: JsonSerialization
 
     init {
-        val languageStream = this.javaClass.getResourceAsStream("/properties.lmm.json")
+        val languageStream = PropertiesLoader().loadLanguage()
         require(languageStream != null)
         jsonSer = JsonSerialization.getStandardSerialization()
         jsonSer.instanceResolver.addTree(StarLasuLWLanguage)

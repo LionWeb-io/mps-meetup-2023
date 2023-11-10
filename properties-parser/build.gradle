@@ -23,6 +23,9 @@ def generatedMainFile = file(generatedMain)
 
 dependencies {
     antlr "org.antlr:antlr4:$antlrVersion"
+
+    implementation(project(":properties-json"))
+
     implementation "org.antlr:antlr4-runtime:$antlrVersion"
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
     implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
@@ -160,7 +163,7 @@ shadowJar {
 
 lionweb {
     importPackageNames.set(["io.lionweb.propertiesparser":"io.lionweb.props"])
-    languages.add(file("properties.lmm.json"))
+    languages.add(file("${rootProject.project('properties-json').projectDir}/src/main/resources/properties.lmm.json"))
 }
 
 // fixes https://discuss.gradle.org/t/implicit-dependency-among-tasks-but-the-tasks-do-not-exist/46127/4

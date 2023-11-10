@@ -18,6 +18,10 @@ dependencies {
     implementation("org.eclipse.xtend:org.eclipse.xtend.lib:2.30.0")
 }
 
+run {
+    systemProperties System.getProperties()
+}
+
 application {
     mainClass.set("generator.kotlin.KotlinGenerated")
 }

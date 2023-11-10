@@ -14,6 +14,7 @@ configurations {
 }
 
 dependencies {
+    implementation(project(":properties-json"))
     implementation("io.lionweb.lionweb-java:lionweb-java-$lionwebRelease-emf:$lionwebJavaVersion")
     implementation("io.lionweb.lionweb-java:lionweb-java-$lionwebRelease-emf-builtins:$lionwebJavaVersion")
     implementation("com.google.code.gson:gson:2.10.1")
@@ -36,6 +37,7 @@ tasks.assemble.dependsOn("generateXtextLanguage")
 tasks.clean.dependsOn("cleanGenerateXtextLanguage")
 
 run {
+    systemProperties System.getProperties()
     args = [projectDir, project.name]
 }
 

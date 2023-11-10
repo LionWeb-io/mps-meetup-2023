@@ -22,6 +22,10 @@ dependencies {
     implementation("io.lionweb.lionweb-java:lionweb-java-$lionwebRelease-emf:$lionwebJavaVersion")
 }
 
+run {
+    systemProperties System.getProperties()
+}
+
 application {
     mainClass.set("generator.emf.EmfGenerated")
 }

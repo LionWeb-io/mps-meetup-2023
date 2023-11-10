@@ -1,6 +1,6 @@
 package generator.lionweb.reflective;
 
-import io.lionweb.emf.support.InstanceLoader
+import io.lionweb.emf.support.PropertiesLoader
 import io.lionweb.emf.support.PropertiesLanguage
 import io.lionweb.lioncore.java.serialization.JsonSerialization
 import java.io.BufferedWriter
@@ -21,8 +21,7 @@ class LionWebReflective {
 		val lang = PropertiesLanguage.getInstance()
 
 		jsonSerialization.registerLanguage(lang.PROPERTIES_MM)
-//		val inputStream = this.getClass().getResourceAsStream("/example1-exported.lm.json")
-		val inputStream = new InstanceLoader().load()
+		val inputStream = new PropertiesLoader().loadInstance()
 		val List<Node> nodes = jsonSerialization.deserializeToNodes(inputStream)
 
 		val Node propertiesFile = nodes.filter[it.concept == lang.PROPERTIESFILE].head

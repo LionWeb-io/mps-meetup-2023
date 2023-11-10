@@ -1,6 +1,6 @@
 package generator.emf.reflective;
 
-import io.lionweb.emf.support.InstanceLoader
+import io.lionweb.emf.support.PropertiesLoader
 import io.lionweb.emf.support.PropertiesLanguage
 import io.lionweb.lioncore.java.emf.EMFModelExporter
 import io.lionweb.lioncore.java.model.Node
@@ -24,8 +24,7 @@ class EmfReflective {
 		val jsonSerialization = JsonSerialization.getStandardSerialization();
 		jsonSerialization.registerLanguage(PropertiesLanguage.getInstance().PROPERTIES_MM);
 		jsonSerialization.getInstantiator().enableDynamicNodes();
-//		val inputStream = this.getClass().getResourceAsStream("/example1-exported.lm.json")
-		val inputStream = new InstanceLoader().load()
+		val inputStream = new PropertiesLoader().loadInstance()
 		val List<Node> nodes = jsonSerialization.deserializeToNodes(inputStream);
 		val List<Node> roots = nodes.stream().filter[it.parent === null].collect(Collectors.toList());
 

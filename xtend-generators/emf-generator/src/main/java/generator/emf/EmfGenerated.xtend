@@ -7,7 +7,7 @@ import io.lionweb.emf.io_lionweb_Properties.Io_lionweb_PropertiesPackage
 import io.lionweb.emf.io_lionweb_Properties.PropertiesFile
 import io.lionweb.emf.io_lionweb_Properties.Property
 import io.lionweb.emf.io_lionweb_Properties.StringValue
-import io.lionweb.emf.support.InstanceLoader
+import io.lionweb.emf.support.PropertiesLoader
 import io.lionweb.emf.support.PropertiesLanguage
 import io.lionweb.java.emf.builtins.BuiltinsPackage
 import io.lionweb.lioncore.java.emf.EMFModelExporter
@@ -36,8 +36,7 @@ class EmfGenerated {
 
 		jsonSerialization.registerLanguage(lang.PROPERTIES_MM);
 		jsonSerialization.getInstantiator().enableDynamicNodes();
-//		val inputStream = this.getClass().getResourceAsStream("/example1-exported.lm.json")
-		val inputStream = new InstanceLoader().load()
+		val inputStream = new PropertiesLoader().loadInstance()
 		val nodes = jsonSerialization.deserializeToNodes(inputStream);
 		val List<Node> roots = nodes.stream().filter[it.parent === null].collect(Collectors.toList());
 
