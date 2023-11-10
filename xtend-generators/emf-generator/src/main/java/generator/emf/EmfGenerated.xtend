@@ -71,7 +71,7 @@ class EmfGenerated {
 			    		       <form>
 			    		        «FOR prop : properties»
 			    		        	<label for="«prop.name»">«prop.name»</label>
-			    		        	«property(prop.value.head, prop.name)»
+			    		        	«property(prop.value, prop.name)»
 			    		        	«ENDFOR»
 			    		       	</form>
 			    		   	</div>
