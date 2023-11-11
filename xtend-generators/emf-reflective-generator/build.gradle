@@ -23,7 +23,7 @@ run {
 }
 
 application {
-    mainClass.set("generator.emf.reflective.EmfReflective")
+    mainClass.set("io.lionweb.propertydemo.xtendgenerators.emf.reflective.EmfReflective")
 }
 
 tasks.run.dependsOn("generateXtext")

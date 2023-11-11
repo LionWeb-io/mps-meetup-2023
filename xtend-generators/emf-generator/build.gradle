@@ -27,7 +27,7 @@ run {
 }
 
 application {
-    mainClass.set("generator.emf.EmfGenerated")
+    mainClass.set("io.lionweb.propertydemo.xtendgenerators.emf.EmfGenerated")
 }
 
 tasks.run.dependsOn("generateXtext")

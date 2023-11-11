@@ -23,7 +23,7 @@ run {
 }
 
 application {
-    mainClass.set("generator.kotlin.KotlinGenerated")
+    mainClass.set("io.lionweb.propertydemo.xtendgenerators.kotlin.KotlinGenerated")
 }
 
 tasks.run.dependsOn("generateXtext")

@@ -21,7 +21,7 @@ run {
 }
 
 application {
-    mainClass.set("generator.lionweb.reflective.LionWebReflective")
+    mainClass.set("io.lionweb.propertydemo.xtendgenerators.lionweb.LionWebReflective")
 }
 
 tasks.run.dependsOn("generateXtext")

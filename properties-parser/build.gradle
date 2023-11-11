@@ -61,8 +61,8 @@ configurations.all() {
 generateGrammarSource {
     inputs.files fileTree('src/main/antlr').include('**/*.g4')
     maxHeapSize = "64m"
-    arguments += ['-package', 'io.lionweb.propertiesparser']
-    outputDirectory = file(generatedMain + "/io/lionweb/propertiesparser")
+    arguments += ['-package', 'io.lionweb.propertydemo.parser']
+    outputDirectory = file(generatedMain + "/io/lionweb/propertydemo/parser")
 }
 
 compileJava {
@@ -118,7 +118,7 @@ ktlint {
 }
 
 application {
-    mainClass = 'io.lionweb.propertiesparser.cli.PropertiesParserCLI'
+    mainClass = 'io.lionweb.propertydemo.parser.cli.PropertiesParserCLI'
 }
 
 /**
