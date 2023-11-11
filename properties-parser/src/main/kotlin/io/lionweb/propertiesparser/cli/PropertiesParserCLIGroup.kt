@@ -5,6 +5,7 @@ package io.lionweb.propertiesparser.cli
 import com.github.ajalt.clikt.core.CliktCommand
 import com.github.ajalt.clikt.core.subcommands
 import com.github.ajalt.clikt.parameters.arguments.argument
+import com.github.ajalt.clikt.parameters.arguments.convert
 import com.github.ajalt.clikt.parameters.options.default
 import com.github.ajalt.clikt.parameters.options.flag
 import com.github.ajalt.clikt.parameters.options.option
@@ -12,15 +13,15 @@ import com.github.ajalt.clikt.parameters.types.file
 import com.strumenta.kolasu.cli.changeExtension
 import com.strumenta.kolasu.lionweb.LionWebModelConverter
 import com.strumenta.kolasu.lionweb.StarLasuLWLanguage
-import com.strumenta.kolasu.model.FileSource
-import com.strumenta.kolasu.model.SimpleOrigin
-import com.strumenta.kolasu.traversing.walk
 import com.strumenta.kolasu.validation.IssueSeverity
 import io.lionweb.lioncore.java.model.Node
 import io.lionweb.lioncore.java.serialization.JsonSerialization
 import io.lionweb.propertiesparser.*
-import io.lionweb.propertiesparser.PropertiesLWLanguage
 import java.io.File
+import java.net.URI
+import java.net.http.HttpClient
+import java.net.http.HttpRequest
+import java.net.http.HttpResponse
 import kotlin.system.exitProcess
 
 class PropertiesParserCLIGroup : CliktCommand() {
@@ -92,11 +93,13 @@ class ParsingCommand : CliktCommand(
         }
 
         val jsonser = JsonSerialization.getStandardSerialization()
-        jsonser.registerLanguage(StarLasuLWLanguage)
+        jsonser.registerLanguage(PropertiesLWLanguage)
 
         val lwExport = LionWebModelConverter()
+        lwExport.associateLanguages(PropertiesLWLanguage, PropertiesKLanguage)
 
         val lwRoot: Node = lwExport.exportModelToLionWeb(result.root!!)
+        lwRoot.setPropertyValueByName("name", source.name)
 
         val json = jsonser.serializeTreeToJsonString(lwRoot)
         val destination = output ?: source.changeExtension("lm.json")
@@ -121,6 +124,28 @@ class CodeGenCommand : CliktCommand(
         codegen.printToFile(model, destination)
 
         println("Model in ${input.absolutePath} written into ${destination.absolutePath}.")
+    }
+}
+
+class DownloadCommand : CliktCommand(
+    name = "download",
+    help = "Generate properties file from URL"
+) {
+    val input by argument(name = "input model").convert { URI.create(it)  }
+    val output by option("-o", "--output").file(canBeDir = false, canBeFile = true)
+
+    override fun run() {
+        val response = HttpClient.newHttpClient().send(HttpRequest.newBuilder(input).GET().build(), HttpResponse.BodyHandlers.ofInputStream())
+        val inputStream = response.body()
+
+        val loader = PropertiesModelLoader()
+        val model = loader.loadModel(inputStream)
+
+        val codegen = PropertiesCodeGenerator()
+        val destination = output ?: File(model.name)
+        codegen.printToFile(model, destination)
+
+        println("Model from $input written into ${destination.absolutePath}.")
     }
 }
 
@@ -162,6 +187,6 @@ class TransformCommand : CliktCommand(
 fun main(args: Array<String>) = PropertiesParserCLIGroup()
     .subcommands(
         StarLasuMetamodelCommand(), PropertiesMetamodelCommand(), ParsingCommand(), CodeGenCommand(),
-        TransformCommand()
+        TransformCommand(), DownloadCommand()
     )
     .main(args)
