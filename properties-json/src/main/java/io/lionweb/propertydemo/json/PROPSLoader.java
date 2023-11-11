@@ -6,10 +6,10 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
-public class PropertiesLoader {
+public class PROPSLoader {
     private boolean loadFromFile;
 
-    public PropertiesLoader() {
+    public PROPSLoader() {
         loadFromFile = System.getProperties().containsKey("PROPERTIES_LOAD_FROM_FILE");
     }
 
@@ -29,10 +29,10 @@ public class PropertiesLoader {
 
     public InputStream loadLanguage() {
         if (loadFromFile) {
-            return this.getClass().getResourceAsStream("/properties.lmm.json");
+            return this.getClass().getResourceAsStream("/PROPS.lmm.json");
         }
 
-        URI uri = URI.create("http://127.0.0.1:63320/lionweb/language?moduleRef=28832bdf-0e25-363c-b286-c7457d9f9c90(io.lionweb.Properties)");
+        URI uri = URI.create("http://127.0.0.1:63320/lionweb/language?moduleRef=28832bdf-0e25-363c-b286-c7457d9f9c90(io.lionweb.PROPS)");
         try {
             HttpResponse<InputStream> response = HttpClient.newHttpClient().send(HttpRequest.newBuilder(uri).GET().build(), HttpResponse.BodyHandlers.ofInputStream());
             return response.body();

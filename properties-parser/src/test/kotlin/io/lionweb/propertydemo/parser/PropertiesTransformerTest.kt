@@ -2,7 +2,7 @@ package io.lionweb.propertydemo.parser
 
 import com.strumenta.kolasu.model.assignParents
 import com.strumenta.kolasu.testing.assertASTsAreEqual
-import io.lionweb.Properties.*
+import io.lionweb.PROPS.*
 import org.junit.Ignore
 import kotlin.test.Test
 

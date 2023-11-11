@@ -2,15 +2,15 @@ package io.lionweb.propertydemo.xtendgenerators.kotlin;
 
 import java.io.File
 import io.lionweb.propertydemo.parser.PropertiesModelLoader
-import io.lionweb.Properties.PropertiesFile
-import io.lionweb.Properties.Property
-import io.lionweb.Properties.IntValue
-import io.lionweb.Properties.BooleanValue
-import io.lionweb.Properties.StringValue
-import io.lionweb.Properties.DecValue
+import io.lionweb.PROPS.PropertiesFile
+import io.lionweb.PROPS.Property
+import io.lionweb.PROPS.IntValue
+import io.lionweb.PROPS.BooleanValue
+import io.lionweb.PROPS.StringValue
+import io.lionweb.PROPS.DecValue
 import java.io.BufferedWriter
 import java.io.FileWriter
-import io.lionweb.propertydemo.json.PropertiesLoader
+import io.lionweb.propertydemo.json.PROPSLoader
 import java.util.List
 
 class KotlinGenerated {
@@ -20,7 +20,7 @@ class KotlinGenerated {
 
 	def generate() {
 		val propertiesLoader = new PropertiesModelLoader()
-		val inputStream = new PropertiesLoader().loadInstance()
+		val inputStream = new PROPSLoader().loadInstance()
 		val PropertiesFile propsFile = propertiesLoader.loadModel(inputStream)
 		val List<Property> properties = propsFile.props
 

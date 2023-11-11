@@ -5,15 +5,15 @@ import io.lionweb.lioncore.java.emf.EMFModelExporter
 import io.lionweb.lioncore.java.emf.mapping.ConceptsToEClassesMapping
 import io.lionweb.lioncore.java.model.Node
 import io.lionweb.lioncore.java.serialization.JsonSerialization
-import io.lionweb.propertydemo.emf.io_lionweb_Properties.BooleanValue
-import io.lionweb.propertydemo.emf.io_lionweb_Properties.DecValue
-import io.lionweb.propertydemo.emf.io_lionweb_Properties.IntValue
-import io.lionweb.propertydemo.emf.io_lionweb_Properties.Io_lionweb_PropertiesPackage
-import io.lionweb.propertydemo.emf.io_lionweb_Properties.PropertiesFile
-import io.lionweb.propertydemo.emf.io_lionweb_Properties.Property
-import io.lionweb.propertydemo.emf.io_lionweb_Properties.StringValue
-import io.lionweb.propertydemo.json.PropertiesLanguage
-import io.lionweb.propertydemo.json.PropertiesLoader
+import io.lionweb.propertydemo.emf.io_lionweb_PROPS.BooleanValue
+import io.lionweb.propertydemo.emf.io_lionweb_PROPS.DecValue
+import io.lionweb.propertydemo.emf.io_lionweb_PROPS.IntValue
+import io.lionweb.propertydemo.emf.io_lionweb_PROPS.Io_lionweb_PROPSPackage
+import io.lionweb.propertydemo.emf.io_lionweb_PROPS.PropertiesFile
+import io.lionweb.propertydemo.emf.io_lionweb_PROPS.Property
+import io.lionweb.propertydemo.emf.io_lionweb_PROPS.StringValue
+import io.lionweb.propertydemo.json.PROPSLanguage
+import io.lionweb.propertydemo.json.PROPSLoader
 import java.io.BufferedWriter
 import java.io.File
 import java.io.FileWriter
@@ -28,20 +28,20 @@ class EmfGenerated {
 
 	def generate() {
 		BuiltinsPackage.eINSTANCE.getNsURI();
-		Io_lionweb_PropertiesPackage.eINSTANCE.getNsURI();
+		Io_lionweb_PROPSPackage.eINSTANCE.getNsURI();
 
 		val JsonSerialization jsonSerialization = JsonSerialization.getStandardSerialization();
 
-		val lang = PropertiesLanguage.getInstance()
+		val lang = PROPSLanguage.getInstance()
 
 		jsonSerialization.registerLanguage(lang.PROPERTIES_MM);
 		jsonSerialization.getInstantiator().enableDynamicNodes();
-		val inputStream = new PropertiesLoader().loadInstance()
+		val inputStream = new PROPSLoader().loadInstance()
 		val nodes = jsonSerialization.deserializeToNodes(inputStream);
 		val List<Node> roots = nodes.stream().filter[it.parent === null].collect(Collectors.toList());
 
 		val ConceptsToEClassesMapping conceptMapper = new ConceptsToEClassesMapping();
-		conceptMapper.registerMapping(lang.PROPERTIES_MM, Io_lionweb_PropertiesPackage.eINSTANCE);
+		conceptMapper.registerMapping(lang.PROPERTIES_MM, Io_lionweb_PROPSPackage.eINSTANCE);
 
 		val EMFModelExporter emfExporter = new EMFModelExporter(conceptMapper);
 		val Resource resource = emfExporter.exportResource(roots);

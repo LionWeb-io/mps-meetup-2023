@@ -12,7 +12,7 @@ Workflow {
 	}
 	
 	component = org.eclipse.emf.mwe2.ecore.EcoreGenerator {
-	    genModel = "platform:/resource/properties-emf/src-gen/main/model/properties.genmodel"
+	    genModel = "platform:/resource/properties-emf/src-gen/main/model/PROPS.genmodel"
 	    srcPath = "platform:/resource/properties-emf/src-gen/main/java"
 	}
 }

@@ -3,8 +3,6 @@ package io.lionweb.propertydemo.parser
 import com.strumenta.kolasu.lionweb.StarLasuLWLanguage
 import io.lionweb.lioncore.java.serialization.JsonSerialization
 import io.lionweb.lioncore.java.utils.LanguageValidator
-import io.lionweb.lioncore.java.utils.NodeTreeValidator
-import io.lionweb.lioncore.java.utils.ValidationResult
 import junit.framework.TestCase.assertEquals
 import org.junit.Test
 
@@ -21,7 +19,7 @@ class MetamodelTest {
         val jsonser = JsonSerialization.getStandardSerialization()
         val serialized = jsonser.serializeTreesToJsonString(PropertiesLWLanguage)
         jsonser.instanceResolver.addTree(StarLasuLWLanguage)
-        val unserialized = jsonser.deserializeToNodes(serialized).first()
+        jsonser.deserializeToNodes(serialized).first()
     }
 
     @Test
@@ -43,9 +41,9 @@ class MetamodelTest {
             .serializeTreeToJsonElement(StarLasuLWLanguage)
 
         val jsonSerialization = JsonSerialization.getStandardSerialization()
-        val starlasuUnserialized = jsonSerialization.deserializeToNodes(starlasuMetamodelSerialization).first()
-        jsonSerialization.instanceResolver.addTree(starlasuUnserialized)
-        val propertiesUnserialized = jsonSerialization.deserializeToNodes(propertiesMetamodelSerialization).first()
+        val starlasuDeserialized = jsonSerialization.deserializeToNodes(starlasuMetamodelSerialization).first()
+        jsonSerialization.instanceResolver.addTree(starlasuDeserialized)
+        jsonSerialization.deserializeToNodes(propertiesMetamodelSerialization).first()
         // We test we can load without crashing, as comparison of Metamodels with equality is not yet
         // correctly implemented
     }
@@ -57,9 +55,9 @@ class MetamodelTest {
                 StarLasuLWLanguage.thisAndAllDescendants() +
                     PropertiesLWLanguage.thisAndAllDescendants()
             )
-        val unserialized = JsonSerialization.getStandardSerialization().deserializeToNodes(combinedJson)
-        val metamodels = unserialized.filterIsInstance<io.lionweb.lioncore.java.language.Language>()
+        val deserialized = JsonSerialization.getStandardSerialization().deserializeToNodes(combinedJson)
+        val metamodels = deserialized.filterIsInstance<io.lionweb.lioncore.java.language.Language>()
         assertEquals(2, metamodels.size)
-        assertEquals(setOf("com.strumenta.StarLasu", "io.lionweb.Properties"), metamodels.map { it.name }.toSet())
+        assertEquals(setOf("com.strumenta.StarLasu", "io.lionweb.props"), metamodels.map { it.name }.toSet())
     }
 }

@@ -1,21 +1,35 @@
 {
   "serializationFormatVersion": "2023.1",
-  "languages": [],
+  "languages": [
+    {
+      "version": "1",
+      "key": "io-lionweb-props"
+    }
+  ],
   "nodes": [
     {
-      "id": "file_properties-parser-examples-example1-props",
-      "properties": [],
+      "id": "example1-props_root",
+      "properties": [
+        {
+          "property": {
+            "language": "LionCore-builtins",
+            "version": "2023.1",
+            "key": "LionCore-builtins-INamed-name"
+          },
+          "value": "example1.props"
+        }
+      ],
       "containments": [
         {
           "containment": {
-            "language": "io_lionweb_Properties",
+            "language": "io-lionweb-props",
             "version": "1",
-            "key": "io_lionweb_Properties-PropertiesFile-props"
+            "key": "io-lionweb-props_PropertiesFile_props"
           },
           "children": [
-            "file_properties-parser-examples-example1-props-props0",
-            "file_properties-parser-examples-example1-props-props1",
-            "file_properties-parser-examples-example1-props-props2"
+            "example1-props_root_props_0",
+            "example1-props_root_props_1",
+            "example1-props_root_props_2"
           ]
         }
       ],
@@ -23,13 +37,13 @@
       "annotations": [],
       "parent": null,
       "classifier": {
-        "language": "io_lionweb_Properties",
+        "language": "io-lionweb-props",
         "version": "1",
-        "key": "io_lionweb_Properties-PropertiesFile"
+        "key": "io-lionweb-props_PropertiesFile"
       }
     },
     {
-      "id": "file_properties-parser-examples-example1-props-props0",
+      "id": "example1-props_root_props_0",
       "properties": [
         {
           "property": {
@@ -43,32 +57,32 @@
       "containments": [
         {
           "containment": {
-            "language": "io_lionweb_Properties",
+            "language": "io-lionweb-props",
             "version": "1",
-            "key": "io_lionweb_Properties-Property-value"
+            "key": "io-lionweb-props_Property_value"
           },
           "children": [
-            "file_properties-parser-examples-example1-props-props0-value0"
+            "example1-props_root_props_0_value"
           ]
         }
       ],
       "references": [],
       "annotations": [],
-      "parent": "file_properties-parser-examples-example1-props",
+      "parent": "example1-props_root",
       "classifier": {
-        "language": "io_lionweb_Properties",
+        "language": "io-lionweb-props",
         "version": "1",
-        "key": "io_lionweb_Properties-Property"
+        "key": "io-lionweb-props_Property"
       }
     },
     {
-      "id": "file_properties-parser-examples-example1-props-props0-value0",
+      "id": "example1-props_root_props_0_value",
       "properties": [
         {
           "property": {
-            "language": "io_lionweb_Properties",
+            "language": "io-lionweb-props",
             "version": "1",
-            "key": "io_lionweb_Properties-IntValue-value"
+            "key": "io-lionweb-props_IntValue_value"
           },
           "value": "1"
         }
@@ -76,15 +90,15 @@
       "containments": [],
       "references": [],
       "annotations": [],
-      "parent": "file_properties-parser-examples-example1-props-props0",
+      "parent": "example1-props_root_props_0",
       "classifier": {
-        "language": "io_lionweb_Properties",
+        "language": "io-lionweb-props",
         "version": "1",
-        "key": "io_lionweb_Properties-IntValue"
+        "key": "io-lionweb-props_IntValue"
       }
     },
     {
-      "id": "file_properties-parser-examples-example1-props-props1",
+      "id": "example1-props_root_props_1",
       "properties": [
         {
           "property": {
@@ -92,38 +106,38 @@
             "version": "2023.1",
             "key": "LionCore-builtins-INamed-name"
           },
-          "value": "booleanProp"
+          "value": "LIonWeb_integrates"
         }
       ],
       "containments": [
         {
           "containment": {
-            "language": "io_lionweb_Properties",
+            "language": "io-lionweb-props",
             "version": "1",
-            "key": "io_lionweb_Properties-Property-value"
+            "key": "io-lionweb-props_Property_value"
           },
           "children": [
-            "file_properties-parser-examples-example1-props-props1-value0"
+            "example1-props_root_props_1_value"
           ]
         }
       ],
       "references": [],
       "annotations": [],
-      "parent": "file_properties-parser-examples-example1-props",
+      "parent": "example1-props_root",
       "classifier": {
-        "language": "io_lionweb_Properties",
+        "language": "io-lionweb-props",
         "version": "1",
-        "key": "io_lionweb_Properties-Property"
+        "key": "io-lionweb-props_Property"
       }
     },
     {
-      "id": "file_properties-parser-examples-example1-props-props1-value0",
+      "id": "example1-props_root_props_1_value",
       "properties": [
         {
           "property": {
-            "language": "io_lionweb_Properties",
+            "language": "io-lionweb-props",
             "version": "1",
-            "key": "io_lionweb_Properties-BooleanValue-value"
+            "key": "io-lionweb-props_BooleanValue_value"
           },
           "value": "true"
         }
@@ -131,15 +145,15 @@
       "containments": [],
       "references": [],
       "annotations": [],
-      "parent": "file_properties-parser-examples-example1-props-props1",
+      "parent": "example1-props_root_props_1",
       "classifier": {
-        "language": "io_lionweb_Properties",
+        "language": "io-lionweb-props",
         "version": "1",
-        "key": "io_lionweb_Properties-BooleanValue"
+        "key": "io-lionweb-props_BooleanValue"
       }
     },
     {
-      "id": "file_properties-parser-examples-example1-props-props2",
+      "id": "example1-props_root_props_2",
       "properties": [
         {
           "property": {
@@ -147,38 +161,38 @@
             "version": "2023.1",
             "key": "LionCore-builtins-INamed-name"
           },
-          "value": "stringProp"
+          "value": "myString"
         }
       ],
       "containments": [
         {
           "containment": {
-            "language": "io_lionweb_Properties",
+            "language": "io-lionweb-props",
             "version": "1",
-            "key": "io_lionweb_Properties-Property-value"
+            "key": "io-lionweb-props_Property_value"
           },
           "children": [
-            "file_properties-parser-examples-example1-props-props2-value0"
+            "example1-props_root_props_2_value"
           ]
         }
       ],
       "references": [],
       "annotations": [],
-      "parent": "file_properties-parser-examples-example1-props",
+      "parent": "example1-props_root",
       "classifier": {
-        "language": "io_lionweb_Properties",
+        "language": "io-lionweb-props",
         "version": "1",
-        "key": "io_lionweb_Properties-Property"
+        "key": "io-lionweb-props_Property"
       }
     },
     {
-      "id": "file_properties-parser-examples-example1-props-props2-value0",
+      "id": "example1-props_root_props_2_value",
       "properties": [
         {
           "property": {
-            "language": "io_lionweb_Properties",
+            "language": "io-lionweb-props",
             "version": "1",
-            "key": "io_lionweb_Properties-StringValue-value"
+            "key": "io-lionweb-props_StringValue_value"
           },
           "value": "Hello, StarLasu, MPS, and Freon!"
         }
@@ -186,11 +200,11 @@
       "containments": [],
       "references": [],
       "annotations": [],
-      "parent": "file_properties-parser-examples-example1-props-props2",
+      "parent": "example1-props_root_props_2",
       "classifier": {
-        "language": "io_lionweb_Properties",
+        "language": "io-lionweb-props",
         "version": "1",
-        "key": "io_lionweb_Properties-StringValue"
+        "key": "io-lionweb-props_StringValue"
       }
     }
   ]

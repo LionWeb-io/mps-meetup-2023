@@ -1,7 +1,7 @@
 package io.lionweb.propertydemo.parser
 
 import com.strumenta.kolasu.mapping.ParseTreeToASTTransformer
-import io.lionweb.Properties.*
+import io.lionweb.PROPS.*
 import io.lionweb.propertydemo.parser.PropertiesParser.PropertiesFileContext
 import io.lionweb.propertydemo.parser.PropertiesParser.PropertyContext
 import io.lionweb.propertydemo.parser.PropertiesParser.ValueContext

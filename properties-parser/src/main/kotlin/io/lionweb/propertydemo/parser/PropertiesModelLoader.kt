@@ -3,10 +3,10 @@ package io.lionweb.propertydemo.parser
 import com.strumenta.kolasu.language.KolasuLanguage
 import com.strumenta.kolasu.lionweb.LionWebModelConverter
 import com.strumenta.kolasu.lionweb.StarLasuLWLanguage
-import io.lionweb.Properties.*
+import io.lionweb.PROPS.*
 import io.lionweb.lioncore.java.language.Language
 import io.lionweb.lioncore.java.serialization.JsonSerialization
-import io.lionweb.propertydemo.json.PropertiesLoader
+import io.lionweb.propertydemo.json.PROPSLoader
 import java.io.File
 import java.io.FileInputStream
 import java.io.InputStream
@@ -16,7 +16,7 @@ class PropertiesModelLoader {
     private var jsonSer: JsonSerialization
 
     init {
-        val languageStream = PropertiesLoader().loadLanguage()
+        val languageStream = PROPSLoader().loadLanguage()
         require(languageStream != null)
         jsonSer = JsonSerialization.getStandardSerialization()
         jsonSer.instanceResolver.addTree(StarLasuLWLanguage)

@@ -1,7 +1,7 @@
 package io.lionweb.propertydemo.parser
 
 import com.strumenta.kolasu.testing.assertASTsAreEqual
-import io.lionweb.Properties.*
+import io.lionweb.PROPS.*
 import io.lionweb.lioncore.java.utils.NodeTreeValidator
 import org.junit.Ignore
 import org.junit.Test

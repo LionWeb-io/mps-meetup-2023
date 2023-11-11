@@ -1,6 +1,6 @@
 package io.lionweb.propertydemo.emf;
 
-import io.lionweb.propertydemo.json.PropertiesLoader;
+import io.lionweb.propertydemo.json.PROPSLoader;
 import io.lionweb.lioncore.java.emf.EMFMetamodelExporter;
 import io.lionweb.lioncore.java.language.Language;
 import io.lionweb.lioncore.java.serialization.JsonSerialization;
@@ -19,7 +19,7 @@ import java.io.InputStream;
 import java.util.Collections;
 
 public class ImportEcore {
-	public static final String ECORE_FILE_NAME = "properties";
+	public static final String ECORE_FILE_NAME = "PROPS";
 
 	public static final String JAVA_OUTPUT_DIR = "/src-gen/main/java";
 	public static final String MODEL_OUTPUT_DIR = "src-gen/main/model";
@@ -67,7 +67,7 @@ public class ImportEcore {
 	}
 
 	private Language loadLionCore() {
-		InputStream inputStream = new PropertiesLoader().loadLanguage();
+		InputStream inputStream = new PROPSLoader().loadLanguage();
 		Language propertiesLang =
 				(Language)
 						JsonSerialization.getStandardSerialization()

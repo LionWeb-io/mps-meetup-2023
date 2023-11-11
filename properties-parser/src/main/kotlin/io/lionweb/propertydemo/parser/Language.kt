@@ -4,10 +4,10 @@ import com.strumenta.kolasu.language.KolasuLanguage
 import com.strumenta.kolasu.lionweb.LionWebLanguageConverter
 import com.strumenta.kolasu.lionweb.LionWebModelConverter
 import com.strumenta.kolasu.model.Node
-import io.lionweb.Properties.*
+import io.lionweb.PROPS.*
 import io.lionweb.lioncore.java.language.Language
 
-val PropertiesKLanguage: KolasuLanguage = KolasuLanguage("io.lionweb.Properties").apply {
+val PropertiesKLanguage: KolasuLanguage = KolasuLanguage("io.lionweb.props").apply {
     addClass(PropertiesFile::class)
     // TODO: Why are these not collected?
     addClass(BooleanValue::class)

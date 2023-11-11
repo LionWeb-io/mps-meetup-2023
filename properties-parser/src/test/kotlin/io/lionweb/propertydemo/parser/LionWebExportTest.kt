@@ -1,7 +1,7 @@
 package io.lionweb.propertydemo.parser
 
 import com.strumenta.kolasu.model.assignParents
-import io.lionweb.Properties.*
+import io.lionweb.PROPS.*
 import io.lionweb.lioncore.java.serialization.JsonSerialization
 import org.junit.Test
 

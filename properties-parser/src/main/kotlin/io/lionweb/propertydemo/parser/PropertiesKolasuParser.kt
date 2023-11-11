@@ -9,7 +9,7 @@ import com.strumenta.kolasu.parsing.KolasuParser
 import com.strumenta.kolasu.parsing.ParsingResult
 import com.strumenta.kolasu.traversing.walk
 import com.strumenta.kolasu.validation.Issue
-import io.lionweb.Properties.*
+import io.lionweb.PROPS.*
 import io.lionweb.propertydemo.parser.PropertiesParser.PropertiesFileContext
 import org.antlr.v4.runtime.CharStream
 import org.antlr.v4.runtime.Lexer

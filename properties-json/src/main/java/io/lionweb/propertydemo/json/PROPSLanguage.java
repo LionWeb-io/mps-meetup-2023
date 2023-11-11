@@ -12,8 +12,8 @@ import java.io.*;
 import java.util.List;
 import java.util.Objects;
 
-public class PropertiesLanguage {
-    private static PropertiesLanguage INSTANCE = null;
+public class PROPSLanguage {
+    private static PROPSLanguage INSTANCE = null;
 
     public Language PROPERTIES_MM;
     public Concept PROPERTY;
@@ -25,8 +25,8 @@ public class PropertiesLanguage {
     public Concept INTVALUE;
     public Concept STRINGVALUE;
 
-    private PropertiesLanguage() {
-        try (InputStream inputStream = new PropertiesLoader().loadLanguage()) {
+    private PROPSLanguage() {
+        try (InputStream inputStream = new PROPSLoader().loadLanguage()) {
             JsonElement jsonElement = JsonParser.parseReader(new InputStreamReader(inputStream));
             JsonSerialization jsonSerialization = JsonSerialization.getStandardSerialization();
             List<Node> unserializedNodes = jsonSerialization.deserializeToNodes(jsonElement);
@@ -57,9 +57,9 @@ public class PropertiesLanguage {
         }
     }
 
-    public static PropertiesLanguage getInstance() {
+    public static PROPSLanguage getInstance() {
         if (INSTANCE == null) {
-            INSTANCE = new PropertiesLanguage();
+            INSTANCE = new PROPSLanguage();
         }
         return INSTANCE;
     }

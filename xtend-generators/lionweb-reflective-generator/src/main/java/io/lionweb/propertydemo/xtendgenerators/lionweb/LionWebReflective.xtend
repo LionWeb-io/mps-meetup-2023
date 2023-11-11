@@ -2,8 +2,8 @@ package io.lionweb.propertydemo.xtendgenerators.lionweb;
 
 import io.lionweb.lioncore.java.model.Node
 import io.lionweb.lioncore.java.serialization.JsonSerialization
-import io.lionweb.propertydemo.json.PropertiesLanguage
-import io.lionweb.propertydemo.json.PropertiesLoader
+import io.lionweb.propertydemo.json.PROPSLanguage
+import io.lionweb.propertydemo.json.PROPSLoader
 import java.io.BufferedWriter
 import java.io.File
 import java.io.FileWriter
@@ -18,10 +18,10 @@ class LionWebReflective {
 		val JsonSerialization jsonSerialization = JsonSerialization.getStandardSerialization()
 		jsonSerialization.enableDynamicNodes
 
-		val lang = PropertiesLanguage.getInstance()
+		val lang = PROPSLanguage.getInstance()
 
 		jsonSerialization.registerLanguage(lang.PROPERTIES_MM)
-		val inputStream = new PropertiesLoader().loadInstance()
+		val inputStream = new PROPSLoader().loadInstance()
 		val List<Node> nodes = jsonSerialization.deserializeToNodes(inputStream)
 
 		val Node propertiesFile = nodes.filter[it.concept == lang.PROPERTIESFILE].head

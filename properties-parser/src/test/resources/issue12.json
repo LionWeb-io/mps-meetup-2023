@@ -5,9 +5,9 @@
     {
       "id": "file_properties-parser-examples-example1-props-",
       "classifier": {
-        "language": "io-lionweb-Properties",
+        "language": "io-lionweb-props",
         "version": "1",
-        "key": "io-lionweb-Properties_PropertiesFile"
+        "key": "io-lionweb-props_PropertiesFile"
       },
       "properties": [
         {
@@ -22,9 +22,9 @@
       "containments": [
         {
           "containment": {
-            "language": "io-lionweb-Properties",
+            "language": "io-lionweb-props",
             "version": "1",
-            "key": "io-lionweb-Properties_PropertiesFile_props"
+            "key": "io-lionweb-props_PropertiesFile_props"
           },
           "children": [
             "file_properties-parser-examples-example1-props--props0"
@@ -32,9 +32,9 @@
         },
         {
           "containment": {
-            "language": "io-lionweb-Properties",
+            "language": "io-lionweb-props",
             "version": "1",
-            "key": "io-lionweb-Properties_PropertiesFile_props"
+            "key": "io-lionweb-props_PropertiesFile_props"
           },
           "children": [
             "file_properties-parser-examples-example1-props--props1"
@@ -42,9 +42,9 @@
         },
         {
           "containment": {
-            "language": "io-lionweb-Properties",
+            "language": "io-lionweb-props",
             "version": "1",
-            "key": "io-lionweb-Properties_PropertiesFile_props"
+            "key": "io-lionweb-props_PropertiesFile_props"
           },
           "children": [
             "file_properties-parser-examples-example1-props--props2"
@@ -57,9 +57,9 @@
     {
       "id": "file_properties-parser-examples-example1-props--props0",
       "classifier": {
-        "language": "io-lionweb-Properties",
+        "language": "io-lionweb-props",
         "version": "1",
-        "key": "io-lionweb-Properties_Property"
+        "key": "io-lionweb-props_Property"
       },
       "properties": [
         {
@@ -74,9 +74,9 @@
       "containments": [
         {
           "containment": {
-            "language": "io-lionweb-Properties",
+            "language": "io-lionweb-props",
             "version": "1",
-            "key": "io-lionweb-Properties_Property_value"
+            "key": "io-lionweb-props_Property_value"
           },
           "children": [
             "file_properties-parser-examples-example1-props--props0-value0"
@@ -89,16 +89,16 @@
     {
       "id": "file_properties-parser-examples-example1-props--props0-value0",
       "classifier": {
-        "language": "io-lionweb-Properties",
+        "language": "io-lionweb-props",
         "version": "1",
-        "key": "io-lionweb-Properties_IntValue"
+        "key": "io-lionweb-props_IntValue"
       },
       "properties": [
         {
           "property": {
-            "language": "io-lionweb-Properties",
+            "language": "io-lionweb-props",
             "version": "1",
-            "key": "io-lionweb-Properties_IntValue_value"
+            "key": "io-lionweb-props_IntValue_value"
           },
           "value": "1"
         }
@@ -110,9 +110,9 @@
     {
       "id": "file_properties-parser-examples-example1-props--props1",
       "classifier": {
-        "language": "io-lionweb-Properties",
+        "language": "io-lionweb-props",
         "version": "1",
-        "key": "io-lionweb-Properties_Property"
+        "key": "io-lionweb-props_Property"
       },
       "properties": [
         {
@@ -127,9 +127,9 @@
       "containments": [
         {
           "containment": {
-            "language": "io-lionweb-Properties",
+            "language": "io-lionweb-props",
             "version": "1",
-            "key": "io-lionweb-Properties_Property_value"
+            "key": "io-lionweb-props_Property_value"
           },
           "children": [
             "file_properties-parser-examples-example1-props--props1-value0"
@@ -142,16 +142,16 @@
     {
       "id": "file_properties-parser-examples-example1-props--props1-value0",
       "classifier": {
-        "language": "io-lionweb-Properties",
+        "language": "io-lionweb-props",
         "version": "1",
-        "key": "io-lionweb-Properties_BooleanValue"
+        "key": "io-lionweb-props_BooleanValue"
       },
       "properties": [
         {
           "property": {
-            "language": "io-lionweb-Properties",
+            "language": "io-lionweb-props",
             "version": "1",
-            "key": "io-lionweb-Properties_BooleanValue_value"
+            "key": "io-lionweb-props_BooleanValue_value"
           },
           "value": "true"
         }
@@ -163,9 +163,9 @@
     {
       "id": "file_properties-parser-examples-example1-props--props2",
       "classifier": {
-        "language": "io-lionweb-Properties",
+        "language": "io-lionweb-props",
         "version": "1",
-        "key": "io-lionweb-Properties_Property"
+        "key": "io-lionweb-props_Property"
       },
       "properties": [
         {
@@ -180,9 +180,9 @@
       "containments": [
         {
           "containment": {
-            "language": "io-lionweb-Properties",
+            "language": "io-lionweb-props",
             "version": "1",
-            "key": "io-lionweb-Properties_Property_value"
+            "key": "io-lionweb-props_Property_value"
           },
           "children": [
             "file_properties-parser-examples-example1-props--props2-value0"
@@ -195,16 +195,16 @@
     {
       "id": "file_properties-parser-examples-example1-props--props2-value0",
       "classifier": {
-        "language": "io-lionweb-Properties",
+        "language": "io-lionweb-props",
         "version": "1",
-        "key": "io-lionweb-Properties_StringValue"
+        "key": "io-lionweb-props_StringValue"
       },
       "properties": [
         {
           "property": {
-            "language": "io-lionweb-Properties",
+            "language": "io-lionweb-props",
             "version": "1",
-            "key": "io-lionweb-Properties_StringValue_value"
+            "key": "io-lionweb-props_StringValue_value"
           },
           "value": "foo"
         }

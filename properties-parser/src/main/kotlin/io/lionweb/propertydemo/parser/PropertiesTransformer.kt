@@ -2,7 +2,7 @@ package io.lionweb.propertydemo.parser
 
 import com.strumenta.kolasu.model.replaceWith
 import com.strumenta.kolasu.traversing.walkDescendants
-import io.lionweb.Properties.*
+import io.lionweb.PROPS.*
 import kotlin.reflect.jvm.internal.impl.resolve.constants.DoubleValue
 
 fun capitalize(model: PropertiesFile) {

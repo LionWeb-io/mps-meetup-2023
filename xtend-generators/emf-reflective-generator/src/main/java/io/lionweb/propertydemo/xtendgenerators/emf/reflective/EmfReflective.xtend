@@ -3,8 +3,8 @@ package io.lionweb.propertydemo.xtendgenerators.emf.reflective;
 import io.lionweb.lioncore.java.emf.EMFModelExporter
 import io.lionweb.lioncore.java.model.Node
 import io.lionweb.lioncore.java.serialization.JsonSerialization
-import io.lionweb.propertydemo.json.PropertiesLanguage
-import io.lionweb.propertydemo.json.PropertiesLoader
+import io.lionweb.propertydemo.json.PROPSLanguage
+import io.lionweb.propertydemo.json.PROPSLoader
 import java.io.BufferedWriter
 import java.io.File
 import java.io.FileWriter
@@ -22,9 +22,9 @@ class EmfReflective {
 
 	def generate() {
 		val jsonSerialization = JsonSerialization.getStandardSerialization();
-		jsonSerialization.registerLanguage(PropertiesLanguage.getInstance().PROPERTIES_MM);
+		jsonSerialization.registerLanguage(PROPSLanguage.getInstance().PROPERTIES_MM);
 		jsonSerialization.getInstantiator().enableDynamicNodes();
-		val inputStream = new PropertiesLoader().loadInstance()
+		val inputStream = new PROPSLoader().loadInstance()
 		val List<Node> nodes = jsonSerialization.deserializeToNodes(inputStream);
 		val List<Node> roots = nodes.stream().filter[it.parent === null].collect(Collectors.toList());
 
