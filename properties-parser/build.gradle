@@ -101,7 +101,7 @@ idea {
     module {
         mkdir generatedMain
         sourceDirs += generatedMainFile
-        println sourceDirs
+        // println sourceDirs
     }
 }
 

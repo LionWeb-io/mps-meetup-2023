@@ -11,7 +11,6 @@ public class PropertiesLoader {
 
     public PropertiesLoader() {
         loadFromFile = System.getProperties().containsKey("PROPERTIES_LOAD_FROM_FILE");
-        System.out.println("loadFromFile: "+loadFromFile);
     }
 
     public InputStream loadInstance() {
