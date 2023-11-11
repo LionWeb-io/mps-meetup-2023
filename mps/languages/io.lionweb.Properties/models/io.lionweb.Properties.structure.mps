@@ -14,6 +14,7 @@
       <concept id="1169125787135" name="jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration" flags="ig" index="PkWjJ">
         <property id="6714410169261853888" name="conceptId" index="EcuMT" />
         <property id="4628067390765956802" name="abstract" index="R5$K7" />
+        <property id="5092175715804935370" name="conceptAlias" index="34LRSv" />
         <child id="1071489727083" name="linkDeclaration" index="1TKVEi" />
         <child id="1071489727084" name="propertyDeclaration" index="1TKVEl" />
       </concept>
@@ -64,6 +65,7 @@
     <property role="TrG5h" value="PropertiesFile" />
     <property role="EcuMT" value="4516078350026690430" />
     <property role="19KtqR" value="true" />
+    <property role="34LRSv" value="Properties File" />
     <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
     <node concept="2DM1AW" id="6LPMcPcmvNY" role="lGtFl">
       <property role="2DM1AS" value="io_lionweb_Properties-PropertiesFile" />
@@ -80,6 +82,9 @@
     </node>
     <node concept="3KvTa3" id="6Sgmz$5w8RH" role="lGtFl">
       <property role="3KvTac" value="true" />
+    </node>
+    <node concept="PrWs8" id="rD9LMcTEeQ" role="PzmwI">
+      <ref role="PrY4T" to="tpck:h0TrEE$" resolve="INamedConcept" />
     </node>
   </node>
   <node concept="1TIwiD" id="6LPMcPcmvO1">
@@ -117,6 +122,7 @@
     <property role="R5$K7" value="false" />
     <property role="TrG5h" value="BooleanValue" />
     <property role="EcuMT" value="3610585688048632058" />
+    <property role="34LRSv" value="boolean" />
     <ref role="1TJDcQ" node="6LPMcPcmvO7" resolve="Value" />
     <node concept="2DM1AW" id="6LPMcPcmvOa" role="lGtFl">
       <property role="2DM1AS" value="io_lionweb_Properties-BooleanValue" />
@@ -134,6 +140,7 @@
     <property role="R5$K7" value="false" />
     <property role="TrG5h" value="DecValue" />
     <property role="EcuMT" value="-8690975471803852252" />
+    <property role="34LRSv" value="decimal" />
     <ref role="1TJDcQ" node="6LPMcPcmvO7" resolve="Value" />
     <node concept="2DM1AW" id="6LPMcPcmvOe" role="lGtFl">
       <property role="2DM1AS" value="io_lionweb_Properties-DecValue" />
@@ -151,6 +158,7 @@
     <property role="R5$K7" value="false" />
     <property role="TrG5h" value="IntValue" />
     <property role="EcuMT" value="-5251757909129240856" />
+    <property role="34LRSv" value="integer" />
     <ref role="1TJDcQ" node="6LPMcPcmvO7" resolve="Value" />
     <node concept="2DM1AW" id="6LPMcPcmvOi" role="lGtFl">
       <property role="2DM1AS" value="io_lionweb_Properties-IntValue" />
@@ -158,7 +166,7 @@
     <node concept="1TJgyi" id="6LPMcPcmvOj" role="1TKVEl">
       <property role="TrG5h" value="value" />
       <property role="IQ2nx" value="-1164810965792278352" />
-      <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
+      <ref role="AX2Wp" to="tpck:fKAQMTA" resolve="integer" />
       <node concept="2DM1AW" id="6LPMcPcmvOk" role="lGtFl">
         <property role="2DM1AS" value="io_lionweb_Properties-IntValue-value" />
       </node>
@@ -168,6 +176,7 @@
     <property role="R5$K7" value="false" />
     <property role="TrG5h" value="StringValue" />
     <property role="EcuMT" value="-8119058232078444791" />
+    <property role="34LRSv" value="string" />
     <ref role="1TJDcQ" node="6LPMcPcmvO7" resolve="Value" />
     <node concept="2DM1AW" id="6LPMcPcmvOm" role="lGtFl">
       <property role="2DM1AS" value="io_lionweb_Properties-StringValue" />

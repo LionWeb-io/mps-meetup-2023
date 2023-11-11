@@ -30,6 +30,7 @@
     </language>
   </registry>
   <node concept="Tw1CF" id="~file_properties-parser-examples-example1-props-">
+    <property role="TrG5h" value="PropertyRoot" />
     <node concept="26vB0H" id="~file_properties-parser-examples-example1-props--props0" role="1Pj4nA">
       <property role="TrG5h" value="integerProp" />
       <node concept="37HND" id="~file_properties-parser-examples-example1-props--props0-value0" role="3Vt1f6">
@@ -51,7 +52,7 @@
     <node concept="26vB0H" id="6EeGUTuMecC" role="1Pj4nA">
       <property role="TrG5h" value="stringProp" />
       <node concept="1T4Ty4" id="6EeGUTuMecD" role="3Vt1f6">
-        <property role="1ijX3X" value="new here? Or not?" />
+        <property role="1ijX3X" value="Or not?" />
       </node>
     </node>
   </node>
