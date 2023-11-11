@@ -8,7 +8,7 @@
   ],
   "nodes": [
     {
-      "id": "io_lionweb_Properties",
+      "id": "io-lionweb-Properties",
       "properties": [
         {
           "property": {
@@ -24,7 +24,7 @@
             "version": "2023.1",
             "key": "IKeyed-key"
           },
-          "value": "io_lionweb_Properties"
+          "value": "io-lionweb-Properties"
         },
         {
           "property": {
@@ -43,13 +43,13 @@
             "key": "Language-entities"
           },
           "children": [
-            "io_lionweb_Properties-BooleanValue",
-            "io_lionweb_Properties-DecValue",
-            "io_lionweb_Properties-IntValue",
-            "io_lionweb_Properties-PropertiesFile",
-            "io_lionweb_Properties-Property",
-            "io_lionweb_Properties-StringValue",
-            "io_lionweb_Properties-Value"
+            "io-lionweb-Properties_BooleanValue",
+            "io-lionweb-Properties_DecValue",
+            "io-lionweb-Properties_IntValue",
+            "io-lionweb-Properties_PropertiesFile",
+            "io-lionweb-Properties_Property",
+            "io-lionweb-Properties_StringValue",
+            "io-lionweb-Properties_Value"
           ]
         }
       ],
@@ -72,7 +72,7 @@
       }
     },
     {
-      "id": "io_lionweb_Properties-BooleanValue",
+      "id": "io-lionweb-Properties_BooleanValue",
       "properties": [
         {
           "property": {
@@ -96,7 +96,7 @@
             "version": "2023.1",
             "key": "IKeyed-key"
           },
-          "value": "io_lionweb_Properties-BooleanValue"
+          "value": "io-lionweb-Properties_BooleanValue"
         },
         {
           "property": {
@@ -115,7 +115,7 @@
             "key": "Classifier-features"
           },
           "children": [
-            "io_lionweb_Properties-BooleanValue-value"
+            "io-lionweb-Properties_BooleanValue_value"
           ]
         }
       ],
@@ -129,7 +129,7 @@
           "targets": [
             {
               "resolveInfo": "Value",
-              "reference": "io_lionweb_Properties-Value"
+              "reference": "io-lionweb-Properties_Value"
             }
           ]
         },
@@ -143,7 +143,7 @@
         }
       ],
       "annotations": [],
-      "parent": "io_lionweb_Properties",
+      "parent": "io-lionweb-Properties",
       "classifier": {
         "language": "LionCore-M3",
         "version": "2023.1",
@@ -151,7 +151,7 @@
       }
     },
     {
-      "id": "io_lionweb_Properties-BooleanValue-value",
+      "id": "io-lionweb-Properties_BooleanValue_value",
       "properties": [
         {
           "property": {
@@ -167,7 +167,7 @@
             "version": "2023.1",
             "key": "IKeyed-key"
           },
-          "value": "io_lionweb_Properties-BooleanValue-value"
+          "value": "io-lionweb-Properties_BooleanValue_value"
         },
         {
           "property": {
@@ -195,7 +195,7 @@
         }
       ],
       "annotations": [],
-      "parent": "io_lionweb_Properties-BooleanValue",
+      "parent": "io-lionweb-Properties_BooleanValue",
       "classifier": {
         "language": "LionCore-M3",
         "version": "2023.1",
@@ -203,7 +203,7 @@
       }
     },
     {
-      "id": "io_lionweb_Properties-DecValue",
+      "id": "io-lionweb-Properties_DecValue",
       "properties": [
         {
           "property": {
@@ -227,7 +227,7 @@
             "version": "2023.1",
             "key": "IKeyed-key"
           },
-          "value": "io_lionweb_Properties-DecValue"
+          "value": "io-lionweb-Properties_DecValue"
         },
         {
           "property": {
@@ -246,7 +246,7 @@
             "key": "Classifier-features"
           },
           "children": [
-            "io_lionweb_Properties-DecValue-value"
+            "io-lionweb-Properties_DecValue_value"
           ]
         }
       ],
@@ -260,7 +260,7 @@
           "targets": [
             {
               "resolveInfo": "Value",
-              "reference": "io_lionweb_Properties-Value"
+              "reference": "io-lionweb-Properties_Value"
             }
           ]
         },
@@ -274,7 +274,7 @@
         }
       ],
       "annotations": [],
-      "parent": "io_lionweb_Properties",
+      "parent": "io-lionweb-Properties",
       "classifier": {
         "language": "LionCore-M3",
         "version": "2023.1",
@@ -282,7 +282,7 @@
       }
     },
     {
-      "id": "io_lionweb_Properties-DecValue-value",
+      "id": "io-lionweb-Properties_DecValue_value",
       "properties": [
         {
           "property": {
@@ -298,7 +298,7 @@
             "version": "2023.1",
             "key": "IKeyed-key"
           },
-          "value": "io_lionweb_Properties-DecValue-value"
+          "value": "io-lionweb-Properties_DecValue_value"
         },
         {
           "property": {
@@ -326,7 +326,7 @@
         }
       ],
       "annotations": [],
-      "parent": "io_lionweb_Properties-DecValue",
+      "parent": "io-lionweb-Properties_DecValue",
       "classifier": {
         "language": "LionCore-M3",
         "version": "2023.1",
@@ -334,7 +334,7 @@
       }
     },
     {
-      "id": "io_lionweb_Properties-IntValue",
+      "id": "io-lionweb-Properties_IntValue",
       "properties": [
         {
           "property": {
@@ -358,7 +358,7 @@
             "version": "2023.1",
             "key": "IKeyed-key"
           },
-          "value": "io_lionweb_Properties-IntValue"
+          "value": "io-lionweb-Properties_IntValue"
         },
         {
           "property": {
@@ -377,7 +377,7 @@
             "key": "Classifier-features"
           },
           "children": [
-            "io_lionweb_Properties-IntValue-value"
+            "io-lionweb-Properties_IntValue_value"
           ]
         }
       ],
@@ -391,7 +391,7 @@
           "targets": [
             {
               "resolveInfo": "Value",
-              "reference": "io_lionweb_Properties-Value"
+              "reference": "io-lionweb-Properties_Value"
             }
           ]
         },
@@ -405,7 +405,7 @@
         }
       ],
       "annotations": [],
-      "parent": "io_lionweb_Properties",
+      "parent": "io-lionweb-Properties",
       "classifier": {
         "language": "LionCore-M3",
         "version": "2023.1",
@@ -413,7 +413,7 @@
       }
     },
     {
-      "id": "io_lionweb_Properties-IntValue-value",
+      "id": "io-lionweb-Properties_IntValue_value",
       "properties": [
         {
           "property": {
@@ -429,7 +429,7 @@
             "version": "2023.1",
             "key": "IKeyed-key"
           },
-          "value": "io_lionweb_Properties-IntValue-value"
+          "value": "io-lionweb-Properties_IntValue_value"
         },
         {
           "property": {
@@ -457,7 +457,7 @@
         }
       ],
       "annotations": [],
-      "parent": "io_lionweb_Properties-IntValue",
+      "parent": "io-lionweb-Properties_IntValue",
       "classifier": {
         "language": "LionCore-M3",
         "version": "2023.1",
@@ -465,7 +465,7 @@
       }
     },
     {
-      "id": "io_lionweb_Properties-PropertiesFile",
+      "id": "io-lionweb-Properties_PropertiesFile",
       "properties": [
         {
           "property": {
@@ -489,7 +489,7 @@
             "version": "2023.1",
             "key": "IKeyed-key"
           },
-          "value": "io_lionweb_Properties-PropertiesFile"
+          "value": "io-lionweb-Properties_PropertiesFile"
         },
         {
           "property": {
@@ -508,7 +508,7 @@
             "key": "Classifier-features"
           },
           "children": [
-            "io_lionweb_Properties-PropertiesFile-props"
+            "io-lionweb-Properties_PropertiesFile_props"
           ]
         }
       ],
@@ -541,7 +541,7 @@
         }
       ],
       "annotations": [],
-      "parent": "io_lionweb_Properties",
+      "parent": "io-lionweb-Properties",
       "classifier": {
         "language": "LionCore-M3",
         "version": "2023.1",
@@ -549,7 +549,7 @@
       }
     },
     {
-      "id": "io_lionweb_Properties-PropertiesFile-props",
+      "id": "io-lionweb-Properties_PropertiesFile_props",
       "properties": [
         {
           "property": {
@@ -573,7 +573,7 @@
             "version": "2023.1",
             "key": "IKeyed-key"
           },
-          "value": "io_lionweb_Properties-PropertiesFile-props"
+          "value": "io-lionweb-Properties_PropertiesFile_props"
         },
         {
           "property": {
@@ -595,13 +595,13 @@
           "targets": [
             {
               "resolveInfo": "Property",
-              "reference": "io_lionweb_Properties-Property"
+              "reference": "io-lionweb-Properties_Property"
             }
           ]
         }
       ],
       "annotations": [],
-      "parent": "io_lionweb_Properties-PropertiesFile",
+      "parent": "io-lionweb-Properties_PropertiesFile",
       "classifier": {
         "language": "LionCore-M3",
         "version": "2023.1",
@@ -609,7 +609,7 @@
       }
     },
     {
-      "id": "io_lionweb_Properties-Property",
+      "id": "io-lionweb-Properties_Property",
       "properties": [
         {
           "property": {
@@ -633,7 +633,7 @@
             "version": "2023.1",
             "key": "IKeyed-key"
           },
-          "value": "io_lionweb_Properties-Property"
+          "value": "io-lionweb-Properties_Property"
         },
         {
           "property": {
@@ -652,7 +652,7 @@
             "key": "Classifier-features"
           },
           "children": [
-            "io_lionweb_Properties-Property-value"
+            "io-lionweb-Properties_Property_value"
           ]
         }
       ],
@@ -685,7 +685,7 @@
         }
       ],
       "annotations": [],
-      "parent": "io_lionweb_Properties",
+      "parent": "io-lionweb-Properties",
       "classifier": {
         "language": "LionCore-M3",
         "version": "2023.1",
@@ -693,7 +693,7 @@
       }
     },
     {
-      "id": "io_lionweb_Properties-Property-value",
+      "id": "io-lionweb-Properties_Property_value",
       "properties": [
         {
           "property": {
@@ -717,7 +717,7 @@
             "version": "2023.1",
             "key": "IKeyed-key"
           },
-          "value": "io_lionweb_Properties-Property-value"
+          "value": "io-lionweb-Properties_Property_value"
         },
         {
           "property": {
@@ -739,13 +739,13 @@
           "targets": [
             {
               "resolveInfo": "Value",
-              "reference": "io_lionweb_Properties-Value"
+              "reference": "io-lionweb-Properties_Value"
             }
           ]
         }
       ],
       "annotations": [],
-      "parent": "io_lionweb_Properties-Property",
+      "parent": "io-lionweb-Properties_Property",
       "classifier": {
         "language": "LionCore-M3",
         "version": "2023.1",
@@ -753,7 +753,7 @@
       }
     },
     {
-      "id": "io_lionweb_Properties-StringValue",
+      "id": "io-lionweb-Properties_StringValue",
       "properties": [
         {
           "property": {
@@ -777,7 +777,7 @@
             "version": "2023.1",
             "key": "IKeyed-key"
           },
-          "value": "io_lionweb_Properties-StringValue"
+          "value": "io-lionweb-Properties_StringValue"
         },
         {
           "property": {
@@ -796,7 +796,7 @@
             "key": "Classifier-features"
           },
           "children": [
-            "io_lionweb_Properties-StringValue-value"
+            "io-lionweb-Properties_StringValue_value"
           ]
         }
       ],
@@ -810,7 +810,7 @@
           "targets": [
             {
               "resolveInfo": "Value",
-              "reference": "io_lionweb_Properties-Value"
+              "reference": "io-lionweb-Properties_Value"
             }
           ]
         },
@@ -824,7 +824,7 @@
         }
       ],
       "annotations": [],
-      "parent": "io_lionweb_Properties",
+      "parent": "io-lionweb-Properties",
       "classifier": {
         "language": "LionCore-M3",
         "version": "2023.1",
@@ -832,7 +832,7 @@
       }
     },
     {
-      "id": "io_lionweb_Properties-StringValue-value",
+      "id": "io-lionweb-Properties_StringValue_value",
       "properties": [
         {
           "property": {
@@ -848,7 +848,7 @@
             "version": "2023.1",
             "key": "IKeyed-key"
           },
-          "value": "io_lionweb_Properties-StringValue-value"
+          "value": "io-lionweb-Properties_StringValue_value"
         },
         {
           "property": {
@@ -876,7 +876,7 @@
         }
       ],
       "annotations": [],
-      "parent": "io_lionweb_Properties-StringValue",
+      "parent": "io-lionweb-Properties_StringValue",
       "classifier": {
         "language": "LionCore-M3",
         "version": "2023.1",
@@ -884,7 +884,7 @@
       }
     },
     {
-      "id": "io_lionweb_Properties-Value",
+      "id": "io-lionweb-Properties_Value",
       "properties": [
         {
           "property": {
@@ -908,7 +908,7 @@
             "version": "2023.1",
             "key": "IKeyed-key"
           },
-          "value": "io_lionweb_Properties-Value"
+          "value": "io-lionweb-Properties_Value"
         },
         {
           "property": {
@@ -953,7 +953,7 @@
         }
       ],
       "annotations": [],
-      "parent": "io_lionweb_Properties",
+      "parent": "io-lionweb-Properties",
       "classifier": {
         "language": "LionCore-M3",
         "version": "2023.1",

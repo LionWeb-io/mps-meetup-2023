@@ -58,7 +58,7 @@
     </language>
   </registry>
   <node concept="2DM1_0" id="6LPMcPcmvOr">
-    <property role="2DM1AS" value="io_lionweb_Properties" />
+    <property role="2DM1AS" value="io-lionweb-Properties" />
   </node>
   <node concept="1TIwiD" id="6LPMcPcmvNX">
     <property role="R5$K7" value="false" />
@@ -68,7 +68,7 @@
     <property role="34LRSv" value="Properties File" />
     <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
     <node concept="2DM1AW" id="6LPMcPcmvNY" role="lGtFl">
-      <property role="2DM1AS" value="io_lionweb_Properties-PropertiesFile" />
+      <property role="2DM1AS" value="io-lionweb-Properties_PropertiesFile" />
     </node>
     <node concept="1TJgyj" id="6LPMcPcmvNZ" role="1TKVEi">
       <property role="20kJfa" value="props" />
@@ -77,7 +77,7 @@
       <property role="20lbJX" value="fLJekj6/_1__n" />
       <ref role="20lvS9" node="6LPMcPcmvO1" resolve="Property" />
       <node concept="2DM1AW" id="6LPMcPcmvO0" role="lGtFl">
-        <property role="2DM1AS" value="io_lionweb_Properties-PropertiesFile-props" />
+        <property role="2DM1AS" value="io-lionweb-Properties_PropertiesFile_props" />
       </node>
     </node>
     <node concept="3KvTa3" id="6Sgmz$5w8RH" role="lGtFl">
@@ -93,7 +93,7 @@
     <property role="EcuMT" value="9045300450722131192" />
     <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
     <node concept="2DM1AW" id="6LPMcPcmvO2" role="lGtFl">
-      <property role="2DM1AS" value="io_lionweb_Properties-Property" />
+      <property role="2DM1AS" value="io-lionweb-Properties_Property" />
     </node>
     <node concept="1TJgyj" id="6LPMcPcmvO5" role="1TKVEi">
       <property role="20kJfa" value="value" />
@@ -102,7 +102,7 @@
       <property role="20lbJX" value="fLJekj4/_1" />
       <ref role="20lvS9" node="6LPMcPcmvO7" resolve="Value" />
       <node concept="2DM1AW" id="6LPMcPcmvO6" role="lGtFl">
-        <property role="2DM1AS" value="io_lionweb_Properties-Property-value" />
+        <property role="2DM1AS" value="io-lionweb-Properties_Property_value" />
       </node>
     </node>
     <node concept="PrWs8" id="6Sgmz$5w8Sa" role="PzmwI">
@@ -115,7 +115,7 @@
     <property role="EcuMT" value="-5637181171957891234" />
     <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
     <node concept="2DM1AW" id="6LPMcPcmvO8" role="lGtFl">
-      <property role="2DM1AS" value="io_lionweb_Properties-Value" />
+      <property role="2DM1AS" value="io-lionweb-Properties_Value" />
     </node>
   </node>
   <node concept="1TIwiD" id="6LPMcPcmvO9">
@@ -125,14 +125,14 @@
     <property role="34LRSv" value="boolean" />
     <ref role="1TJDcQ" node="6LPMcPcmvO7" resolve="Value" />
     <node concept="2DM1AW" id="6LPMcPcmvOa" role="lGtFl">
-      <property role="2DM1AS" value="io_lionweb_Properties-BooleanValue" />
+      <property role="2DM1AS" value="io-lionweb-Properties_BooleanValue" />
     </node>
     <node concept="1TJgyi" id="6LPMcPcmvOb" role="1TKVEl">
       <property role="TrG5h" value="value" />
       <property role="IQ2nx" value="7452053177660046254" />
       <ref role="AX2Wp" to="tpck:fKAQMTB" resolve="boolean" />
       <node concept="2DM1AW" id="6LPMcPcmvOc" role="lGtFl">
-        <property role="2DM1AS" value="io_lionweb_Properties-BooleanValue-value" />
+        <property role="2DM1AS" value="io-lionweb-Properties_BooleanValue_value" />
       </node>
     </node>
   </node>
@@ -143,14 +143,14 @@
     <property role="34LRSv" value="decimal" />
     <ref role="1TJDcQ" node="6LPMcPcmvO7" resolve="Value" />
     <node concept="2DM1AW" id="6LPMcPcmvOe" role="lGtFl">
-      <property role="2DM1AS" value="io_lionweb_Properties-DecValue" />
+      <property role="2DM1AS" value="io-lionweb-Properties_DecValue" />
     </node>
     <node concept="1TJgyi" id="6LPMcPcmvOf" role="1TKVEl">
       <property role="TrG5h" value="value" />
       <property role="IQ2nx" value="3857521133551189989" />
       <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
       <node concept="2DM1AW" id="6LPMcPcmvOg" role="lGtFl">
-        <property role="2DM1AS" value="io_lionweb_Properties-DecValue-value" />
+        <property role="2DM1AS" value="io-lionweb-Properties_DecValue_value" />
       </node>
     </node>
   </node>
@@ -161,14 +161,14 @@
     <property role="34LRSv" value="integer" />
     <ref role="1TJDcQ" node="6LPMcPcmvO7" resolve="Value" />
     <node concept="2DM1AW" id="6LPMcPcmvOi" role="lGtFl">
-      <property role="2DM1AS" value="io_lionweb_Properties-IntValue" />
+      <property role="2DM1AS" value="io-lionweb-Properties_IntValue" />
     </node>
     <node concept="1TJgyi" id="6LPMcPcmvOj" role="1TKVEl">
       <property role="TrG5h" value="value" />
       <property role="IQ2nx" value="-1164810965792278352" />
       <ref role="AX2Wp" to="tpck:fKAQMTA" resolve="integer" />
       <node concept="2DM1AW" id="6LPMcPcmvOk" role="lGtFl">
-        <property role="2DM1AS" value="io_lionweb_Properties-IntValue-value" />
+        <property role="2DM1AS" value="io-lionweb-Properties_IntValue_value" />
       </node>
     </node>
   </node>
@@ -179,14 +179,14 @@
     <property role="34LRSv" value="string" />
     <ref role="1TJDcQ" node="6LPMcPcmvO7" resolve="Value" />
     <node concept="2DM1AW" id="6LPMcPcmvOm" role="lGtFl">
-      <property role="2DM1AS" value="io_lionweb_Properties-StringValue" />
+      <property role="2DM1AS" value="io-lionweb-Properties_StringValue" />
     </node>
     <node concept="1TJgyi" id="6LPMcPcmvOn" role="1TKVEl">
       <property role="TrG5h" value="value" />
       <property role="IQ2nx" value="-5457643573714526488" />
       <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
       <node concept="2DM1AW" id="6LPMcPcmvOo" role="lGtFl">
-        <property role="2DM1AS" value="io_lionweb_Properties-StringValue-value" />
+        <property role="2DM1AS" value="io-lionweb-Properties_StringValue_value" />
       </node>
     </node>
   </node>

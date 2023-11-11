@@ -30,7 +30,7 @@
     </language>
   </registry>
   <node concept="Tw1CF" id="~file_properties-parser-examples-example1-props-">
-    <property role="TrG5h" value="PropertyRoot" />
+    <property role="TrG5h" value="PropertyRoot.props" />
     <node concept="26vB0H" id="~file_properties-parser-examples-example1-props--props0" role="1Pj4nA">
       <property role="TrG5h" value="integerProp" />
       <node concept="37HND" id="~file_properties-parser-examples-example1-props--props0-value0" role="3Vt1f6">
