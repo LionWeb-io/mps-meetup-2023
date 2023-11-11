@@ -16,8 +16,9 @@ class UnserializationTest {
     @Ignore("Get github action running")
     fun unserializeSimpleExample() {
         val ast = PropertiesFile(
+            "",
             mutableListOf(
-                Property("a", (IntValue("1"))),
+                Property("a", (IntValue(1))),
                 Property("b", (BooleanValue(true))),
                 Property("c", (StringValue("foo")))
             )
@@ -46,8 +47,9 @@ class UnserializationTest {
         val starlasuAST = unserializedAST[0].toStarLasu()
         assertASTsAreEqual(
             PropertiesFile(
+                "MyFile",
                 mutableListOf(
-                    Property("a", (IntValue("1"))),
+                    Property("a", (IntValue(1))),
                     Property("b", (BooleanValue(true))),
                     Property("c", (StringValue("foo")))
                 )

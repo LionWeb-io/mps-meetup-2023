@@ -13,8 +13,9 @@ class CodeGeneratorTest {
     @Test
     fun unserializeAndPrintSimpleExample() {
         val ast = PropertiesFile(
+            "",
             mutableListOf(
-                Property("a", IntValue("1")),
+                Property("a", IntValue(1)),
                 Property("b", BooleanValue(true)),
                 Property("c", StringValue("foo"))
             )

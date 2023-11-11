@@ -16,7 +16,7 @@ fun capitalize(model: PropertiesFile) {
 
 fun double(model: PropertiesFile) {
     model.walkDescendants(IntValue::class).forEach {
-        it.value = (it.value.toInt() * 2).toString()
+        it.value = it.value * 2
     }
     model.walkDescendants(DecValue::class).forEach {
         it.value = (it.value.toDouble() * 2).toString()
@@ -35,7 +35,7 @@ fun reverse(model: PropertiesFile) {
 
 fun convertToString(model: PropertiesFile) {
     model.walkDescendants(IntValue::class).forEach {
-        it.replaceWith(StringValue(it.value))
+        it.replaceWith(StringValue(it.value.toString()))
     }
     model.walkDescendants(DecValue::class).forEach {
         it.replaceWith(StringValue(it.value))

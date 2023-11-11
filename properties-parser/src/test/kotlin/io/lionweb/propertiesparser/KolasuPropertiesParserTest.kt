@@ -21,8 +21,9 @@ class KolasuPropertiesParserTest {
         assert(result.issues.isEmpty())
         assertASTsAreEqual(
             PropertiesFile(
+                "",
                 mutableListOf(
-                    Property("a", (IntValue("1"))),
+                    Property("a", (IntValue(1))),
                     Property("b", (BooleanValue(true))),
                     Property("c", (StringValue("foo")))
                 )
