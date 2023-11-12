@@ -163,7 +163,7 @@ shadowJar {
 
 lionweb {
     importPackageNames.set(["io.lionweb.propertiesparser":"io.lionweb.props"])
-    languages.add(file("${rootProject.project('properties-json').projectDir}/src/main/resources/PROPS.lmm.json"))
+    languages.add(file("${rootProject.project('properties-json').projectDir}/src/main/resources/PROPS.lmm.json").absolutePath)
 }
 
 // fixes https://discuss.gradle.org/t/implicit-dependency-among-tasks-but-the-tasks-do-not-exist/46127/4
