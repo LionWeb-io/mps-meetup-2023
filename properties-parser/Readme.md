@@ -1,13 +1,12 @@
 # Properties Parser
 
-This is a Parser based on Kolasu and compatible with LIonWeb.
+This is a Parser based on Kolasu and compatible with LionWeb.
 
-This project can produce a fat jar (i.e., an executable jar containing all dependencies) which can be 
-executed from the command line to:
+This project can produce a fat jar (i.e., an executable jar containing all dependencies) which can be executed from the command line to:
 
-1. Produce the Properties metamodel in LIonWeb format
-2. Produce the StarLasu metamodel, on which the Properties metamodel depend 
-2. Parsing a properties file and produce an AST, in LIonWeb format
+1. Produce the PROPS metamodel in LionWeb format
+2. Produce the StarLasu metamodel 
+2. Parsing a properties file and produce an AST, in LionWeb PROPS format
 
 ## Invoking the Command Line Interface
 
@@ -48,6 +47,14 @@ You can optionally specify where to save the model.
 To load an AST file and generate the corresponding props file you can run:
 ```
 java -jar properties-parser/build/libs/properties-parser-all.jar codegen properties-parser/examples/example1.props
+```
+You can optionally specify where to save the props file.
+
+### download command
+
+To download an AST file and generate the corresponding props file you can run:
+```
+java -jar properties-parser/build/libs/properties-parser-all.jar download http://127.0.0.1:63320/lionweb/bulk?modelRef=r%3A5dda8fb0-8c78-4ed5-8c46-0eb8c112a60a(import_from_json.properties.instance)
 ```
 You can optionally specify where to save the props file.
 

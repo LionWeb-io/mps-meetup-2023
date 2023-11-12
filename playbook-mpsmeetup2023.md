@@ -1,4 +1,4 @@
-# Playbook for LIonWeb Demo at MPS Meetup 2023
+# Playbook for LionWeb Demo at MPS Meetup 2023
 
 1. Show properties file
    * `properties-parser\examples\example1.props`

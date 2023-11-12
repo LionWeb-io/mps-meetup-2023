@@ -10,7 +10,7 @@ public class PROPSLoader {
     private boolean loadFromFile;
 
     public PROPSLoader() {
-        loadFromFile = System.getProperties().containsKey("PROPERTIES_LOAD_FROM_FILE");
+        loadFromFile = System.getProperties().containsKey("PROPS_LOAD_FROM_FILE");
     }
 
     public InputStream loadInstance() {
