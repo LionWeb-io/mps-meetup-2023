@@ -1,5 +1,5 @@
 import type { FreEnvironment, IServerCommunication } from "@freon4dsl/core";
-import { PropertiesEnvironment } from "../../picode/config/gen/PropertiesEnvironment";
+import { PROPSEnvironment } from "../../picode/config/gen/PROPSEnvironment";
 import { LanguageInitializer } from "../language/LanguageInitializer";
 import { FreUtils, LionWebCommunication, LionwebIdProvider, LocalLionwebIdProvider, ServerCommunication } from "@freon4dsl/core";
 
@@ -11,7 +11,7 @@ export const serverCommunication: IServerCommunication = LionWebCommunication.ge
 /**
  * The one and only reference to the actual language for which this editor runs
  */
-export const editorEnvironment: FreEnvironment = PropertiesEnvironment.getInstance();
+export const editorEnvironment: FreEnvironment = PROPSEnvironment.getInstance();
 LanguageInitializer.initialize();
 
 export const idProvider = new LocalLionwebIdProvider();

@@ -1,6 +1,6 @@
-language Properties
+language PROPS
 
-model Properties  {
+model PROPS  {
     files: PropertiesFile[];
 }
 
@@ -24,7 +24,7 @@ concept DecValue base Value {
 }
 
 concept IntValue base Value {
-    value: string;
+    value: number;
 }
 
 concept StringValue base Value {
