@@ -18,7 +18,6 @@ import java.io.BufferedWriter
 import java.io.File
 import java.io.FileWriter
 import java.util.List
-import java.util.stream.Collectors
 import org.eclipse.emf.ecore.resource.Resource
 
 class EmfGenerated {
@@ -27,32 +26,39 @@ class EmfGenerated {
 	}
 
 	def generate() {
+		// Setup Ecore
 		BuiltinsPackage.eINSTANCE.getNsURI();
 		Io_lionweb_PROPSPackage.eINSTANCE.getNsURI();
 
-		val JsonSerialization jsonSerialization = JsonSerialization.getStandardSerialization();
-
+		// Setup LionWeb serialization
 		val lang = PROPSLanguage.getInstance()
-
+		val JsonSerialization jsonSerialization = JsonSerialization.getStandardSerialization();
 		jsonSerialization.registerLanguage(lang.PROPERTIES_MM);
 		jsonSerialization.getInstantiator().enableDynamicNodes();
+
+		// Load model from MPS
 		val inputStream = new PROPSLoader().loadInstance()
 		val nodes = jsonSerialization.deserializeToNodes(inputStream);
-		val List<Node> roots = nodes.stream().filter[it.parent === null].collect(Collectors.toList());
+		val List<Node> roots = nodes.filter[it.parent === null].toList
 
+		// Setup mapping between LionWeb and EMF
 		val ConceptsToEClassesMapping conceptMapper = new ConceptsToEClassesMapping();
 		conceptMapper.registerMapping(lang.PROPERTIES_MM, Io_lionweb_PROPSPackage.eINSTANCE);
 
+		// Export instance from LionWeb to EMF
 		val EMFModelExporter emfExporter = new EMFModelExporter(conceptMapper);
 		val Resource resource = emfExporter.exportResource(roots);
 
+		// Find entry point
 		val PropertiesFile propsFile = resource.contents.filter(PropertiesFile).head
 		val List<Property> properties = propsFile.props
 
+		// Setup file output
 		val fileName = "emf-generator"
 		val htmlFile = new File('''«fileName»-index.html''')
 		val bw = new BufferedWriter(new FileWriter(htmlFile))
 
+		// Generate
 		bw.write('''
 			<!DOCTYPE html>
 			<head>

@@ -19,15 +19,20 @@ class KotlinGenerated {
 	}
 
 	def generate() {
+		// Load model from MPS
 		val propertiesLoader = new PropertiesModelLoader()
 		val inputStream = new PROPSLoader().loadInstance()
+
+		// Find entry point
 		val PropertiesFile propsFile = propertiesLoader.loadModel(inputStream)
 		val List<Property> properties = propsFile.props
 
+		// Setup file output
 		val fileName = "kotlin-generator"
 		val htmlFile = new File('''«fileName»-index.html''')
 		val bw = new BufferedWriter(new FileWriter(htmlFile))
 
+		// Generate
 		bw.write('''
 			<!DOCTYPE html>
 			<head>

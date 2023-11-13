@@ -32,7 +32,9 @@ public class PROPSLoader {
             return this.getClass().getResourceAsStream("/PROPS.lmm.json");
         }
 
-        URI uri = URI.create("http://127.0.0.1:63320/lionweb/language?moduleRef=28832bdf-0e25-363c-b286-c7457d9f9c90(io.lionweb.PROPS)");
+        URI uri = URI.create(
+		  "http://127.0.0.1:63320/lionweb/language?moduleRef=28832bdf-0e25-363c-b286-c7457d9f9c90(io.lionweb.PROPS)"
+		);
         try {
             HttpResponse<InputStream> response = HttpClient.newHttpClient().send(HttpRequest.newBuilder(uri).GET().build(), HttpResponse.BodyHandlers.ofInputStream());
             return response.body();
