@@ -1,0 +1,36 @@
+@startuml
+hide empty members
+
+package builtins {
+  interface builtins.INamed {
+    name: String
+  }
+}
+
+class PropertiesFile implements builtins.INamed
+
+PropertiesFile *- "0..*" Property
+
+class Property implements builtins.INamed
+
+Property *- "1" Value
+
+abstract class Value <<abstract>>
+
+class BooleanValue extends Value {
+    value: Boolean
+}
+
+class DecValue extends Value {
+    value: String
+}
+
+class IntValue extends Value {
+    value: Integer
+}
+
+class StringValue extends Value {
+    value: String
+}
+
+@enduml
