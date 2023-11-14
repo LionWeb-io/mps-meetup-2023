@@ -8,11 +8,11 @@ pluginManagement {
     }
 }
 
-rootProject.name = 'lionweb-mps-meetup'
+rootProject.name = 'property-demo'
 
+include 'properties-json'
 include 'properties-parser'
 include 'properties-emf'
-include 'properties-json'
 include 'mps'
 include ':xtend-generators:emf-generator'
 include ':xtend-generators:emf-reflective-generator'

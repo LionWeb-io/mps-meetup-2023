@@ -2,8 +2,7 @@
 <project version="4">
   <component name="MPSProject">
     <projectModules>
-      <modulePath path="$PROJECT_DIR$/languages/com.strumenta.StarLasu/com.strumenta.StarLasu.mpl" folder="" />
-      <modulePath path="$PROJECT_DIR$/languages/io.lionweb.Properties/io.lionweb.Properties.mpl" folder="" />
+      <modulePath path="$PROJECT_DIR$/languages/io.lionweb.PROPS/io.lionweb.PROPS.mpl" folder="" />
       <modulePath path="$PROJECT_DIR$/solutions/import_from_json/import_from_json.msd" folder="" />
     </projectModules>
   </component>

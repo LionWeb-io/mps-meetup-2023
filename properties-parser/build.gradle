@@ -23,6 +23,9 @@ def generatedMainFile = file(generatedMain)
 
 dependencies {
     antlr "org.antlr:antlr4:$antlrVersion"
+
+    implementation(project(":properties-json"))
+
     implementation "org.antlr:antlr4-runtime:$antlrVersion"
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
     implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
@@ -44,7 +47,7 @@ dependencies {
     implementation group: 'commons-io', name: 'commons-io', version: '2.6'
     implementation 'com.google.code.gson:gson:2.8.7'
     implementation "com.github.ajalt.clikt:clikt:3.4.0"
-    implementation "io.lionweb.lionweb-java:lionweb-java-core:$lionwebJavaVersion"
+    implementation "io.lionweb.lionweb-java:lionweb-java-$lionwebRelease-core:$lionwebJavaVersion"
 }
 
 configurations.all() {
@@ -58,8 +61,8 @@ configurations.all() {
 generateGrammarSource {
     inputs.files fileTree('src/main/antlr').include('**/*.g4')
     maxHeapSize = "64m"
-    arguments += ['-package', 'io.lionweb.propertiesparser']
-    outputDirectory = file(generatedMain + "/io/lionweb/propertiesparser")
+    arguments += ['-package', 'io.lionweb.propertydemo.parser']
+    outputDirectory = file(generatedMain + "/io/lionweb/propertydemo/parser")
 }
 
 compileJava {
@@ -98,7 +101,7 @@ idea {
     module {
         mkdir generatedMain
         sourceDirs += generatedMainFile
-        println sourceDirs
+        // println sourceDirs
     }
 }
 
@@ -115,7 +118,7 @@ ktlint {
 }
 
 application {
-    mainClass = 'io.lionweb.propertiesparser.cli.PropertiesParserCLI'
+    mainClass = 'io.lionweb.propertydemo.parser.cli.PropertiesParserCLI'
 }
 
 /**
@@ -160,7 +163,7 @@ shadowJar {
 
 lionweb {
     importPackageNames.set(["io.lionweb.propertiesparser":"io.lionweb.props"])
-    languages.add(file("properties.lmm.json"))
+    languages.add(file("${rootProject.project('properties-json').projectDir}/src/main/resources/PROPS.lmm.json").absoluteFile)
 }
 
 // fixes https://discuss.gradle.org/t/implicit-dependency-among-tasks-but-the-tasks-do-not-exist/46127/4

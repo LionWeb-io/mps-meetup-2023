@@ -1,12 +1,19 @@
-# LIonWeb MPS Meetup 2023 Demo
+# LionWeb Property Demo
 
-This project contains a demo of LIonWeb for the MPS Meetup 2023 event.
+This project contains a demo application of LionWeb.
+We presented a first version at MPS Meetup 2023, and an advanced version at LangDev 2023.
 
-In the `properties-parser` directory we have a parser and code generator for a variant of the properties file format.
+* `properties-emf` contains a converter from LionCore to Ecore and generator from Ecore to Java.
 
-In the `mps` directory we have an MPS project which can import the properties language and its instances.
+* `properties-json` contains a _lionweb-java_ representation of the PROPS language, and a helper to access PROPS language and instance.
 
-In the `freon` directory we have a web editor for the properties language.
+* `properties-parser` contains a parser and code generator for a variant of the properties file format.
+
+* `mps` contains an MPS project which hosts the PROPS language and its instances.
+
+* `freon` contains a web editor for the PROPS language.
+
+* `xtend-generators` contains a set of Xtend-based generators.
 
 Each directory contains a readme with more details.
 
@@ -18,59 +25,36 @@ Each directory contains a readme with more details.
 
 ## Setup
 
-1. Open a shell / command window in this directory `mps-meetup-2023` (i.e. where you cloned https://github.com/LionWeb-io/mps-meetup-2023)
+1. Open a shell / command window in this directory `property-demo` (i.e. where you cloned https://github.com/LionWeb-io/property-demo)
 
-2. Build _properties parser_ fat jar
-   ```shell
-   ./gradlew shadowJar
-   ```
-   
-3. Download dependencies for MPS
+2. Download dependencies for MPS
    ```shell
    ./gradlew setup
    ```
-   
-4. We're using an unreleased development snapshot of Freon. Thus, we have to clone the sources:
+
+3. Open project `property-demo/mps` in MPS 2021.1 
+
+4. Generate Kotlin classes for PROPS language
    ```shell
-   cd ..
-   git clone -b lionweb https://github.com/freon4dsl/Freon4dsl.git
+   ./gradlew generateASTClasses
    ```
-   
-5. Build Freon source
+
+5. Generate Ecore model for PROPS language
    ```shell
-   cd Freon4dsl
-   yarn install
-   yarn build-release --no-bail 
+   ./gradlew properties-emf:run
    ```
-   
-6. Adjust references to development snapshot:
-   In file
-   ```
-   mps-meetup-2023/freon/package.json
-   ```
-   make sure these relative paths fit your system.
-   They must refer to the development snapshot of Freon we cloned before.
-   ```json
-   "dependencies": {
-     "@freon4dsl/core": "file:./../../../Freon4dsl/packages/core",
-     "@freon4dsl/core-svelte": "file:./../../../Freon4dsl/packages/core-svelte",
-     "@freon4dsl/meta": "file:./../../../Freon4dsl/packages/meta",
-     "@freon4dsl/server": "file:./../../../Freon4dsl/packages/server",
-   ```
-   
-7. Build Freon demo
+  
+6. Build Freon demo
    ```shell
-   cd ..
-   cd mps-meetup-2023
    cd freon
    yarn install
    ```
 
 ## Start
-1. Open project `mps-meetup-2023/mps` in MPS 2021.1
+1. Open project `property-demo/mps` in MPS 2021.1
 2. Launch Freon demo
    ```shell
-   cd mps-meetup-2023/freon
+   cd freon
    yarn dev
    ```
 3. Open your web browser on http://localhost:5000/

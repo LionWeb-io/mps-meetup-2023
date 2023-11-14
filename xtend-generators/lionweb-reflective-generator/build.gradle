@@ -11,13 +11,17 @@ repositories {
 
 dependencies {
     implementation(project(":properties-json"))
-    implementation("io.lionweb.lionweb-java:lionweb-java-emf:$lionwebJavaVersion")
+    implementation("io.lionweb.lionweb-java:lionweb-java-$lionwebRelease-emf:$lionwebJavaVersion")
     implementation("com.google.code.gson:gson:2.10.1")
     implementation("org.eclipse.xtend:org.eclipse.xtend.lib:2.30.0")
 }
 
+run {
+    systemProperties System.getProperties()
+}
+
 application {
-    mainClass.set("generator.lionweb.reflective.LionWebReflective")
+    mainClass.set("io.lionweb.propertydemo.xtendgenerators.lionweb.LionWebReflective")
 }
 
 tasks.run.dependsOn("generateXtext")

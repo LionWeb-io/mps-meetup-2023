@@ -13,13 +13,17 @@ dependencies {
     implementation(project(":properties-parser"))
     implementation(project(":properties-json"))
     implementation("com.google.code.gson:gson:2.10.1")
-	implementation("io.lionweb.lionweb-java:lionweb-java-core:$lionwebJavaVersion")
+	implementation("io.lionweb.lionweb-java:lionweb-java-$lionwebRelease-core:$lionwebJavaVersion")
 	implementation("com.strumenta.kolasu:kolasu-core:$kolasuVersion")
     implementation("org.eclipse.xtend:org.eclipse.xtend.lib:2.30.0")
 }
 
+run {
+    systemProperties System.getProperties()
+}
+
 application {
-    mainClass.set("generator.kotlin.KotlinGenerated")
+    mainClass.set("io.lionweb.propertydemo.xtendgenerators.kotlin.KotlinGenerated")
 }
 
 tasks.run.dependsOn("generateXtext")

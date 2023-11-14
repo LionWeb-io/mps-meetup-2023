@@ -1,25 +1,18 @@
-import type {FreEnvironment} from "@freon4dsl/core";
-import {FreUtils} from "@freon4dsl/core";
-import {LanguageInitializer} from "../language/LanguageInitializer";
-import type {IServerCommunication} from "../server/IServerCommunication";
-import {LionwebIdProvider} from "../server/LionwebIdProvider";
-import {LionWebCommunication} from "../server/LionWebCommunication";
-import {PropertiesEnvironment} from "../../picode/config/gen/PropertiesEnvironment";
-
-
-/**
- * The one and only reference to the actual language for which this editor runs
- */
-export const editorEnvironment: FreEnvironment = PropertiesEnvironment.getInstance();
-LanguageInitializer.initialize();
+import type { FreEnvironment, IServerCommunication } from "@freon4dsl/core";
+import { PROPSEnvironment } from "../../picode/config/gen/PROPSEnvironment";
+import { LanguageInitializer } from "../language/LanguageInitializer";
+import { FreUtils, LionWebCommunication, LionwebIdProvider, LocalLionwebIdProvider, ServerCommunication } from "@freon4dsl/core";
 
 /**
  * The one and only reference to the server on which the models are stored
  */
-export const serverCommunication: IServerCommunication = LionWebCommunication.getInstance();
-export const idProvider = new LionwebIdProvider();
-FreUtils.nodeIdProvider = idProvider;
-
-
 // export const serverCommunication: IServerCommunication = ServerCommunication.getInstance();
-// export const serverCommunication: IServerCommunication = MpsServerCommunication.getInstance();
+export const serverCommunication: IServerCommunication = LionWebCommunication.getInstance();
+/**
+ * The one and only reference to the actual language for which this editor runs
+ */
+export const editorEnvironment: FreEnvironment = PROPSEnvironment.getInstance();
+LanguageInitializer.initialize();
+
+export const idProvider = new LocalLionwebIdProvider();
+FreUtils.nodeIdProvider = idProvider;

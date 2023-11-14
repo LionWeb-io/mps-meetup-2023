@@ -1,73 +1,110 @@
 {
-    "language": "properties",
-    "id": "io_lionweb_Properties",
+    "languages": [
+        
+    ],
+    "language": "io-lionweb-props",
+    "id": "io-lionweb-props",
+    "key": "io-lionweb-props",
     "concepts": [
         {
             "concept": "PropertiesFile",
-            "id": "io_lionweb_Properties-PropertiesFile",
+            "id": "io-lionweb-props_PropertiesFile",
+            "key": "io-lionweb-props_PropertiesFile",
             "properties": [
                 {
+                    "name": "name",
+                    "id": "LionCore-builtins-INamed-name",
+                    "key": "LionCore-builtins-INamed-name"
+                },
+                {
                     "name": "props",
-                    "id": "io_lionweb_Properties-PropertiesFile-props"
+                    "id": "io-lionweb-props_PropertiesFile_props",
+                    "key": "io-lionweb-props_PropertiesFile_props"
                 }
             ]
         },
         {
             "concept": "Property",
-            "id": "io_lionweb_Properties-Property",
+            "id": "io-lionweb-props_Property",
+            "key": "io-lionweb-props_Property",
             "properties": [
                 {
                     "name": "name",
-                    "id": "io_lionweb_Properties-Property-name"
+                    "id": "LionCore-builtins-INamed-name",
+                    "key": "LionCore-builtins-INamed-name"
                 },
                 {
                     "name": "value",
-                    "id": "io_lionweb_Properties-Property-value"
+                    "id": "io-lionweb-props_Property_value",
+                    "key": "io-lionweb-props_Property_value"
                 }
             ]
         },
         {
             "concept": "Value",
-            "id": "io_lionweb_Properties-Value",
+            "id": "io-lionweb-props_Value",
+            "key": "io-lionweb-props_Value",
             "properties": []
         },
         {
             "concept": "BooleanValue",
-            "id": "io_lionweb_Properties-BooleanValue",
+            "id": "io-lionweb-props_BooleanValue",
+            "key": "io-lionweb-props_BooleanValue",
             "properties": [
                 {
                     "name": "value",
-                    "id": "io_lionweb_Properties-BooleanValue-value"
+                    "id": "io-lionweb-props_BooleanValue_value",
+                    "key": "io-lionweb-props_BooleanValue_value"
                 }
             ]
         },
         {
             "concept": "DecValue",
-            "id": "io_lionweb_Properties-DecValue",
+            "id": "io-lionweb-props_DecValue",
+            "key": "io-lionweb-props_DecValue",
             "properties": [
                 {
                     "name": "value",
-                    "id": "io_lionweb_Properties-DecValue-value"
+                    "id": "io-lionweb-props_DecValue_value",
+                    "key": "io-lionweb-props_DecValue_value"
                 }
             ]
         },
         {
             "concept": "IntValue",
-            "id": "io_lionweb_Properties-IntValue",
+            "id": "io-lionweb-props_IntValue",
+            "key": "io-lionweb-props_IntValue",
             "properties": [
                 {
                     "name": "value",
-                    "id": "io_lionweb_Properties-IntValue-value"
+                    "id": "io-lionweb-props_IntValue_value",
+                    "key": "io-lionweb-props_IntValue_value"
                 }
             ]
         },
         {
             "concept": "StringValue",
-            "id": "io_lionweb_Properties-StringValue",
+            "id": "io-lionweb-props_StringValue",
+            "key": "io-lionweb-props_StringValue",
             "properties": [
                 {
                     "name": "value",
-                    "id": "io_lionweb_Properties-StringValue-value"
+                    "id": "io-lionweb-props_StringValue_value",
+                    "key": "io-lionweb-props_StringValue_value"
+                }
+            ]
+        }
+    ],
+    "interfaces": [
+        {
+            "interface": "INamed",
+            "id": "LionCore-builtins-INamed",
+            "key": "LionCore-builtins-INamed",
+            "properties": [
+                {
+                    "name": "name",
+                    "id": "LionCore-builtins-INamed-name",
+                    "key": "LionCore-builtins-INamed-name"
                 }
             ]
         }
