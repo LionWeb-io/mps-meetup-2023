@@ -62,10 +62,10 @@
     "typescript": "4.5.5"
   },
   "dependencies": {
-    "@freon4dsl/core": "0.6.0-beta.5",
-    "@freon4dsl/core-svelte": "0.6.0-beta.5",
-    "@freon4dsl/meta": "0.6.0-beta.5",
-    "@freon4dsl/server": "0.6.0-beta.5",
+    "@freon4dsl/core": "0.6.0",
+    "@freon4dsl/core-svelte": "0.6.0",
+    "@freon4dsl/meta": "0.6.0",
+    "@freon4dsl/server": "0.6.0",
     "@types/node": "16.11.7",
     "click-outside": "1.0.4",
     "kotlin": "^1.5.21",
