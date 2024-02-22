@@ -55,6 +55,8 @@ Each directory contains a readme with more details.
 2. Launch Freon demo
    ```shell
    cd freon
+   yarn generate
+   yarn prepare-app
    yarn dev
    ```
 3. Open your web browser on http://localhost:5000/
